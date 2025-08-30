@@ -1,0 +1,58 @@
+.champions-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  background: var(--primary-grey);
+  border-radius: 80px;
+}
+
+.champions-banner h1 {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.champions-banner--logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.champions-banner--trophy {
+  position: relative;
+  width: 70px;
+  height: 130px;
+}
+
+@media (min-width: 375px) {
+  .champions-banner h1 {
+    font-size: large;
+  }
+}
+
+@media (min-width: 768px) {
+  .champions-banner {
+    max-width: 750px;
+    height: 80px;
+  }
+
+  .champions-banner h1 {
+    font-size: xx-large;
+  }
+
+  .champions-banner--logo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+
+  .champions-banner--trophy {
+    position: relative;
+    width: 110px;
+    height: 180px;
+  }
+}

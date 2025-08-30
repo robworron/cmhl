@@ -1,0 +1,31 @@
+.statslegend {
+  width: 90%;
+  background-color: var(--secondary-grey);
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 0px;
+  max-width: 500px;
+}
+
+.statslegend h2 {
+  margin: 0px 0px 20px 10px;
+}
+
+.statslegend h4 {
+  margin: 0px 0px 10px 0px;
+}
+
+.statslegend h6 {
+  margin: 0px;
+}
+
+.statslegend--data {
+  width: 90%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.statslegend--data-left {
+  width: 50%;
+}

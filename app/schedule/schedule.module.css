@@ -1,0 +1,36 @@
+.schedule {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.schedule h1 {
+  margin: 0px 0px 5px 0px;
+  font-size: 40px;
+}
+
+.scheduleHeader {
+  width: 90%;
+  padding: 20px 0px 10px 0px;
+}
+
+.scheduleDropdowns {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.scheduleBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1120px;
+}
+
+@media (min-width: 768px) {
+  .schedule {
+    padding: 50px 0px;
+  }
+}

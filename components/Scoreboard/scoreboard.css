@@ -1,0 +1,31 @@
+.scoreboard {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 70px;
+}
+
+.scoreboard--arrow {
+  width: 20px;
+  height: 100%;
+  background: var(--primary-black);
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.scoreboard--matchups {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .scoreboard {
+    height: 100px;
+  }
+
+  .scoreboard--arrow {
+    width: 30px;
+    height: 100%;
+  }
+}

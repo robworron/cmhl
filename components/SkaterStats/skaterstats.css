@@ -1,0 +1,80 @@
+.skaterstats--scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.skaterstats {
+  font-size: 16px;
+  min-width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.skaterstats th {
+  color: white;
+  background-color: var(--primary-black);
+}
+
+.skaterstats tr:nth-child(odd) {
+  background-color: white;
+}
+
+.skaterstats tr:nth-child(even) {
+  background-color: #c2c2c2;
+}
+
+.skaterstats--player-cell {
+  display: flex;
+  min-width: 200px;
+  text-align: left;
+  align-items: center;
+}
+
+.skaterstats--sorted-cell {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--secondary-grey);
+}
+
+.skaterstats--stats-cell {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .skaterstats {
+    font-size: 20px;
+    min-width: 1200px;
+    line-height: 60px;
+  }
+
+  .skaterstats--sorted-cell {
+    width: 80px;
+  }
+
+  .skaterstats--stats-cell {
+    width: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skaterstats--scroll {
+    display: flex;
+    justify-content: center;
+  }
+
+  .skaterstats {
+    font-size: 18px;
+    min-width: 0px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .skaterstats {
+    font-size: 18px;
+  }
+}

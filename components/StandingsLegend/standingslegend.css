@@ -1,0 +1,27 @@
+.standingslegend {
+  width: 90%;
+  background-color: var(--secondary-grey);
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 0px;
+  max-width: 500px;
+}
+
+.standingslegend h2 {
+  margin: 0px 0px 10px 10px;
+}
+
+.standingslegend h6 {
+  margin: 0px;
+}
+
+.standingslegend--data {
+  width: 90%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.standingslegend--data-left {
+  width: 50%;
+}

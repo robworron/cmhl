@@ -1,0 +1,105 @@
+.footer {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-black);
+  color: white;
+}
+
+.footer--red-line {
+  background-color: var(--primary-red);
+  width: 100%;
+  height: 20px;
+}
+
+.footer--white-line {
+  background-color: white;
+  width: 100%;
+  height: 20px;
+}
+
+.footer--logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  padding-top: 10px;
+}
+
+.footer--league-logo {
+  width: 75px;
+  height: 60px;
+}
+
+.footer--team-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer--team-logo {
+  width: 50px;
+  height: 35px;
+}
+
+.footer--email-info {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.footer h4,
+.footer h5 {
+  font-size: small;
+}
+
+.footer p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .footer--logos {
+    width: 70%;
+    max-width: 800px;
+    padding-top: 10px;
+  }
+
+  .footer--league-logo {
+    width: 120px;
+    height: 100px;
+  }
+
+  .footer--team-logo {
+    width: 80px;
+    height: 60px;
+  }
+
+  .footer--email-info {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-bottom: 10px;
+  }
+
+  .footer p {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  .footer h4 {
+    font-size: large;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer--logos {
+    width: 800px;
+  }
+}

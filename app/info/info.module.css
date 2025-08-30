@@ -1,0 +1,11 @@
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0px;
+}
+
+.infoBody {
+  max-width: 1120px;
+  width: 90%;
+}

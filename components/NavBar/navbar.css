@@ -1,0 +1,127 @@
+.navbar {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.navbar--red-line {
+  background-color: var(--primary-red);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+}
+
+.navbar--black-line {
+  background-color: var(--primary-black);
+  width: 100%;
+  height: 10px;
+}
+
+.navbar--white-line {
+  background-color: white;
+  width: 100%;
+  height: 10px;
+}
+
+.navbar--link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar--link h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar--hover-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  height: 3px;
+  width: 0;
+  background: white;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+.navbar--link:hover .navbar--hover-bar,
+.navbar--link.active .navbar--hover-bar {
+  width: 90%;
+}
+.navbar--logo {
+  padding-top: 3px;
+}
+
+.navbar--contact {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.navbar--menu-button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.navbar--burger {
+  width: 24px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.navbar--burger span {
+  display: block;
+  height: 2px;
+  width: 80%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+
+.navbar--burger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.navbar--burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar--burger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+@media (min-width: 768px) {
+  .navbar--link {
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar--link {
+    padding: 10px;
+  }
+
+  .navbar--contact {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .navbar--contact {
+    font-size: 16px;
+  }
+}

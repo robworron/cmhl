@@ -1,0 +1,32 @@
+.rules {
+  width: auto;
+  background-color: var(--secondary-grey);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.rules h1 {
+  font-size: 24px;
+}
+
+.rules h2 {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .rules {
+    padding: 40px;
+  }
+
+  .rules h1 {
+    font-size: 30px;
+  }
+
+  .rules h2 {
+    font-size: 20px;
+  }
+
+  .rules p {
+    font-size: 16px;
+  }
+}

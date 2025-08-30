@@ -1,0 +1,30 @@
+.photo {
+  display: flex;
+  justify-content: center;
+}
+
+.photo--large {
+  width: 75%;
+}
+
+.photo--medium {
+  width: 50%;
+}
+
+.photo--small {
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  .photo--large {
+    width: 100%;
+  }
+
+  .photo--medium {
+    width: 90%;
+  }
+
+  .photo--small {
+    width: 80%;
+  }
+}

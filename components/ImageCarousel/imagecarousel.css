@@ -1,0 +1,37 @@
+.swiper {
+  margin: 0;
+}
+.swiper--large {
+  width: 100%;
+}
+
+.swiper--medium {
+  width: 60%;
+}
+
+.swiper--small {
+  width: 35%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--primary-red);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-red);
+}
+
+@media (max-width: 768px) {
+  .swiper--large {
+    width: 100%;
+  }
+
+  .swiper--medium {
+    width: 75%;
+  }
+
+  .swiper--small {
+    width: 50%;
+  }
+}

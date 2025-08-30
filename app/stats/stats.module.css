@@ -1,0 +1,47 @@
+.stats {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.statsBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1120px;
+}
+
+.statsHeader {
+  width: 90%;
+  padding: 20px 0px 10px 0px;
+}
+
+.statsDropdowns {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stats h1 {
+  margin: 0px;
+  font-size: 40px;
+}
+
+.statsHeader h2 {
+  margin: 40px 0px 0px 0px;
+}
+
+.statsButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    padding: 50px 0px;
+  }
+}
