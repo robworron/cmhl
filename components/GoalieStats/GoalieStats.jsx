@@ -39,7 +39,9 @@ export const GoalieStats = ({ data, year, team }) => {
     "Toonie Tuesday": "TTU",
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
   const [sortConfig, setSortConfig] = useState({
     key: "W",
     direction: "descending",
