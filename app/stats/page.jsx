@@ -12,7 +12,7 @@ import styles from "./stats.module.css";
 export default function StatsPage() {
   const [stats, setStats] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("skaters");
-  const [selectedYear, setSelectedYear] = useState("2025-26");
+  const [selectedYear, setSelectedYear] = useState("2024-25"); //change to 2025-26
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [error, setError] = useState(null);
 
@@ -63,8 +63,8 @@ export default function StatsPage() {
           <div className={styles.statsDropdowns}>
             <Dropdown
               dropdownSelection={handleYearChange}
-              initialState={"2025-26"}
-              selections={["2024-25", "2025-26"]}
+              initialState={"2024-25"} //change to 2025-26
+              selections={["2024-25"]} //add 2025-26
             />
             {selectedYear === "2024-25" ? (
               <Dropdown
