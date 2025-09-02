@@ -45,9 +45,9 @@ export const Standings = ({ standingsData }) => {
     if (width >= 1440) {
       return { w: 120, h: 100 };
     } else if (width >= 768) {
-      return { w: 70, h: 70 };
+      return { w: 84, h: 70 };
     } else {
-      return { w: 30, h: 30 };
+      return { w: 48, h: 40 };
     }
   };
 

@@ -7,22 +7,19 @@ import axios from "axios";
 
 import "./scoreboard.css";
 
-const getValues = (width) => {
-  return width >= 1024
-    ? { matchupWidth: 182, arrowWidth: 30 }
-    : { matchupWidth: 122, arrowWidth: 20 };
-};
-
 export const Scoreboard = () => {
   const { scheduleData, error } = useContext(ScheduleContext);
-  const [currentIndex, setCurrentIndex] = useState(1);
   const [weekNumberError, setWeekNumberError] = useState(null);
   const scrollRef = useRef(null);
+
+  const getScrollWidth = () => {
+    return window.innerWidth < 1024 ? 304 : 364;
+  };
 
   const handlePrevClick = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -364,
+        left: -getScrollWidth(),
         behavior: "smooth",
       });
     }
@@ -31,7 +28,7 @@ export const Scoreboard = () => {
   const handleNextClick = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: 364,
+        left: getScrollWidth(),
         behavior: "smooth",
       });
     }
@@ -45,14 +42,20 @@ export const Scoreboard = () => {
           //"http://localhost:3000/api/week_number"
         );
         const weekNum = Number(response.data[0][0]);
-        setCurrentIndex((weekNum - 1) * 3);
+        if (scrollRef.current) {
+          const scrollAmount = (((weekNum - 1) * getScrollWidth()) / 2) * 4; // current week * scrolling width / number of games scrolling by * total num games in a week
+          scrollRef.current.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+          });
+        }
       } catch (e) {
         console.error("Failed to fetch week number:", e);
         setWeekNumberError("ERROR: Failed to fetch week number");
       }
     };
     fetchWeekNumber();
-  }, []);
+  }, [scheduleData]);
 
   if (error || weekNumberError) return <h2>{error || weekNumberError}</h2>;
 
