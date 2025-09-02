@@ -41,8 +41,8 @@ export const Scoreboard = () => {
     const fetchWeekNumber = async () => {
       try {
         const response = await axios.get(
-          //"https://cmhlniagara.com/api/week_number"
-          "http://localhost:3000/api/week_number"
+          "https://cmhlniagara.com/api/week_number"
+          //"http://localhost:3000/api/week_number"
         );
         const weekNum = Number(response.data[0][0]);
         setCurrentIndex((weekNum - 1) * 3);
