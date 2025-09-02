@@ -6,8 +6,8 @@
   color: var(--primary-black);
   border-left: 1px solid var(--primary-black);
   border-right: 1px solid var(--primary-black);
-  width: 120px;
-  height: 70px;
+  width: 150px;
+  height: 100%;
 }
 
 .matchup h6 {
@@ -22,7 +22,7 @@
 }
 
 .matchup--info h6 {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .matchup--info-game {
@@ -43,13 +43,12 @@
 }
 
 .matchup--team-name {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 @media (min-width: 1024px) {
   .matchup {
     width: 180px;
-    height: 100px;
   }
 
   h6 {

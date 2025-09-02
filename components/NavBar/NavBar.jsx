@@ -17,12 +17,6 @@ const NAV_LINKS = [
   { name: "Gallery", path: "/gallery" },
 ];
 
-const getLogoSize = (width) => {
-  if (width >= 1440) return { w: 120, h: 45 };
-  if (width >= 1024) return { w: 100, h: 35 };
-  return { w: 80, h: 30 };
-};
-
 const NavBar = () => {
   const currentPath = usePathname();
   const [windowWidth, setWindowWidth] = useState(
@@ -36,7 +30,6 @@ const NavBar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const logoSize = getLogoSize(windowWidth);
   const isDesktop = windowWidth >= 1024;
 
   return (
@@ -49,8 +42,8 @@ const NavBar = () => {
             <Link href="/" className="navbar--logo">
               <Logo
                 src="wordmark-transparent"
-                width={logoSize.w}
-                height={logoSize.h}
+                width={80}
+                height={30}
                 alt="League Logo"
               />
             </Link>
@@ -88,8 +81,8 @@ const NavBar = () => {
             </button>
             <Logo
               src="wordmark-transparent"
-              width={logoSize.w}
-              height={logoSize.h}
+              width={80}
+              height={30}
               alt="League Logo"
             />
             <div className="navbar--contact">
