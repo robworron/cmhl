@@ -16,7 +16,11 @@ export default function SchedulePage() {
   useEffect(() => {
     const getSchedule = async () => {
       const year =
-        selectedYear === "2025-26" ? "2025" : "2024-25" ? "2024" : "2023";
+        selectedYear === "2025-26"
+          ? "2025"
+          : selectedYear === "2024-25"
+          ? "2024"
+          : "2023";
       try {
         const data = await fetchSchedule(year);
         setSchedule(data);

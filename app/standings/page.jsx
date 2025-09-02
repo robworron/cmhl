@@ -21,7 +21,11 @@ export default function StandingsPage() {
   useEffect(() => {
     const getStandings = async () => {
       const year =
-        selectedYear === "2025-26" ? "2025" : "2024-25" ? "2024" : "2023";
+        selectedYear === "2025-26"
+          ? "2025"
+          : selectedYear === "2024-25"
+          ? "2024"
+          : "2023";
       try {
         const data = await fetchStandings(year);
         setStandings(data);
