@@ -3,7 +3,6 @@ import NavBar from "@/components/NavBar/NavBar";
 import { Footer } from "@/components/Footer/Footer";
 
 import { ScheduleProvider } from "@/contexts/2025_ScheduleContext";
-import { StandingsProvider } from "@/contexts/2025_StandingsContext";
 import { MenuProvider } from "@/contexts/MenuContext";
 
 import "./globals.css";
@@ -26,21 +25,19 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ScheduleProvider>
-          <StandingsProvider>
-            <MenuProvider>
-              <div className="webpage">
-                <div className={styles.webpageHeader}>
-                  <Header />
-                  <NavBar />
-                </div>
-                <NavMenu />
-                <main>{children}</main>
-                <div className={styles.webpageFooter}>
-                  <Footer />
-                </div>
+          <MenuProvider>
+            <div className="webpage">
+              <div className={styles.webpageHeader}>
+                <Header />
+                <NavBar />
               </div>
-            </MenuProvider>
-          </StandingsProvider>
+              <NavMenu />
+              <main>{children}</main>
+              <div className={styles.webpageFooter}>
+                <Footer />
+              </div>
+            </div>
+          </MenuProvider>
         </ScheduleProvider>
       </body>
     </html>

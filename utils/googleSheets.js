@@ -1,4 +1,4 @@
-const { google } = require("googleapis");
+import { google } from "googleapis";
 
 const { SHEETS_CLIENT_EMAIL, SHEETS_PRIVATE_KEY } = process.env;
 
@@ -12,7 +12,7 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
-const getSheetData = async (spreadsheetId, range) => {
+export const getSheetData = async (spreadsheetId, range) => {
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
@@ -24,8 +24,4 @@ const getSheetData = async (spreadsheetId, range) => {
     console.error("Error retrieving sheet data:", error);
     throw new Error("Failed to retrieve Google Sheets data");
   }
-};
-
-module.exports = {
-  getSheetData,
 };

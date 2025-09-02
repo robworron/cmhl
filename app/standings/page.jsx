@@ -5,11 +5,11 @@ import { Standings } from "../../components/Standings/Standings";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
 import { StandingsLegend } from "../../components/StandingsLegend/StandingsLegend";
 import { Tiebreak } from "../../components/Tiebreak/Tiebreak";
-import axios from "axios";
+import { fetchStandings } from "@/utils/fetchStandings";
 
 import styles from "./standings.module.css";
 
-export const StandingsPage = () => {
+export default function StandingsPage() {
   const [selectedYear, setSelectedYear] = useState("2025-26");
   const [standings, setStandings] = useState([]);
   const [error, setError] = useState(null);
@@ -19,23 +19,18 @@ export const StandingsPage = () => {
   };
 
   useEffect(() => {
-    const fetchStandings = async () => {
-      const url = `https://cmhlniagara.com/api/${
-        selectedYear === "2023-24"
-          ? "2023_standings"
-          : selectedYear === "2024-25"
-          ? "2024_standings"
-          : "2025_standings"
-      }`;
+    const getStandings = async () => {
+      const year =
+        selectedYear === "2025-26" ? "2025" : "2024-25" ? "2024" : "2023";
       try {
-        const response = await axios.get(url);
-        setStandings(response.data);
+        const data = await fetchStandings(year);
+        setStandings(data);
       } catch (e) {
         setError(`ERROR: Failed to fetch ${selectedYear} Standings`);
       }
     };
 
-    fetchStandings();
+    getStandings();
   }, [selectedYear]);
 
   return (
@@ -55,6 +50,4 @@ export const StandingsPage = () => {
       </div>
     </div>
   );
-};
-
-export default StandingsPage;
+}

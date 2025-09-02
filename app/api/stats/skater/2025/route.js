@@ -1,10 +1,7 @@
-const { getSheetData } = require("./googleSheets");
+import { NextResponse } from "next/server";
+import { getSheetData } from "@/utils/googleSheets";
 
-module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
+export async function GET() {
   try {
     const spreadsheetId = process.env.SHEETS_SPREADSHEET_ID;
 
@@ -12,15 +9,19 @@ module.exports = async (req, res) => {
     const configData = await getSheetData(spreadsheetId, configRange);
 
     const lastRowNum = configData[0][1];
-
     const statsRange = `2025_stats_skater!A2:${lastRowNum}`;
     const statsData = await getSheetData(spreadsheetId, statsRange);
 
-    res.status(200).json(statsData);
+    return NextResponse.json(statsData, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
   } catch (error) {
     console.error("Error fetching 2025 skater stats data:", error);
-    res
-      .status(500)
-      .json({ error: "Failed to fetch data", details: error.message });
+    return NextResponse.json(
+      { error: "Failed to fetch data", details: error.message },
+      { status: 500 }
+    );
   }
-};
+}

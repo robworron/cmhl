@@ -15,7 +15,7 @@ const getValues = (width) => {
 
 export const Scoreboard = () => {
   const { scheduleData, error } = useContext(ScheduleContext);
-  const [currentIndex, setCurrentIndex] = useState(67);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [visibleMatchups, setVisibleMatchups] = useState(15);
   const [weekNumberError, setWeekNumberError] = useState(null);
   const scoreboardRef = useRef(null);

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Schedule } from "../../components/Schedule/Schedule";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
-import axios from "axios";
+import { fetchSchedule } from "@/utils/fetchSchedule";
 
 import styles from "./schedule.module.css";
 
@@ -14,23 +14,18 @@ export default function SchedulePage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchSchedule = async () => {
-      const url = `https://cmhlniagara.com/api/${
-        selectedYear === "2023-24"
-          ? "2023_schedule"
-          : selectedYear === "2024-25"
-          ? "2024_schedule"
-          : "2025_schedule"
-      }`;
+    const getSchedule = async () => {
+      const year =
+        selectedYear === "2025-26" ? "2025" : "2024-25" ? "2024" : "2023";
       try {
-        const response = await axios.get(url);
-        setSchedule(response.data);
+        const data = await fetchSchedule(year);
+        setSchedule(data);
       } catch (e) {
         setError(`ERROR: Failed to fetch ${selectedYear} Schedule`);
       }
     };
 
-    fetchSchedule();
+    getSchedule();
   }, [selectedYear]);
 
   const handleYearChange = (year) => {

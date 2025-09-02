@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
+import { fetchSchedule } from "@/utils/fetchSchedule";
 
 export const ScheduleContext = createContext();
 
@@ -10,18 +10,16 @@ export const ScheduleProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchSchedule = async () => {
+    const getSchedule = async () => {
       try {
-        const response = await axios.get(
-          "https://cmhlniagara.com/api/2025_schedule"
-        );
-        setScheduleData(response.data);
+        const data = await fetchSchedule();
+        setScheduleData(data);
       } catch (e) {
-        console.error("Failed to fetch 2025 Schedule data:", e);
-        setError("ERROR: Failed to fetch 2025 Schedule data");
+        setError(`ERROR: Failed to fetch 2025 Schedule`);
       }
     };
-    fetchSchedule();
+
+    getSchedule();
   }, []);
 
   return (
