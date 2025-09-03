@@ -14,6 +14,7 @@ export const InfoTable = () => {
             fill
             style={{ objectFit: "contain" }}
             alt="Gale Centre"
+            priority
           />
         </div>
         <table className="infotable--table">

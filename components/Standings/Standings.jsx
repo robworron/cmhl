@@ -15,6 +15,7 @@ export const Standings = ({ standingsData }) => {
     Rockies: "RCK",
     Seamen: "SEA",
     "Toonie Tuesday": "TTU",
+    "Whiskey Dekes": "WDK",
   };
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
