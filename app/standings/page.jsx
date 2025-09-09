@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Standings } from "../../components/Standings/Standings";
-import { Dropdown } from "../../components/Dropdown/Dropdown";
-import { StandingsLegend } from "../../components/StandingsLegend/StandingsLegend";
-import { Tiebreak } from "../../components/Tiebreak/Tiebreak";
+
+import Dropdown from "@/components/Dropdown/Dropdown";
+import Standings from "@/components/Standings/Standings";
+import StandingsLegend from "@/components/StandingsLegend/StandingsLegend";
+import Tiebreak from "@/components/Tiebreak/Tiebreak";
 import { fetchStandings } from "@/utils/fetchStandings";
 
 import styles from "./standings.module.css";
@@ -43,9 +44,9 @@ export default function StandingsPage() {
         <div className={styles.standingsHeader}>
           <h1>Standings</h1>
           <Dropdown
-            dropdownSelection={handleYearChange}
-            initialState={"2025-26"}
-            selections={["2023-24", "2024-25", "2025-26"]}
+            onSelect={handleYearChange}
+            defaultValue={"2025-26"}
+            options={["2023-24", "2024-25", "2025-26"]}
           />
         </div>
         {error ? <h2>{error}</h2> : <Standings standingsData={standings} />}

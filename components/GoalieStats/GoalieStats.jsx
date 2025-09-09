@@ -1,11 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Logo } from "../Logo/Logo";
-import axios from "axios";
+import React, { useEffect, useMemo, useState } from "react";
 
-import "./goaliestats.css";
+import Logo from "@/components/Logo/Logo";
 
-export const GoalieStats = ({ data, year, team }) => {
-  const header = [
+import styles from "./goaliestats.module.css";
+
+const determineLogoSize = (width) => {
+  if (width >= 1440) {
+    return { w: 70, h: 55 };
+  } else if (width >= 768) {
+    return { w: 55, h: 45 };
+  }
+  return { w: 40, h: 35 };
+};
+
+export default function GoalieStats({ data, year, team }) {
+  const HEADER = [
     "RK",
     "Player",
     "Team",
@@ -17,7 +26,7 @@ export const GoalieStats = ({ data, year, team }) => {
     "GAA",
     "SO",
   ];
-  const teamNameMap = {
+  const TEAM_NAME_MAP = {
     RCK: "rockies",
     AXE: "axemen",
     GUL: "gulls",
@@ -27,7 +36,7 @@ export const GoalieStats = ({ data, year, team }) => {
     SEA: "Seamen",
     BUL: "Bulldogs",
   };
-  const filterTeamNameMap = {
+  const FILTER_TEAM_MAP = {
     "All Teams": "All Teams",
     Axemen: "AXE",
     Bulldogs: "BUL",
@@ -47,49 +56,10 @@ export const GoalieStats = ({ data, year, team }) => {
     direction: "descending",
   });
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const getTeamLogoFileName = (teamAcronym) => {
-    const teamName = teamNameMap[teamAcronym];
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
-  };
-
-  const determineLogoSize = (width) => {
-    if (width >= 1440) {
-      return { w: 70, h: 55 };
-    } else if (width >= 768) {
-      return { w: 55, h: 45 };
-    } else {
-      return { w: 40, h: 35 };
-    }
-  };
-
-  const handleSort = (columnKey) => {
-    if (columnKey === "Player") return;
-
-    setSortConfig((prevConfig) => {
-      if (prevConfig.key === columnKey) {
-        return {
-          key: columnKey,
-          direction:
-            prevConfig.direction === "ascending" ? "descending" : "ascending",
-        };
-      } else {
-        return { key: columnKey, direction: "descending" };
-      }
-    });
-  };
-
   const getSortedGoalieStats = () => {
     if (!sortConfig.key) return data;
 
-    const columnKey = header.indexOf(sortConfig.key);
+    const columnKey = HEADER.indexOf(sortConfig.key);
     if (columnKey === -1) return data;
 
     const sortedStats = [...data].sort((a, b) => {
@@ -112,14 +82,48 @@ export const GoalieStats = ({ data, year, team }) => {
     return sortedStats;
   };
 
-  const sortedGoalieStats = getSortedGoalieStats();
+  const getTeamLogoFileName = (teamAcronym) => {
+    const teamName = TEAM_NAME_MAP[teamAcronym];
+    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
+    return modifiedTeamName + "-transparent";
+  };
+
+  const handleSort = (columnKey) => {
+    if (columnKey === "Player") return;
+
+    setSortConfig((prevConfig) => {
+      if (prevConfig.key === columnKey) {
+        return {
+          key: columnKey,
+          direction:
+            prevConfig.direction === "ascending" ? "descending" : "ascending",
+        };
+      } else {
+        return { key: columnKey, direction: "descending" };
+      }
+    });
+  };
+
+  const logoSize = useMemo(() => determineLogoSize(windowWidth), [windowWidth]);
+
+  const sortedGoalieStats = useMemo(
+    () => getSortedGoalieStats(),
+    [data, sortConfig]
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="goaliestats--scroll">
-      <table className="goaliestats">
-        <thead className="goaliestats--header">
+    <div className={styles.goaliestatsScroll}>
+      <table className={styles.goaliestats}>
+        <thead>
           <tr>
-            {header.map((headerData, headerIndex) => (
+            {HEADER.map((headerData, headerIndex) => (
               <th
                 key={headerIndex}
                 onClick={() => handleSort(headerData)}
@@ -136,27 +140,27 @@ export const GoalieStats = ({ data, year, team }) => {
           {sortedGoalieStats
             .filter((row) => {
               if (team === "All Teams") return true;
-              return row[2] === filterTeamNameMap[team];
+              return row[2] === FILTER_TEAM_MAP[team];
             })
             .map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {row.map((col, colIndex) =>
                   colIndex === 1 ? (
-                    <td key={colIndex} className="goaliestats--player-cell">
+                    <td key={colIndex} className={styles.goaliestatsPlayerCell}>
                       <Logo
                         src={getTeamLogoFileName(row[2])}
-                        width={determineLogoSize(windowWidth).w}
-                        height={determineLogoSize(windowWidth).h}
+                        width={logoSize.w}
+                        height={logoSize.h}
                         alt={`${row[2]} logo`}
                       />
                       <b>{col}</b>
                     </td>
-                  ) : colIndex === header.indexOf(sortConfig.key) ? (
-                    <td key={colIndex} className="goaliestats--sorted-cell">
+                  ) : colIndex === HEADER.indexOf(sortConfig.key) ? (
+                    <td key={colIndex} className={styles.goaliestatsSortedCell}>
                       <b>{col}</b>
                     </td>
                   ) : (
-                    <td key={colIndex} className="goaliestats--stats-cell">
+                    <td key={colIndex} className={styles.goaliestatsStatsCell}>
                       {col}
                     </td>
                   )
@@ -167,4 +171,4 @@ export const GoalieStats = ({ data, year, team }) => {
       </table>
     </div>
   );
-};
+}

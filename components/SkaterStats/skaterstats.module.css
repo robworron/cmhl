@@ -1,9 +1,9 @@
-.goaliestats--scroll {
+.skaterstatsScroll {
   width: 100%;
   overflow-x: auto;
 }
 
-.goaliestats {
+.skaterstats {
   font-size: 16px;
   min-width: 800px;
   border-collapse: collapse;
@@ -12,74 +12,69 @@
   line-height: 50px;
 }
 
-.goaliestats tr:nth-child(odd) {
-  background-color: white;
-}
-
-.goaliestats tr:nth-child(even) {
-  background-color: #c2c2c2;
-}
-
-.goaliestats th {
+.skaterstats th {
   color: white;
   background-color: var(--primary-black);
 }
 
-.goaliestats--player-cell {
-  display: flex;
-  align-items: center;
-  min-width: 200px;
-  text-align: left;
+.skaterstats tr:nth-child(odd) {
+  background-color: white;
 }
 
-.goaliestats--sorted-cell {
+.skaterstats tr:nth-child(even) {
+  background-color: #c2c2c2;
+}
+
+.skaterstatsPlayerCell {
+  display: flex;
+  min-width: 200px;
+  text-align: left;
+  align-items: center;
+}
+
+.skaterstatsSortedCell {
   width: 100px;
   text-align: center;
   white-space: nowrap;
   background-color: var(--secondary-grey);
 }
 
-.goaliestats--stats-cell {
+.skaterstatsStatsCell {
   width: 100px;
   text-align: center;
   white-space: nowrap;
 }
 
 @media (min-width: 768px) {
-  .goaliestats {
+  .skaterstats {
     font-size: 20px;
-    min-width: 1000px;
+    min-width: 1200px;
     line-height: 60px;
   }
 
-  .goaliestats--sorted-cell {
+  .skaterstatsSortedCell {
     width: 80px;
   }
 
-  .goaliestats--stats-cell {
+  .skaterstatsStatsCell {
     width: 80px;
   }
 }
 
 @media (min-width: 1024px) {
-  .goaliestats--scroll {
+  .skaterstatsScroll {
     display: flex;
     justify-content: center;
   }
 
-  .goaliestats {
-    min-width: 0px;
-    line-height: 60px;
+  .skaterstats {
     font-size: 18px;
-  }
-
-  .goaliestats--player-cell {
-    min-width: 200px;
+    min-width: 0px;
   }
 }
 
 @media (min-width: 1440px) {
-  .goaliestats {
+  .skaterstats {
     font-size: 18px;
   }
 }

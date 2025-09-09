@@ -1,37 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { ScheduleMatchup } from "../ScheduleMatchup/ScheduleMatchup";
-import "./schedule.css";
 
-export const Schedule = ({ scheduleData, scheduleYear, scheduleTeam }) => {
+import ScheduleMatchup from "@/components/ScheduleMatchup/ScheduleMatchup";
+
+import styles from "./schedule.module.css";
+
+export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const getButtonSize = () => {
-    if (windowWidth >= 768) return "tablet";
-    return "mobile";
-  };
-
-  const formatWeekHeader = (year, week) => {
-    if (year !== "2023-24" && week === "22") {
-      return "Quarter-Finals";
-    } else if (week === "23") {
-      return "Semi-Finals";
-    } else if (week === "24") {
-      return "Finals";
-    }
-    return `Week ${week}`;
-  };
 
   const formatGameNum = (year, gameNum) => {
     if (year === "2023-24") {
@@ -56,6 +32,22 @@ export const Schedule = ({ scheduleData, scheduleYear, scheduleTeam }) => {
     return `Game ${gameNum}`;
   };
 
+  const formatWeekHeader = (year, week) => {
+    if (year !== "2023-24" && week === "22") {
+      return "Quarter-Finals";
+    } else if (week === "23") {
+      return "Semi-Finals";
+    } else if (week === "24") {
+      return "Finals";
+    }
+    return `Week ${week}`;
+  };
+
+  const getButtonSize = () => {
+    if (windowWidth >= 768) return "Medium";
+    return "Small";
+  };
+
   const filteredGames = scheduleData.filter(
     (game) =>
       scheduleTeam === "All Teams" ||
@@ -70,14 +62,24 @@ export const Schedule = ({ scheduleData, scheduleYear, scheduleTeam }) => {
     return acc;
   }, {});
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <section className="schedule">
+    <section className={styles.schedule}>
       {Object.keys(gamesByWeek).map((week) => (
         <div key={`week-${week}`}>
           <h2>{formatWeekHeader(scheduleYear, week)}</h2>
-          <div className="schedule--week">
+          <div className={styles.scheduleWeek}>
             {gamesByWeek[week].map((game, index) => (
-              <div key={`matchup-${game[1]}`} className="schedule--matchup">
+              <div key={`matchup-${game[1]}`}>
                 <ScheduleMatchup
                   home={game[5]}
                   homeScore={game[6]}
@@ -88,7 +90,7 @@ export const Schedule = ({ scheduleData, scheduleYear, scheduleTeam }) => {
                   gameNum={formatGameNum(scheduleYear, game[1])}
                   rink={game[3]}
                   buttonSize={getButtonSize(windowWidth)}
-                  boxscoreUrl={null}
+                  //boxscoreUrl={"/"} this is what changes when boxscore page is released
                 />
               </div>
             ))}
@@ -97,4 +99,4 @@ export const Schedule = ({ scheduleData, scheduleYear, scheduleTeam }) => {
       ))}
     </section>
   );
-};
+}

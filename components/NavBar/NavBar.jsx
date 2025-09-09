@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import { Logo } from "../Logo/Logo";
-import { useMenu } from "../../contexts/MenuContext";
-import { usePathname } from "next/navigation";
 
-import "./navbar.css";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
+
+import Logo from "@/components/Logo/Logo";
+import { useMenu } from "../../contexts/MenuContext";
+
+import styles from "./navbar.module.css";
 
 const NAV_LINKS = [
   { name: "Schedule", path: "/schedule" },
@@ -17,7 +19,7 @@ const NAV_LINKS = [
   { name: "Gallery", path: "/gallery" },
 ];
 
-const NavBar = () => {
+export default function NavBar() {
   const currentPath = usePathname();
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
@@ -33,13 +35,13 @@ const NavBar = () => {
   const isDesktop = windowWidth >= 1024;
 
   return (
-    <div className="navbar">
-      <div className="navbar--black-line" />
-      <div className="navbar--white-line" />
-      <div className="navbar--red-line">
+    <div className={styles.navbar}>
+      <div className={styles.navbarBlackLine} />
+      <div className={styles.navbarWhiteLine} />
+      <div className={styles.navbarRedLine}>
         {isDesktop ? (
           <>
-            <Link href="/" className="navbar--logo">
+            <Link href="/" className={styles.navbarLogo}>
               <Logo
                 src="wordmark-transparent"
                 width={80}
@@ -52,16 +54,16 @@ const NavBar = () => {
               <Link
                 key={name}
                 href={path}
-                className={`navbar--link ${
-                  currentPath === path ? "active" : ""
+                className={`${styles.navbarLink} ${
+                  currentPath === path ? styles.navbarLinkActive : ""
                 }`}
               >
                 <h4>{name}</h4>
-                <span className="navbar--hover-bar" />
+                <span className={styles.navbarHoverBar} />
               </Link>
             ))}
 
-            <div className="navbar--contact">
+            <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
               <p>cmhlniagara@gmail.com</p>
             </div>
@@ -69,11 +71,15 @@ const NavBar = () => {
         ) : (
           <>
             <button
-              className="navbar--menu-button"
+              className={styles.navbarMenuButton}
               type="button"
               onClick={toggleMenu}
             >
-              <div className={`navbar--burger ${menuActive ? "open" : ""}`}>
+              <div
+                className={`${styles.navbarBurger} ${
+                  menuActive ? styles.navbarBurgerOpen : ""
+                }`}
+              >
                 <span />
                 <span />
                 <span />
@@ -85,17 +91,15 @@ const NavBar = () => {
               height={30}
               alt="League Logo"
             />
-            <div className="navbar--contact">
+            <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
               <p>cmhlniagara@gmail.com</p>
             </div>
           </>
         )}
       </div>
-      <div className="navbar--white-line" />
-      <div className="navbar--black-line" />
+      <div className={styles.navbarWhiteLine} />
+      <div className={styles.navbarBlackLine} />
     </div>
   );
-};
-
-export default NavBar;
+}

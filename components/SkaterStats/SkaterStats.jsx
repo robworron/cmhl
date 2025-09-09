@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Logo } from "../Logo/Logo";
+import React, { useState, useEffect, useMemo } from "react";
 
-import "./skaterstats.css";
+import Logo from "@/components/Logo/Logo";
 
-export const SkaterStats = ({ data, year, team }) => {
-  const header = [
+import styles from "./skaterstats.module.css";
+
+const determineLogoSize = (width) => {
+  if (width >= 1440) {
+    return { w: 70, h: 55 };
+  } else if (width >= 768) {
+    return { w: 55, h: 45 };
+  }
+  return { w: 40, h: 35 };
+};
+
+export default function SkaterStats({ data, year, team }) {
+  const HEADER = [
     "RK",
     "Player",
     "Team",
@@ -16,17 +26,7 @@ export const SkaterStats = ({ data, year, team }) => {
     "PPP",
     "SHP",
   ];
-  const teamNameMap = {
-    RCK: "rockies",
-    AXE: "axemen",
-    GUL: "gulls",
-    TTU: "toonietuesday",
-    JGR: "jagrbombs",
-    MDR: "mightydrunks",
-    SEA: "Seamen",
-    BUL: "Bulldogs",
-  };
-  const filterTeamNameMap = {
+  const FILTER_TEAM_MAP = {
     "All Teams": "All Teams",
     Axemen: "AXE",
     Bulldogs: "BUL",
@@ -37,6 +37,16 @@ export const SkaterStats = ({ data, year, team }) => {
     Seamen: "SEA",
     "Toonie Tuesday": "TTU",
   };
+  const TEAM_NAME_MAP = {
+    RCK: "rockies",
+    AXE: "axemen",
+    GUL: "gulls",
+    TTU: "toonietuesday",
+    JGR: "jagrbombs",
+    MDR: "mightydrunks",
+    SEA: "Seamen",
+    BUL: "Bulldogs",
+  };
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
@@ -46,48 +56,10 @@ export const SkaterStats = ({ data, year, team }) => {
     direction: "descending",
   });
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const getTeamLogoFileName = (teamAcronym) => {
-    const teamName = teamNameMap[teamAcronym];
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
-  };
-
-  const determineLogoSize = (width) => {
-    if (width >= 1440) {
-      return { w: 70, h: 55 };
-    } else if (width >= 768) {
-      return { w: 55, h: 45 };
-    } else {
-      return { w: 40, h: 35 };
-    }
-  };
-
-  const handleSort = (columnKey) => {
-    if (columnKey === "Player") return;
-
-    setSortConfig((prevConfig) => {
-      if (prevConfig.key === columnKey) {
-        return {
-          key: columnKey,
-          direction:
-            prevConfig.direction === "ascending" ? "descending" : "ascending",
-        };
-      } else {
-        return { key: columnKey, direction: "descending" };
-      }
-    });
-  };
-
   const getSortedSkaterStats = () => {
     if (!sortConfig.key) return data;
 
-    const columnKey = header.indexOf(sortConfig.key);
+    const columnKey = HEADER.indexOf(sortConfig.key);
     if (columnKey === -1) return data;
 
     const sortedStats = [...data].sort((a, b) => {
@@ -110,14 +82,47 @@ export const SkaterStats = ({ data, year, team }) => {
     return sortedStats;
   };
 
-  const sortedSkaterStats = getSortedSkaterStats();
+  const getTeamLogoFileName = (teamAcronym) => {
+    const teamName = TEAM_NAME_MAP[teamAcronym];
+    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
+    return modifiedTeamName + "-transparent";
+  };
+
+  const handleSort = (columnKey) => {
+    if (columnKey === "Player") return;
+
+    setSortConfig((prevConfig) => {
+      if (prevConfig.key === columnKey) {
+        return {
+          key: columnKey,
+          direction:
+            prevConfig.direction === "ascending" ? "descending" : "ascending",
+        };
+      } else {
+        return { key: columnKey, direction: "descending" };
+      }
+    });
+  };
+
+  const logoSize = useMemo(() => determineLogoSize(windowWidth), [windowWidth]);
+
+  const sortedSkaterStats = useMemo(
+    () => getSortedSkaterStats(),
+    [data, sortConfig]
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="skaterstats--scroll">
-      <table className="skaterstats">
+    <div className={styles.skaterstatsScroll}>
+      <table className={styles.skaterstats}>
         <thead>
           <tr>
-            {header.map((headerData, headerIndex) => (
+            {HEADER.map((headerData, headerIndex) => (
               <th
                 key={headerIndex}
                 onClick={() => handleSort(headerData)}
@@ -134,27 +139,27 @@ export const SkaterStats = ({ data, year, team }) => {
           {sortedSkaterStats
             .filter((row) => {
               if (team === "All Teams") return true;
-              return row[2] === filterTeamNameMap[team];
+              return row[2] === FILTER_TEAM_MAP[team];
             })
             .map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {row.map((col, colIndex) =>
                   colIndex === 1 ? (
-                    <td key={colIndex} className="skaterstats--player-cell">
+                    <td key={colIndex} className={styles.skaterstatsPlayerCell}>
                       <Logo
                         src={getTeamLogoFileName(row[2])}
-                        width={determineLogoSize(windowWidth).w}
-                        height={determineLogoSize(windowWidth).h}
+                        width={logoSize.w}
+                        height={logoSize.h}
                         alt={`${row[2]} logo`}
                       />
                       <b>{col}</b>
                     </td>
-                  ) : colIndex === header.indexOf(sortConfig.key) ? (
-                    <td key={colIndex} className="skaterstats--sorted-cell">
+                  ) : colIndex === HEADER.indexOf(sortConfig.key) ? (
+                    <td key={colIndex} className={styles.skaterstatsSortedCell}>
                       <b>{col}</b>
                     </td>
                   ) : (
-                    <td key={colIndex} className="skaterstats--stats-cell">
+                    <td key={colIndex} className={styles.skaterstatsStatsCell}>
                       {col}
                     </td>
                   )
@@ -165,4 +170,4 @@ export const SkaterStats = ({ data, year, team }) => {
       </table>
     </div>
   );
-};
+}

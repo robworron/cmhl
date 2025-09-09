@@ -1,4 +1,4 @@
-.infotable {
+.leagueinfo {
   background-color: var(--secondary-grey);
   display: flex;
   flex-direction: column;
@@ -9,78 +9,78 @@
   margin-bottom: 30px;
 }
 
-.infotable--image {
-  position: relative;
-  width: 100%;
-  height: 190px;
+.leagueinfo td:nth-child(odd) {
+  font-weight: 700;
 }
 
-.infotable h1 {
+.leagueinfo td:nth-child(even) {
+  text-align: right;
+}
+
+.leagueinfo h1 {
   text-align: center;
 }
 
-.infotable--information {
+.leagueinfoInformation {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.infotable--table {
+.leagueinfoImage {
+  position: relative;
+  width: 100%;
+  height: 190px;
+}
+
+.leagueinfoTable {
   border-collapse: collapse;
   width: 100%;
 }
 
-.infotable--row {
-  border-top: 1px solid;
-}
-
-.infotable td {
+.leagueinfoTable td {
   font-size: 12px;
   padding: 10px;
 }
 
-.infotable td:nth-child(odd) {
-  font-weight: 700;
-}
-
-.infotable td:nth-child(even) {
-  text-align: right;
+.leagueinfoRow {
+  border-top: 1px solid;
 }
 
 @media (min-width: 768px) {
-  .infotable {
+  .leagueinfo {
     font-size: 20px;
   }
 
-  .infotable--image {
+  .leagueinfo td {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .leagueinfoImage {
     position: relative;
     width: 80%;
     height: 330px;
   }
 
-  .infotable--table {
+  .leagueinfoTable {
     width: 80%;
-  }
-
-  .infotable td {
-    font-size: 16px;
-    padding: 15px;
   }
 }
 
 @media (min-width: 1024px) {
-  .infotable--image {
+  .leagueinfo td {
+    font-size: 16px;
+  }
+
+  .leagueinfoImage {
     position: relative;
     width: 100%;
     height: 400px;
     padding-bottom: 20px;
   }
 
-  .infotable--table {
+  .leagueinfoTable {
     margin-top: 20px;
-  }
-
-  .infotable td {
-    font-size: 16px;
   }
 }

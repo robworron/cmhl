@@ -1,13 +1,13 @@
 import React from "react";
 
-import "./statslegend.css";
+import styles from "./statslegend.module.css";
 
-export const StatsLegend = () => {
+export default function StatsLegend() {
   return (
-    <div className="statslegend">
+    <div className={styles.statslegend}>
       <h2>Legend</h2>
-      <div className="statslegend--data">
-        <div className="statslegend--data-left">
+      <div className={styles.statslegendData}>
+        <div className={styles.statslegendDataLeft}>
           <h4>Skaters</h4>
           <h6>RK - Rank</h6>
           <h6>GP - Games Played</h6>
@@ -18,7 +18,7 @@ export const StatsLegend = () => {
           <h6>PPP - Powerplay Points</h6>
           <h6>SHP - Shorthanded Points</h6>
         </div>
-        <div className="statslegend--data-right">
+        <div>
           <h4>Goalies</h4>
           <h6>RK - Rank</h6>
           <h6>GP - Games Played</h6>
@@ -32,4 +32,4 @@ export const StatsLegend = () => {
       </div>
     </div>
   );
-};
+}

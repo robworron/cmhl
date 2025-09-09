@@ -1,0 +1,85 @@
+.goaliestatsScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.goaliestats {
+  font-size: 16px;
+  min-width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.goaliestats tr:nth-child(odd) {
+  background-color: white;
+}
+
+.goaliestats tr:nth-child(even) {
+  background-color: #c2c2c2;
+}
+
+.goaliestats th {
+  color: white;
+  background-color: var(--primary-black);
+}
+
+.goaliestatsPlayerCell {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  text-align: left;
+}
+
+.goaliestatsSortedCell {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--secondary-grey);
+}
+
+.goaliestatsStatsCell {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .goaliestats {
+    font-size: 20px;
+    min-width: 1000px;
+    line-height: 60px;
+  }
+
+  .goaliestatsSortedCell {
+    width: 80px;
+  }
+
+  .goaliestatsStatsCell {
+    width: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .goaliestatsScroll {
+    display: flex;
+    justify-content: center;
+  }
+
+  .goaliestats {
+    min-width: 0px;
+    line-height: 60px;
+    font-size: 18px;
+  }
+
+  .goaliestatsPlayerCell {
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .goaliestats {
+    font-size: 18px;
+  }
+}

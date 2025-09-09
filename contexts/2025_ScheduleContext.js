@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, createContext } from "react";
+
 import { fetchSchedule } from "@/utils/fetchSchedule";
 
 export const ScheduleContext = createContext();

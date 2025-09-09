@@ -1,32 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-import "./dropdown.css";
+import styles from "./dropdown.module.css";
 
 const determineLogoSize = (width) => {
-  if (width >= 1024) {
-    return 20;
-  } else {
-    return 15;
-  }
+  if (width >= 1024) return 20;
+  return 15;
 };
 
-export const Dropdown = ({ dropdownSelection, initialState, selections }) => {
+export default function Dropdown({ onSelect, defaultValue, options }) {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
-  const [selectedOption, setSelectedOption] = useState(initialState);
+  const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const handleSelect = (label) => {
+    setSelectedOption(label);
+    onSelect(label);
+    setIsOpen(false);
   };
 
-  const handleSelect = (value, label) => {
-    setSelectedOption(label);
-    dropdownSelection(label);
-    setIsOpen(false);
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
 
   useEffect(() => {
@@ -45,24 +43,23 @@ export const Dropdown = ({ dropdownSelection, initialState, selections }) => {
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
-      <button className="dropdown--button" onClick={toggleDropdown}>
+    <div className={styles.dropdown} ref={dropdownRef}>
+      <button className={styles.dropdownButton} onClick={toggleDropdown}>
         <h6>{selectedOption}</h6>
-        <div className="dropdown--divider"></div>
+        <div className={styles.dropdownDivider}></div>
         <ChevronDownIcon style={{ width: determineLogoSize(windowWidth) }} />
       </button>
       {isOpen && (
-        <div className="dropdown--content">
-          {selections.map((selection, index) => (
+        <div className={styles.dropdownContent}>
+          {options.map((selection, index) => (
             <div
               key={index}
-              className="dropdown--option"
-              onClick={() => handleSelect(selection, selection)}
+              className={styles.dropdownOption}
+              onClick={() => handleSelect(selection)}
             >
               <h6>{selection}</h6>
             </div>
@@ -71,4 +68,4 @@ export const Dropdown = ({ dropdownSelection, initialState, selections }) => {
       )}
     </div>
   );
-};
+}

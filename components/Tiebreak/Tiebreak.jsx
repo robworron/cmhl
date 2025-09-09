@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./tiebreak.css";
+import styles from "./tiebreak.module.css";
 
-export const Tiebreak = () => {
+export default function Tiebreak() {
   return (
-    <div className="tiebreak">
+    <div className={styles.tiebreak}>
       <h2>Tie-Break Procedure</h2>
       <br />
       <h6>
@@ -20,4 +20,4 @@ export const Tiebreak = () => {
       <h6>(3) The greater number of total goals for</h6>
     </div>
   );
-};
+}

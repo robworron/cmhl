@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "../Button/Button";
-import { Logo } from "../Logo/Logo";
 
-import "./schedulematchup.css";
+import Button from "@/components/Button/Button";
+import Logo from "@/components/Logo/Logo";
+
+import styles from "./schedulematchup.module.css";
 
 const determineLogoSize = (width) => {
   if (width >= 1024) {
     return { w: 35, h: 30 };
-  } else {
-    return { w: 35, h: 30 };
   }
+  return { w: 35, h: 30 };
 };
 
-export const ScheduleMatchup = ({
+export default function ScheduleMatchup({
   home,
   homeScore,
   away,
@@ -23,11 +23,8 @@ export const ScheduleMatchup = ({
   rink,
   buttonSize,
   boxscoreUrl = null,
-}) => {
-  const getTeamLogoFileName = (teamName) => {
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
-  };
+}) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const formatDate = (date) => {
     if (typeof date !== "string") return date;
@@ -35,7 +32,11 @@ export const ScheduleMatchup = ({
     return result;
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const getTeamLogoFileName = (teamName) => {
+    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
+    return modifiedTeamName + "-transparent";
+  };
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -44,20 +45,20 @@ export const ScheduleMatchup = ({
   }, []);
 
   return (
-    <div className="schedule-matchup">
-      <div className="schedule-matchup--info">
-        <div className="schedule-matchup--info-time">
+    <div className={styles.scheduleMatchup}>
+      <div className={styles.scheduleMatchupInfo}>
+        <div>
           <h6>{formatDate(date)}</h6>
           <h6>{time}</h6>
         </div>
-        <div className="schedule-matchup--info-game">
+        <div style={{ textAlign: "right" }}>
           <h6>{gameNum}</h6>
           <h6>Rink #{rink}</h6>
         </div>
       </div>
-      <div className="schedule-matchup--teams">
-        <div className="schedule-matchup--team">
-          <div className="schedule-matchup--team-left">
+      <div>
+        <div className={styles.scheduleMatchupTeam}>
+          <div className={styles.scheduleMatchupTeamInfo}>
             <h6>A</h6>
             <Logo
               src={getTeamLogoFileName(away)}
@@ -65,14 +66,14 @@ export const ScheduleMatchup = ({
               height={determineLogoSize(windowWidth).h}
               alt={`${away} logo`}
             />
-            <h6 className="schedule-matchup--team-name">{away}</h6>
+            <h6>{away}</h6>
           </div>
-          <div className="schedule-matchup--team-right">
+          <div>
             <h6>{awayScore}</h6>
           </div>
         </div>
-        <div className="schedule-matchup--team">
-          <div className="schedule-matchup--team-left">
+        <div className={styles.scheduleMatchupTeam}>
+          <div className={styles.scheduleMatchupTeamInfo}>
             <h6>H</h6>
             <Logo
               src={getTeamLogoFileName(home)}
@@ -80,24 +81,18 @@ export const ScheduleMatchup = ({
               height={determineLogoSize(windowWidth).h}
               alt={`${home} logo`}
             />
-            <h6 className="schedule-matchup--team-name">{home}</h6>
+            <h6>{home}</h6>
           </div>
-          <div className="schedule-matchup--team-right">
+          <div>
             <h6>{homeScore}</h6>
           </div>
         </div>
       </div>
       {boxscoreUrl && (
-        <div className="schedule-matchup--button">
-          <Button
-            backgroundColour={"#222"}
-            size={buttonSize}
-            label="Boxscore"
-          />
+        <div className={styles.scheduleMatchupButton}>
+          <Button size={buttonSize} label="Boxscore" />
         </div>
       )}
     </div>
   );
-};
-
-export default ScheduleMatchup;
+}

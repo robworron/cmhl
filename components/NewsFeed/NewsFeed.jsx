@@ -1,10 +1,11 @@
 import React from "react";
-import { Photo } from "../Photo/Photo";
-import { ImageCarousel } from "../ImageCarousel/ImageCarousel";
 
-import "./newsfeed.css";
+import ImageCarousel from "@/components/ImageCarousel/ImageCarousel";
+import Photo from "@/components/Photo/Photo";
 
-const NewsFeed = ({ title, date, images, imageSize, textBody }) => {
+import styles from "./newsfeed.module.css";
+
+export default function NewsFeed({ title, date, images, imageSize, textBody }) {
   const text = textBody.split("\n\n");
   const imageComponent =
     images.length === 1 ? (
@@ -14,10 +15,10 @@ const NewsFeed = ({ title, date, images, imageSize, textBody }) => {
     );
 
   return (
-    <div className="newsfeed">
-      <h1 className="newsfeed--title">{title}</h1>
-      <p className="newsfeed--date">{date}</p>
-      <div className="newsfeed--body">
+    <div className={styles.newsfeed}>
+      <h1 className={styles.newsfeedTitle}>{title}</h1>
+      <p className={styles.newsfeedDate}>{date}</p>
+      <div className={styles.newsfeedBody}>
         {imageComponent}
         {text.map((paragraph, index) => (
           <p key={index}>
@@ -32,6 +33,4 @@ const NewsFeed = ({ title, date, images, imageSize, textBody }) => {
       </div>
     </div>
   );
-};
-
-export default NewsFeed;
+}

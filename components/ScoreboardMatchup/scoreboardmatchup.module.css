@@ -1,4 +1,4 @@
-.matchup {
+.scoreboardmatchup {
   background-color: var(--primary-grey);
   display: flex;
   flex-direction: column;
@@ -10,52 +10,49 @@
   height: 100%;
 }
 
-.matchup h6 {
+.scoreboardmatchup h6 {
   margin: 0px;
 }
 
-.matchup--info {
+.scoreboardmatchupInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2px;
 }
 
-.matchup--info h6 {
+.scoreboardmatchupInfo h6 {
   font-size: 12px;
 }
 
-.matchup--info-game {
+.scoreboardmatchupInfoGame {
   text-align: right;
 }
 
-.matchup--team {
+.scoreboardmatchupTeam {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2px;
 }
 
-.matchup--team-left {
+.scoreboardmatchupTeamLeft {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.matchup--team-name {
+.scoreboardmatchupTeamName {
   font-size: 12px;
 }
 
 @media (min-width: 1024px) {
-  .matchup {
+  .scoreboardmatchup {
     width: 180px;
   }
 
-  h6 {
-    font-size: 16px;
-  }
-  .matchup--team-name,
-  .matchup--info h6 {
+  .scoreboardmatchup h6,
+  .scoreboardmatchupTeamName {
     font-size: 14px;
   }
 }

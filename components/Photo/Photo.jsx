@@ -1,14 +1,21 @@
 import React from "react";
+
 import Image from "next/image";
 
-import "./photo.css";
+import styles from "./photo.module.css";
 
-export const Photo = ({ name, size }) => {
+export default function Photo({ name, size }) {
   const imageSrc =
     name === "logos/logo-transparent-white.png" ? logo : `/assets/${name}`;
   return (
-    <div className="photo">
-      <img src={imageSrc} className={`photo--${size}`} />
+    <div className={styles.photo}>
+      <Image
+        src={imageSrc}
+        fill
+        alt={name}
+        style={{ objectFit: "contain" }}
+        className={styles[`photo${size}`]}
+      />
     </div>
   );
-};
+}

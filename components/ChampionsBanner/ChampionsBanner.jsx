@@ -1,26 +1,27 @@
 import React from "react";
+
 import Image from "next/image";
 
-import "./championsbanner.css";
+import styles from "./championsbanner.module.css";
 
 export const ChampionsBanner = () => {
-  const winnersLogo = "/assets/logos/axemen-transparent.png";
-  const trophyImage = "/assets/league/league-cup.png";
+  const WINNERS_LOGO = "/assets/logos/axemen-transparent.png";
+  const TROPHY = "/assets/league/league-cup.png";
 
   return (
-    <div className="champions-banner">
-      <div className="champions-banner--logo">
+    <div className={styles.championsBanner}>
+      <div className={styles.championsBannerLogo}>
         <Image
-          src={winnersLogo}
+          src={WINNERS_LOGO}
           fill
           style={{ objectFit: "contain" }}
           alt="Winners Logo"
         />
       </div>
       <h1>2024-25 CMHL CHAMPIONS</h1>
-      <div className="champions-banner--trophy">
+      <div className={styles.championsBannerTrophy}>
         <Image
-          src={trophyImage}
+          src={TROPHY}
           fill
           style={{ objectFit: "contain" }}
           alt="CMHL Trophy"

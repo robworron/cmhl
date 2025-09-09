@@ -1,9 +1,9 @@
-.skaterstats--scroll {
+.standingsScroll {
   width: 100%;
   overflow-x: auto;
 }
 
-.skaterstats {
+.standings {
   font-size: 16px;
   min-width: 800px;
   border-collapse: collapse;
@@ -12,69 +12,67 @@
   line-height: 50px;
 }
 
-.skaterstats th {
-  color: white;
+.standings th {
   background-color: var(--primary-black);
+  color: white;
 }
 
-.skaterstats tr:nth-child(odd) {
+.standings tr:nth-child(odd) {
   background-color: white;
 }
 
-.skaterstats tr:nth-child(even) {
+.standings tr:nth-child(even) {
   background-color: #c2c2c2;
 }
 
-.skaterstats--player-cell {
-  display: flex;
-  min-width: 200px;
-  text-align: left;
-  align-items: center;
+.standingsRankCell,
+.standingsStatCell {
+  min-width: 50px;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.skaterstats--sorted-cell {
-  width: 100px;
+.standingsTeamCell {
+  display: flex;
+  min-width: 80px;
+  text-align: left;
+  align-items: center;
+  font-weight: 700;
+}
+
+.standingsSortedCell {
+  min-width: 50px;
   text-align: center;
   white-space: nowrap;
   background-color: var(--secondary-grey);
 }
 
-.skaterstats--stats-cell {
-  width: 100px;
-  text-align: center;
-  white-space: nowrap;
-}
-
 @media (min-width: 768px) {
-  .skaterstats {
-    font-size: 20px;
-    min-width: 1200px;
-    line-height: 60px;
+  .standings {
+    min-width: 900px;
+    font-size: 18px;
   }
 
-  .skaterstats--sorted-cell {
-    width: 80px;
-  }
-
-  .skaterstats--stats-cell {
-    width: 80px;
+  .standingsTeamCell {
+    min-width: 300px;
   }
 }
 
 @media (min-width: 1024px) {
-  .skaterstats--scroll {
+  .standingsScroll {
     display: flex;
     justify-content: center;
   }
 
-  .skaterstats {
+  .standings {
+    min-width: 800px;
     font-size: 18px;
-    min-width: 0px;
   }
 }
 
 @media (min-width: 1440px) {
-  .skaterstats {
-    font-size: 18px;
+  .standings {
+    min-width: 1000px;
+    font-size: 20px;
   }
 }

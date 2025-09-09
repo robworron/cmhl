@@ -1,13 +1,14 @@
 import React from "react";
-import { ChampionsBanner } from "../ChampionsBanner/ChampionsBanner";
-import { Scoreboard } from "../Scoreboard/Scoreboard";
-import "./header.css";
 
-export const Header = () => {
+import Scoreboard from "@/components/Scoreboard/Scoreboard";
+
+import styles from "./header.module.css";
+
+export default function Header() {
   return (
-    <header className="header">
+    <header className={styles.header}>
       {/** <ChampionsBanner /> */}
       <Scoreboard />
     </header>
   );
-};
+}

@@ -7,18 +7,18 @@
   margin-bottom: 30px;
 }
 
-.newsfeed--title {
+.newsfeedTitle {
   font-size: 40pt;
   margin-top: 5px;
   margin-bottom: 0px;
 }
 
-.newsfeed--date {
+.newsfeedDate {
   font-size: 16pt;
   margin-top: 5px;
 }
 
-.newsfeed--body {
+.newsfeedBody {
   font-size: 14pt;
   display: flex;
   flex-direction: column;
@@ -29,17 +29,17 @@
   .newsfeed {
     padding: 20px;
   }
-  .newsfeed--title {
+  .newsfeedTitle {
     font-size: 20pt;
     margin-top: 0px;
   }
 
-  .newsfeed--date {
+  .newsfeedDate {
     font-size: 12pt;
     margin-top: 5px;
   }
 
-  .newsfeed--body {
+  .newsfeedBody {
     font-size: 10pt;
   }
 }
@@ -48,7 +48,7 @@
   .newsfeed {
     max-width: 90%;
   }
-  .newsfeed--body p {
+  .newsfeedBody p {
     width: 80%;
   }
 }

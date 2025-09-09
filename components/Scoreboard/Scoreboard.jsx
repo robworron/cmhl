@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
-import Matchup from "../Matchup/Matchup";
+
 import axios from "axios";
 
-import "./scoreboard.css";
+import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
+import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
 
-export const Scoreboard = () => {
+import styles from "./scoreboard.module.css";
+
+export default function Scoreboard() {
   const { scheduleData, error } = useContext(ScheduleContext);
   const [weekNumberError, setWeekNumberError] = useState(null);
   const scrollRef = useRef(null);
@@ -66,7 +68,7 @@ export const Scoreboard = () => {
 
   const renderMatchups = () => {
     return scheduleData.map((game, index) => (
-      <Matchup
+      <ScoreboardMatchup
         key={index}
         home={game[5] || "TBD"}
         homeScore={game[6] || "--"}
@@ -81,18 +83,16 @@ export const Scoreboard = () => {
   };
 
   return (
-    <div className="scoreboard">
-      <button className="scoreboard--arrow" onClick={handlePrevClick}>
+    <div className={styles.scoreboard}>
+      <button className={styles.scoreboardArrow} onClick={handlePrevClick}>
         &lt;
       </button>
-      <div className="scoreboard--scroll" ref={scrollRef}>
-        <div className="scoreboard--matchups">{renderMatchups()}</div>
+      <div className={styles.scoreboardScroll} ref={scrollRef}>
+        <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
       </div>
-      <button className="scoreboard--arrow" onClick={handleNextClick}>
+      <button className={styles.scoreboardArrow} onClick={handleNextClick}>
         &gt;
       </button>
     </div>
   );
-};
-
-export default Scoreboard;
+}

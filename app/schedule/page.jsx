@@ -1,17 +1,27 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Schedule } from "../../components/Schedule/Schedule";
-import { Dropdown } from "../../components/Dropdown/Dropdown";
+
+import Schedule from "@/components/Schedule/Schedule";
+import Dropdown from "@/components/Dropdown/Dropdown";
 import { fetchSchedule } from "@/utils/fetchSchedule";
 
 import styles from "./schedule.module.css";
 
 export default function SchedulePage() {
-  const [selectedYear, setSelectedYear] = useState("2025-26");
-  const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [schedule, setSchedule] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState("All Teams");
+  const [selectedYear, setSelectedYear] = useState("2025-26");
   const [error, setError] = useState(null);
+
+  const handleTeamChange = (team) => {
+    setSelectedTeam(team);
+  };
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+    setSelectedTeam("All Teams");
+  };
 
   useEffect(() => {
     const getSchedule = async () => {
@@ -32,15 +42,6 @@ export default function SchedulePage() {
     getSchedule();
   }, [selectedYear]);
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
-    setSelectedTeam("All Teams");
-  };
-
-  const handleTeamChange = (team) => {
-    setSelectedTeam(team);
-  };
-
   return (
     <div className={styles.schedule}>
       <div className={styles.scheduleBody}>
@@ -48,15 +49,15 @@ export default function SchedulePage() {
           <h1>Schedule</h1>
           <div className={styles.scheduleDropdowns}>
             <Dropdown
-              dropdownSelection={handleYearChange}
-              initialState={"2025-26"}
-              selections={["2023-24", "2024-25", "2025-26"]}
+              onSelect={handleYearChange}
+              defaultValue={"2025-26"}
+              options={["2023-24", "2024-25", "2025-26"]}
             />
             {selectedYear === "2023-24" ? (
               <Dropdown
-                dropdownSelection={handleTeamChange}
-                initialState={"All Teams"}
-                selections={[
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
                   "All Teams",
                   "Axemen",
                   "Gulls",
@@ -66,9 +67,9 @@ export default function SchedulePage() {
               />
             ) : "2024-25" ? (
               <Dropdown
-                dropdownSelection={handleTeamChange}
-                initialState={"All Teams"}
-                selections={[
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
                   "All Teams",
                   "Axemen",
                   "Gulls",
@@ -80,9 +81,9 @@ export default function SchedulePage() {
               />
             ) : (
               <Dropdown
-                dropdownSelection={handleTeamChange}
-                initialState={"All Teams"}
-                selections={[
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
                   "All Teams",
                   "Axemen",
                   "Bulldogs",

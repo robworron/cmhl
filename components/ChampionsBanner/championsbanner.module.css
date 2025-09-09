@@ -1,4 +1,4 @@
-.champions-banner {
+.championsBanner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,7 +8,7 @@
   border-radius: 80px;
 }
 
-.champions-banner h1 {
+.championsBanner h1 {
   font-size: medium;
   margin: 0;
   padding: 0;
@@ -16,41 +16,35 @@
   text-align: center;
 }
 
-.champions-banner--logo {
+.championsBannerLogo {
   position: relative;
   width: 100px;
   height: 100px;
 }
 
-.champions-banner--trophy {
+.championsBannerTrophy {
   position: relative;
   width: 70px;
   height: 130px;
 }
 
-@media (min-width: 375px) {
-  .champions-banner h1 {
-    font-size: large;
-  }
-}
-
 @media (min-width: 768px) {
-  .champions-banner {
+  .championsBanner {
     max-width: 750px;
     height: 80px;
   }
 
-  .champions-banner h1 {
+  .championsBanner h1 {
     font-size: xx-large;
   }
 
-  .champions-banner--logo {
+  .championsBannerLogo {
     position: relative;
     width: 150px;
     height: 150px;
   }
 
-  .champions-banner--trophy {
+  .championsBannerTrophy {
     position: relative;
     width: 110px;
     height: 180px;

@@ -1,4 +1,4 @@
-.schedule-matchup {
+.scheduleMatchup {
   background-color: var(--primary-grey);
   display: flex;
   flex-direction: column;
@@ -12,50 +12,47 @@
   border-radius: 5px;
 }
 
-.schedule-matchup h6 {
+.scheduleMatchup h6 {
   margin: 0px;
 }
 
-.schedule-matchup--info {
+.scheduleMatchupInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2px;
 }
 
-.schedule-matchup--info-game {
-  text-align: right;
-}
-
-.schedule-matchup--team {
+.scheduleMatchupTeam {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2px;
 }
 
-.schedule-matchup--team-left {
+.scheduleMatchupTeamInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.schedule-matchup--button {
+.scheduleMatchupButton {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
-  .schedule-matchup {
+  .scheduleMatchup {
     width: 220px;
     height: 180px;
   }
 }
 
 @media (min-width: 1024px) {
-  .schedule-matchup {
+  .scheduleMatchup {
     width: 220px;
     height: 180px;
+    font-size: 22px;
   }
 }

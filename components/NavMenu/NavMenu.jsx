@@ -1,11 +1,14 @@
 "use client";
 
 import React from "react";
+
 import Link from "next/link";
+
 import { useMenu } from "@/contexts/MenuContext";
+
 import styles from "./navmenu.module.css";
 
-export const NavMenu = () => {
+export default function NavMenu() {
   const { menuActive, closeMenu } = useMenu();
 
   return (
@@ -146,4 +149,4 @@ export const NavMenu = () => {
       </ul>
     </nav>
   );
-};
+}

@@ -13,4 +13,11 @@
 
 .tiebreak h6 {
   margin: 0px 10% 10px 10%;
+  font-size: small;
+}
+
+@media (min-width: 1024px) {
+  .tiebreak h6 {
+    font-size: medium;
+  }
 }

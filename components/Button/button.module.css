@@ -15,40 +15,33 @@
   color: white;
 }
 
-.button--primary {
+.buttonPrimary {
   color: var(--secondary-black);
   background-color: white;
 }
 
-.button--secondary {
+.buttonSecondary {
   color: white;
   background-color: var(--primary-black);
 }
 
-.button--mobile {
+.buttonSmall {
   font-size: 12px;
   padding: 10px;
   width: 85px;
   height: 20px;
 }
 
-.button--tablet {
+.buttonMedium {
   font-size: 14px;
   padding: 14px;
   width: 110px;
   height: 30px;
 }
 
-.button--laptop {
+.buttonLarge {
   font-size: 16px;
   padding: 18px;
   width: 140px;
   height: 40px;
-}
-
-.button--desktop {
-  font-size: 18px;
-  padding: 22px;
-  width: 170px;
-  height: 50px;
 }

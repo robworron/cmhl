@@ -1,13 +1,13 @@
-import { Header } from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 import NavBar from "@/components/NavBar/NavBar";
-import { Footer } from "@/components/Footer/Footer";
+import NavMenu from "@/components/NavMenu/NavMenu";
 
-import { ScheduleProvider } from "@/contexts/2025_ScheduleContext";
 import { MenuProvider } from "@/contexts/MenuContext";
+import { ScheduleProvider } from "@/contexts/2025_ScheduleContext";
 
 import "./globals.css";
 import styles from "./webpage.module.css";
-import { NavMenu } from "@/components/NavMenu/NavMenu";
 
 export const metadata = {
   title: "CMHL",
@@ -26,16 +26,14 @@ export default function RootLayout({ children }) {
       <body>
         <ScheduleProvider>
           <MenuProvider>
-            <div className="webpage">
-              <div className={styles.webpageHeader}>
-                <Header />
-                <NavBar />
-              </div>
-              <NavMenu />
-              <main>{children}</main>
-              <div className={styles.webpageFooter}>
-                <Footer />
-              </div>
+            <div className={styles.webpageHeader}>
+              <Header />
+              <NavBar />
+            </div>
+            <NavMenu />
+            <main className={styles.webpageMain}>{children}</main>
+            <div className={styles.webpageFooter}>
+              <Footer />
             </div>
           </MenuProvider>
         </ScheduleProvider>

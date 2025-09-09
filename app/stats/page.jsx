@@ -1,20 +1,30 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Button } from "../../components/Button/Button";
-import { Dropdown } from "../../components/Dropdown/Dropdown";
-import { SkaterStats } from "../../components/SkaterStats/SkaterStats";
-import { GoalieStats } from "../../components/GoalieStats/GoalieStats";
-import { StatsLegend } from "../../components/StatsLegend/StatsLegend";
+
+import Button from "@/components/Button/Button";
+import Dropdown from "@/components/Dropdown/Dropdown";
+import GoalieStats from "@/components/GoalieStats/GoalieStats";
+import SkaterStats from "@/components/SkaterStats/SkaterStats";
+import StatsLegend from "@/components/StatsLegend/StatsLegend";
 import { fetchStats } from "@/utils/fetchStats";
+
 import styles from "./stats.module.css";
 
 export default function StatsPage() {
   const [stats, setStats] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("skater");
-  const [selectedYear, setSelectedYear] = useState("2024-25"); //change to 2025-26
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
-  const [error, setError] = useState(null);
+  const [selectedYear, setSelectedYear] = useState("2024-25"); //change to 2025-26
+
+  const handleTeamChange = (team) => {
+    setSelectedTeam(team);
+  };
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+    setSelectedTeam("All Teams");
+  };
 
   useEffect(() => {
     const getStats = async () => {
@@ -30,15 +40,6 @@ export default function StatsPage() {
     getStats();
   }, [selectedYear, selectedCategory]);
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
-    setSelectedTeam("All Teams");
-  };
-
-  const handleTeamChange = (team) => {
-    setSelectedTeam(team);
-  };
-
   return (
     <div className={styles.stats}>
       <div className={styles.statsBody}>
@@ -48,27 +49,27 @@ export default function StatsPage() {
             <Button
               primary={selectedCategory !== "skater"}
               label="Skaters"
-              size={"laptop"}
+              size={"Large"}
               onClick={() => setSelectedCategory("skater")}
             />
             <Button
               primary={selectedCategory !== "goalie"}
               label="Goalies"
-              size={"laptop"}
+              size={"Large"}
               onClick={() => setSelectedCategory("goalie")}
             />
           </div>
           <div className={styles.statsDropdowns}>
             <Dropdown
-              dropdownSelection={handleYearChange}
-              initialState={"2024-25"} //change to 2025-26
-              selections={["2024-25"]} //add 2025-26
+              onSelect={handleYearChange}
+              defaultValue={"2024-25"} //change to 2025-26
+              options={["2024-25"]} //add 2025-26
             />
             {selectedYear === "2024-25" ? (
               <Dropdown
-                dropdownSelection={handleTeamChange}
-                initialState={"All Teams"}
-                selections={[
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
                   "All Teams",
                   "Axemen",
                   "Gulls",
@@ -80,9 +81,9 @@ export default function StatsPage() {
               />
             ) : (
               <Dropdown
-                dropdownSelection={handleTeamChange}
-                initialState={"All Teams"}
-                selections={[
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
                   "All Teams",
                   "Axemen",
                   "Bulldogs",

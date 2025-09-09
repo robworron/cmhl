@@ -1,37 +1,30 @@
 import React from "react";
-import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import "./button.css";
+import styles from "./button.module.css";
 
-export const Button = ({ primary, backgroundColour, size, label, onClick }) => {
-  const mode = primary ? "button--primary" : "button--secondary";
+export default function Button({
+  primary = false,
+  backgroundColour = null,
+  size = "Small",
+  label,
+  onClick,
+}) {
+  const buttonClass = classNames(styles.button, styles[`button${size}`], {
+    [styles.buttonPrimary]: primary,
+    [styles.buttonSecondary]: !primary,
+  });
 
   return (
     <button
       type="button"
-      className={["button", `button--${size}`, mode].join(" ")}
-      style={backgroundColour && { backgroundColor: backgroundColour }}
+      className={buttonClass}
+      style={
+        backgroundColour ? { backgroundColor: backgroundColour } : undefined
+      }
       onClick={onClick}
     >
       {label}
     </button>
   );
-};
-
-Button.propTypes = {
-  primary: PropTypes.bool,
-
-  backgroundColour: PropTypes.string,
-
-  size: PropTypes.oneOf(["mobile", "tablet", "laptop", "desktop"]),
-
-  label: PropTypes.string.isRequired,
-
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  backgroundColour: null,
-  primary: false,
-  size: "mobile",
-};
+}
