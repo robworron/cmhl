@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import Button from "@/components/Button/Button";
 import Logo from "@/components/Logo/Logo";
+import { getTeamLogoByName } from "@/utils/formats";
 
 import styles from "./schedulematchup.module.css";
 
@@ -31,12 +33,6 @@ export default function ScheduleMatchup({
     const result = date.split(",")[0];
     return result;
   };
-
-  const getTeamLogoFileName = (teamName) => {
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
-  };
-
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -61,7 +57,7 @@ export default function ScheduleMatchup({
           <div className={styles.scheduleMatchupTeamInfo}>
             <h6>A</h6>
             <Logo
-              src={getTeamLogoFileName(away)}
+              src={getTeamLogoByName(away)}
               width={determineLogoSize(windowWidth).w}
               height={determineLogoSize(windowWidth).h}
               alt={`${away} logo`}
@@ -76,7 +72,7 @@ export default function ScheduleMatchup({
           <div className={styles.scheduleMatchupTeamInfo}>
             <h6>H</h6>
             <Logo
-              src={getTeamLogoFileName(home)}
+              src={getTeamLogoByName(home)}
               width={determineLogoSize(windowWidth).w}
               height={determineLogoSize(windowWidth).h}
               alt={`${home} logo`}
@@ -90,7 +86,9 @@ export default function ScheduleMatchup({
       </div>
       {boxscoreUrl && (
         <div className={styles.scheduleMatchupButton}>
-          <Button size={buttonSize} label="Boxscore" />
+          <Link href={boxscoreUrl} className={styles.boxscoreLink}>
+            <Button size={buttonSize} label="Boxscore" />
+          </Link>
         </div>
       )}
     </div>

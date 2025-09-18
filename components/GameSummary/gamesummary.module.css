@@ -1,0 +1,48 @@
+.gamesummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--secondary-grey);
+  padding: 10px 0px;
+  border-radius: 10px;
+}
+
+.gamesummary h4 {
+  margin: 10;
+}
+
+.gamesummary h5 {
+  margin: 4;
+}
+
+.gamesummary h6 {
+  margin: 4;
+  padding: 5px 0px 5px 20px;
+}
+
+.gamesummaryData {
+  width: 90%;
+}
+
+@media (min-width: 425px) {
+  .gamesummary h4 {
+    font-size: larger;
+  }
+
+  .gamesummary h5 {
+    font-size: medium;
+  }
+
+  .gamesummary h6 {
+    font-size: small;
+  }
+}
+
+@media (min-width: 768px) {
+  .gamesummary {
+    width: 80%;
+    padding: 10px;
+  }
+}

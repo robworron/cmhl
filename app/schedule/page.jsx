@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
+import Button from "@/components/Button/Button";
 import Schedule from "@/components/Schedule/Schedule";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import { fetchSchedule } from "@/utils/fetchSchedule";

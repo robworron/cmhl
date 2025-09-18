@@ -1,0 +1,67 @@
+.boxscore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 20px;
+  gap: 30px;
+}
+
+.boxscoreContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.boxscoreSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.boxscoreTeams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .boxscore {
+    gap: 50px;
+  }
+
+  .boxscoreContent {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .boxscoreSummary {
+    width: 50%;
+  }
+
+  .boxscoreButtons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 85%;
+    gap: 30px;
+  }
+
+  .boxscoreTeamsDesktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+}

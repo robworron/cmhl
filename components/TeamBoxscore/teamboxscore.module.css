@@ -1,0 +1,71 @@
+.teamboxscore {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  font-size: xx-small;
+  border-collapse: collapse;
+}
+
+.teamboxscore table {
+  text-align: center;
+  border-collapse: collapse;
+  justify-content: center;
+  line-height: 12px;
+}
+
+.teamboxscore th {
+  background-color: var(--secondary-black);
+  color: white;
+}
+
+.teamboxscore tr:nth-child(odd) {
+  background-color: white;
+}
+
+.teamboxscore tr:nth-child(even) {
+  background-color: var(--secondary-grey);
+}
+
+.teamboxscoreTeamInfo {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.teamboxscoreNumberCell {
+  width: 5%;
+}
+
+.teamboxscorePlayerCell {
+  width: 35%;
+}
+
+.teamboxscoreStatCell {
+  width: 10%;
+}
+
+@media (min-width: 375px) {
+  .teamboxscore {
+    font-size: x-small;
+  }
+
+  .teamboxscore table {
+    line-height: 20px;
+  }
+}
+
+@media (min-width: 425px) {
+  .teamboxscore {
+    font-size: small;
+  }
+}
+
+@media (min-width: 768) {
+  .teamboxscore {
+    font-size: medium;
+  }
+  .teamboxscore table {
+    line-height: 25px;
+  }
+}

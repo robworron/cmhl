@@ -42,6 +42,10 @@
   justify-content: center;
 }
 
+.boxscoreLink {
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .scheduleMatchup {
     width: 220px;

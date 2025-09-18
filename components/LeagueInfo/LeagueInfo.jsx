@@ -40,7 +40,7 @@ export default function LeagueInfo() {
               <td>Teams</td>
               <td>
                 Axemen, Bulldogs, Gulls, Jagrbombs, Mighty Drunks, Rockies,
-                Seamen, Toonie Tuesdays
+                Seamen, Toonie Tuesday
               </td>
             </tr>
             <tr className={styles.leagueinfoRow}>

@@ -1,0 +1,149 @@
+.boxscorebanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.boxscorebannerDate {
+  background-color: var(--secondary-grey);
+  border-radius: 10px 10px 0 0;
+}
+
+.boxscorebannerDate h4 {
+  margin: 5px 10px;
+}
+
+.boxscorebannerMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  color: white;
+}
+
+.boxscorebannerAway {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--colorTop) 0%,
+    var(--colorTop) 30%,
+    var(--colorBottom) 150%
+  );
+}
+
+.boxscorebannerAway h2 {
+  margin-right: 20px;
+}
+
+.boxscorebannerHome {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--colorTop) 0%,
+    var(--colorTop) 30%,
+    var(--colorBottom) 150%
+  );
+}
+
+.boxscorebannerHome h2 {
+  margin-left: 20px;
+}
+
+.boxscorebannerVersus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 45%;
+  width: 10%;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+}
+
+.boxscorebannerVersus h5 {
+  margin: 2;
+}
+
+.boxscorebannerDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  background-color: var(--secondary-grey);
+  border-radius: 0 0 10px 10px;
+}
+
+.boxscorebannerDetails h6 {
+  margin: 5px 10px;
+}
+
+@media (min-width: 768px) {
+  .boxscorebanner {
+    width: 80%;
+    padding: 15px 20px;
+  }
+
+  .boxscorebannerVersus {
+    width: 5%;
+    left: 47.5%;
+  }
+
+  .boxscorebannerVersus h5 {
+    font-size: medium;
+  }
+
+  .boxscorebannerDetails {
+    width: 50%;
+  }
+
+  .boxscorebannerDetails h6 {
+    font-size: small;
+  }
+}
+
+@media (min-width: 1024px) {
+  .boxscorebanner {
+    max-width: 800px;
+    height: 80px;
+    padding: 20px 30px;
+  }
+
+  .boxscorebannerAway h2 {
+    margin-right: 60px;
+  }
+
+  .boxscorebannerHome h2 {
+    margin-left: 60px;
+  }
+
+  .boxscorebannerAway h4 {
+    width: 150px;
+    text-align: center;
+  }
+
+  .boxscorebannerHome h4 {
+    width: 150px;
+    text-align: center;
+  }
+
+  .boxscorebannerVersus {
+    width: 3%;
+    left: 48.5%;
+  }
+
+  .boxscorebannerVersus h5 {
+    font-size: larger;
+  }
+}

@@ -87,9 +87,9 @@ export default function Footer() {
         </div>
       </div>
       <p>est. 2023</p>
-      <h4 style={{ marginBottom: 0 }}>
-        Website Designed & Developed by Robert Worron
-      </h4>
+      <h5 style={{ marginBottom: 0 }}>
+        Website Designed & Developed by Rob Worron
+      </h5>
       <div className={styles.footerEmailInfo}>
         <EnvelopeIcon style={{ width: 24, padding: 3 }} />
         <h5 style={{ margin: 0 }}>rworron94@gmail.com</h5>

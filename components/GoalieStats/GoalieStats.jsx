@@ -1,6 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Logo from "@/components/Logo/Logo";
+import { getTeamLogoByAbbreviation } from "@/utils/formats";
+import { TEAM_TO_ABBREVIATION } from "@/utils/teams";
 
 import styles from "./goaliestats.module.css";
 
@@ -26,27 +28,6 @@ export default function GoalieStats({ data, year, team }) {
     "GAA",
     "SO",
   ];
-  const TEAM_NAME_MAP = {
-    RCK: "rockies",
-    AXE: "axemen",
-    GUL: "gulls",
-    TTU: "toonietuesday",
-    JGR: "jagrbombs",
-    MDR: "mightydrunks",
-    SEA: "Seamen",
-    BUL: "Bulldogs",
-  };
-  const FILTER_TEAM_MAP = {
-    "All Teams": "All Teams",
-    Axemen: "AXE",
-    Bulldogs: "BUL",
-    Gulls: "GUL",
-    Jagrbombs: "JGR",
-    "Mighty Drunks": "MDR",
-    Rockies: "RCK",
-    Seamen: "SEA",
-    "Toonie Tuesday": "TTU",
-  };
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
@@ -80,12 +61,6 @@ export default function GoalieStats({ data, year, team }) {
     });
 
     return sortedStats;
-  };
-
-  const getTeamLogoFileName = (teamAcronym) => {
-    const teamName = TEAM_NAME_MAP[teamAcronym];
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
   };
 
   const handleSort = (columnKey) => {
@@ -140,7 +115,7 @@ export default function GoalieStats({ data, year, team }) {
           {sortedGoalieStats
             .filter((row) => {
               if (team === "All Teams") return true;
-              return row[2] === FILTER_TEAM_MAP[team];
+              return row[2] === TEAM_TO_ABBREVIATION[team];
             })
             .map((row, rowIndex) => (
               <tr key={rowIndex}>
@@ -148,7 +123,7 @@ export default function GoalieStats({ data, year, team }) {
                   colIndex === 1 ? (
                     <td key={colIndex} className={styles.goaliestatsPlayerCell}>
                       <Logo
-                        src={getTeamLogoFileName(row[2])}
+                        src={getTeamLogoByAbbreviation(row[2])}
                         width={logoSize.w}
                         height={logoSize.h}
                         alt={`${row[2]} logo`}

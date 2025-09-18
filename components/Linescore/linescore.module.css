@@ -1,0 +1,36 @@
+.linescore {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--secondary-grey);
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-size: small;
+}
+
+.linescore h5 {
+  margin: 0;
+}
+
+.linescoreTeam {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.linescoreTeamContainer {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+@media (min-width: 768px) {
+  .linescore {
+    width: 80%;
+    padding: 10px;
+    font-size: medium;
+  }
+}

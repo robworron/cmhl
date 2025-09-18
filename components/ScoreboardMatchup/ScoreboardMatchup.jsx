@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Logo from "@/components/Logo/Logo";
 
+import { getTeamLogoByName } from "@/utils/formats";
 import styles from "./scoreboardmatchup.module.css";
 
 const determineLogoSize = (width) => {
@@ -50,11 +51,6 @@ export default function ScoreboardMatchup({
     return `Game #${gameNum}`;
   };
 
-  const getTeamLogoFileName = (teamName) => {
-    const modifiedTeamName = teamName.replace(/\s/g, "").toLowerCase();
-    return modifiedTeamName + "-transparent";
-  };
-
   const logoSize = useMemo(() => determineLogoSize(windowWidth), [windowWidth]);
 
   useEffect(() => {
@@ -80,7 +76,7 @@ export default function ScoreboardMatchup({
           <div className={styles.scoreboardmatchupTeamLeft}>
             <h6>A</h6>
             <Logo
-              src={getTeamLogoFileName(away)}
+              src={getTeamLogoByName(away)}
               width={logoSize.w}
               height={logoSize.h}
               alt={`${away} logo`}
@@ -95,7 +91,7 @@ export default function ScoreboardMatchup({
           <div className={styles.scoreboardmatchupTeamLeft}>
             <h6>H</h6>
             <Logo
-              src={getTeamLogoFileName(home)}
+              src={getTeamLogoByName(home)}
               width={logoSize.w}
               height={logoSize.h}
               alt={`${home} logo`}

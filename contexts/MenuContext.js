@@ -17,4 +17,6 @@ export const MenuProvider = ({ children }) => {
   );
 };
 
-export const useMenu = () => useContext(MenuContext);
+export function useMenu() {
+  return useContext(MenuContext);
+}

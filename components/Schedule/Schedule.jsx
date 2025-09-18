@@ -43,6 +43,11 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
     return `Week ${week}`;
   };
 
+  const formatURL = (year, game) => {
+    const season = year.split("-")[0];
+    return `/boxscore/${season}/${game}`;
+  };
+
   const getButtonSize = () => {
     if (windowWidth >= 768) return "Medium";
     return "Small";
@@ -90,7 +95,7 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
                   gameNum={formatGameNum(scheduleYear, game[1])}
                   rink={game[3]}
                   buttonSize={getButtonSize(windowWidth)}
-                  //boxscoreUrl={"/"} this is what changes when boxscore page is released
+                  boxscoreUrl={formatURL(scheduleYear, game[1])}
                 />
               </div>
             ))}

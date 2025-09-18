@@ -21,13 +21,12 @@ const NAV_LINKS = [
 
 export default function NavBar() {
   const currentPath = usePathname();
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
-  );
+  const [windowWidth, setWindowWidth] = useState(0);
   const { menuActive, toggleMenu } = useMenu();
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -39,11 +38,11 @@ export default function NavBar() {
       <div className={styles.navbarBlackLine} />
       <div className={styles.navbarWhiteLine} />
       <div className={styles.navbarRedLine}>
-        {isDesktop ? (
+        {windowWidth === null ? null : isDesktop ? (
           <>
             <Link href="/" className={styles.navbarLogo}>
               <Logo
-                src="wordmark-transparent"
+                src="/assets/logos/wordmark-transparent.png"
                 width={80}
                 height={30}
                 alt="League Logo"
@@ -86,7 +85,7 @@ export default function NavBar() {
               </div>
             </button>
             <Logo
-              src="wordmark-transparent"
+              src="/assets/logos/wordmark-transparent.png"
               width={80}
               height={30}
               alt="League Logo"

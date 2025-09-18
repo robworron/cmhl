@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Logo from "@/components/Logo/Logo";
+import { getTeamLogoByName } from "@/utils/formats";
+import { TEAM_TO_ABBREVIATION } from "@/utils/teams";
 
 import styles from "./standings.module.css";
 
@@ -15,17 +17,6 @@ const determineLogoSize = (width) => {
 };
 
 export default function Standings({ standingsData }) {
-  const ABBREVIATIONS = {
-    Axemen: "AXE",
-    Bulldogs: "BUL",
-    Gulls: "GUL",
-    Jagrbombs: "JGR",
-    "Mighty Drunks": "MDR",
-    Rockies: "RCK",
-    Seamen: "SEA",
-    "Toonie Tuesday": "TTU",
-    "Whiskey Dekes": "WDK",
-  };
   const HEADER = ["RK", "Team", "W", "L", "T", "P", "GF", "GA", "GD", "ST"];
 
   const [windowWidth, setWindowWidth] = useState(
@@ -41,10 +32,6 @@ export default function Standings({ standingsData }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const getAbbriviation = (teamName) => {
-    return ABBREVIATIONS[teamName];
-  };
 
   const getSortedStandings = () => {
     if (!sortConfig.key) return standingsData;
@@ -71,9 +58,6 @@ export default function Standings({ standingsData }) {
 
     return sortedStandings;
   };
-
-  const getTeamLogoFileName = (teamName) =>
-    teamName.replace(/\s/g, "").toLowerCase() + "-transparent";
 
   const handleSort = (columnKey) => {
     if (columnKey === "Team" || columnKey === "ST") return;
@@ -129,12 +113,12 @@ export default function Standings({ standingsData }) {
               <td className={styles.standingsStatCell}>{row[0]}</td>
               <td className={styles.standingsTeamCell}>
                 <Logo
-                  src={getTeamLogoFileName(row[1])}
+                  src={getTeamLogoByName(row[1])}
                   width={determineLogoSize(windowWidth).w}
                   height={determineLogoSize(windowWidth).h}
                   alt={`${row[1]} logo`}
                 />
-                {windowWidth < 768 ? getAbbriviation(row[1]) : row[1]}
+                {windowWidth < 768 ? TEAM_TO_ABBREVIATION[row[1]] : row[1]}
               </td>
               {HEADER.slice(2).map((_, colIndex) =>
                 colIndex === HEADER.indexOf(sortConfig.key) - 2 ? (
