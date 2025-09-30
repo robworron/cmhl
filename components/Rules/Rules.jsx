@@ -66,6 +66,19 @@ export default function Rules() {
           to leave the ice will result in a forfeiture and team loss.
         </li>
       </ol>
+      <h2>PLAYOFFS</h2>
+      <ol>
+        <li>
+          If the game is tied after the 3rd period there is a 5 minute 3-on-3
+          overtime. After overtime there will be a 5 player shootout. If there
+          is still a tie after the first 5 players, it will be sudden death.
+        </li>
+        <li>No repeat shooters.</li>
+        <li>
+          Teams will have to go through the whole roster before they can
+          re-select a player.
+        </li>
+      </ol>
       <h2>PENALTIES</h2>
       <ol>
         <li>
@@ -142,11 +155,9 @@ export default function Rules() {
       </ol>
       <h2>ROSTERS</h2>
       <ol>
+        <li>The maximum roster size is twenty (20) players plus a goalie.</li>
         <li>
-          The maximum roster size is seventeen (17) players plus a goalie.
-        </li>
-        <li>
-          A team roster must be submitted to the league commissioner by the
+          Team rosters must be submitted to the league commissioner by the
           beginning of the first game of the season.
         </li>
         <li>
@@ -163,7 +174,7 @@ export default function Rules() {
               to find a goalie for you. (Please allow up to 2 hours notice for
               the commissioner to find you a goalie)
             </li>
-            <li>No substitutions are allowed to play during playoffs.</li>
+            <li>Only team rosters are allowed to play during playoffs.</li>
           </ul>
         </li>
       </ol>
