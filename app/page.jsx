@@ -6,6 +6,13 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <NewsFeed
+        title="CMHL Returns"
+        date="Friday, October 10, 2025"
+        images={["league/league-cup-transparent.png"]}
+        imageSize="Large"
+        textBody={`Welcome to the 2025-26 CMHL Season!\n\nThe CMHL is proud to welcome players, fans, and families to the 3rd season of the Canucks Men's Hockey League! After two thrilling years of competitive hockey, the league continues to grow, and this season promises to be the most exciting yet.\n\nLast season ended in dramatic fashion as the Axemen clinched their first-ever CMHL Cup in a nail-biting 3-2 victory over the Gulls. After falling short to the Gulls in the previous year’s final, the Axemen returned with determination to hoist the prestigious CMHL Cup.\n\nThis season, we’re thrilled to introduce two new franchises to the CMHL family. The Seamen, coming over from the CYO League in St. Catharines, bring a legacy of success and are eager to make waves in Niagara Falls. With a strong core and championship pedigree, they’re sure to be a team to watch. Also entering the league, the Bulldogs are brand-new franchise with fresh energy and ambition eager to leave their mark on the CMHL. Their arrival adds even more depth and excitement to the league.\n\nAlong with the other six returning teams, the race for the CMHL Cup is wide open. Will the Axemen defend their title? Can the Gulls reclaim their crown? Or will a new contender rise to the top?\n\nThe CMHL is excited to drop the puck on another successful season of hockey at the Gale Centre. Good luck to all teams, and we look forward to seeing you on the ice!`}
+      />
+      <NewsFeed
         title="Axemen Edge Gulls, Claim Title"
         date="Sunday, March 23, 2025"
         images={[
