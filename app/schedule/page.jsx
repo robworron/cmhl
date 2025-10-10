@@ -66,7 +66,7 @@ export default function SchedulePage() {
                   "Whiskey Dekes",
                 ]}
               />
-            ) : "2024-25" ? (
+            ) : selectedYear === "2024-25" ? (
               <Dropdown
                 onSelect={handleTeamChange}
                 defaultValue={"All Teams"}
