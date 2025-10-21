@@ -19,4 +19,4 @@ Website for a Niagara-based recreational hockey league, displaying schedules, sc
 
 ## Live Site
 
-[cmhlniagara.com](https://www.cmhlhockey.com)
+[cmhlniagara.com](https://www.cmhlniagara.com)
