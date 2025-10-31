@@ -21,7 +21,7 @@ export default function GameSummary({ gameData }) {
             row[4] ? (
               <h6 key={index}>
                 {row[2]} GOAL -- Scorer: {row[4]}, Assist: {row[5]}, Assist:{" "}
-                {row[5]} ({row[7]})
+                {row[6]} ({row[7]})
               </h6>
             ) : (
               <h6 key={index}>
@@ -40,7 +40,7 @@ export default function GameSummary({ gameData }) {
             row[4] ? (
               <h6 key={index}>
                 {row[2]} GOAL -- Scorer: {row[4]}, Assist: {row[5]}, Assist:{" "}
-                {row[5]} ({row[7]})
+                {row[6]} ({row[7]})
               </h6>
             ) : (
               <h6 key={index}>
@@ -59,7 +59,7 @@ export default function GameSummary({ gameData }) {
             row[4] ? (
               <h6 key={index}>
                 {row[2]} GOAL -- Scorer: {row[4]}, Assist: {row[5]}, Assist:{" "}
-                {row[5]} ({row[7]})
+                {row[6]} ({row[7]})
               </h6>
             ) : (
               <h6 key={index}>
