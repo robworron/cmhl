@@ -121,7 +121,13 @@ export default function BoxscorePage({ params }) {
               homeScoring={homeScoring}
               awayScoring={awayScoring}
             />
-            <GameSummary gameData={filteredGameSummaryData} />
+            <GameSummary
+              gameData={filteredGameSummaryData}
+              homeSkaters={homeSkaters}
+              homeGoalies={homeGoalies}
+              awaySkaters={awaySkaters}
+              awayGoalies={awayGoalies}
+            />
           </div>
           <>
             {windowWidth < 1024 ? (

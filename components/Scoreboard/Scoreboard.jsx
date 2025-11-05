@@ -15,7 +15,11 @@ export default function Scoreboard() {
   const scrollRef = useRef(null);
 
   const getScrollWidth = () => {
-    return window.innerWidth < 1024 ? 304 : 364;
+    return window.innerWidth < 1024
+      ? 304
+      : window.innerWidth < 1440
+      ? 364
+      : 362.75;
   };
 
   const handlePrevClick = () => {
@@ -41,7 +45,7 @@ export default function Scoreboard() {
       try {
         const response = await axios.get(
           "https://cmhlniagara.com/api/week_number"
-          //"http://localhost:3000/api/week_number"
+          //http://localhost:3000/api/week_number"
         );
         const weekNum = Number(response.data[0][0]);
         if (scrollRef.current) {
