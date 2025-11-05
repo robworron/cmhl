@@ -10,15 +10,15 @@
 }
 
 .gamesummary h4 {
-  margin: 10;
+  margin: 10px;
 }
 
 .gamesummary h5 {
-  margin: 4;
+  margin: 4px;
 }
 
 .gamesummary h6 {
-  margin: 4;
+  margin: 1px;
   padding: 5px 0px;
 }
 
@@ -34,14 +34,17 @@
 @media (min-width: 425px) {
   .gamesummary h4 {
     font-size: larger;
+    margin: 10px;
   }
 
   .gamesummary h5 {
     font-size: medium;
+    margin: 4px;
   }
 
   .gamesummary h6 {
     font-size: small;
+    margin: 1px;
   }
 }
 
