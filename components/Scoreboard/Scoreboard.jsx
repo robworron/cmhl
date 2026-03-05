@@ -18,8 +18,8 @@ export default function Scoreboard() {
     return window.innerWidth < 1024
       ? 304
       : window.innerWidth < 2560
-      ? 364
-      : 362.5;
+        ? 364
+        : 362.5;
   };
 
   const handlePrevClick = () => {
@@ -44,8 +44,8 @@ export default function Scoreboard() {
     const fetchWeekNumber = async () => {
       try {
         const response = await axios.get(
-          "https://cmhlniagara.com/api/week_number"
-          //"http://localhost:3000/api/week_number"
+          //"https://cmhlniagara.com/api/week_number"
+          "http://localhost:3000/api/week_number",
         );
         const weekNum = Number(response.data[0][0]);
         if (scrollRef.current) {
