@@ -1,60 +1,16 @@
 .newsfeed {
-  max-width: 90%;
-  min-width: 235px;
-  background-color: var(--secondary-grey);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.newsfeedTitle {
-  font-size: 40pt;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-
-.newsfeedDate {
-  font-size: 16pt;
-  margin-top: 5px;
-}
-
-.newsfeedBody {
-  font-size: 14pt;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
   .newsfeed {
-    padding: 20px;
-  }
-  .newsfeedTitle {
-    font-size: 20pt;
-    margin-top: 0px;
-  }
-
-  .newsfeedDate {
-    font-size: 12pt;
-    margin-top: 5px;
-  }
-
-  .newsfeedBody {
-    font-size: 10pt;
-  }
-}
-
-@media (min-width: 1024px) {
-  .newsfeed {
-    max-width: 90%;
-  }
-  .newsfeedBody p {
-    width: 80%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .newsfeed {
-    max-width: 900px;
+    padding: 10px;
   }
 }
