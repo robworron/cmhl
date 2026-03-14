@@ -1,6 +1,6 @@
 import React from "react";
 
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 
 import styles from "./footer.module.css";
 
@@ -93,6 +93,10 @@ export default function Footer() {
       <div className={styles.footerEmailInfo}>
         <EnvelopeIcon style={{ width: 24, padding: 3 }} />
         <h5 style={{ margin: 0 }}>rworron94@gmail.com</h5>
+      </div>
+      <div className={styles.footerWebsiteInfo}>
+        <GlobeAltIcon style={{ width: 24, padding: 3 }} />
+        <h5 style={{ margin: 0 }}>https://www.robworron.ca/</h5>
       </div>
     </footer>
   );

@@ -51,6 +51,12 @@
   display: flex;
   align-items: center;
   color: white;
+}
+
+.footerWebsiteInfo {
+  display: flex;
+  align-items: center;
+  color: white;
   padding-bottom: 10px;
 }
 
@@ -79,13 +85,6 @@
   .footerTeamLogo {
     width: 80px;
     height: 60px;
-  }
-
-  .footerEmailInfo {
-    display: flex;
-    align-items: center;
-    color: white;
-    padding-bottom: 10px;
   }
 
   .footer p {
