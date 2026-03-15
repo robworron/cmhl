@@ -2,7 +2,7 @@ export const TEAMS = {
   CMHL: {
     name: "Canucks Mens Hockey League",
     abbreviation: "CMHL",
-    logoFile: "/assets/logos/logo-transparent-black.png",
+    logoFile: "/assets/logos/logo-transparent-black.webp",
     primaryColor: "#E6202A",
     secondaryColor: "#FFF",
   },

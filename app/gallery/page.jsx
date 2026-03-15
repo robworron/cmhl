@@ -13,12 +13,12 @@ export default function GalleryPage() {
     if (date === "2025-03-14") {
       return Array.from(
         { length: 75 },
-        (_, index) => `/images/2025-03-14/img${index + 1}.JPG`
+        (_, index) => `/images/2025-03-14/img${index + 1}.webp`,
       );
     }
     return Array.from(
       { length: 215 },
-      (_, index) => `/images/2025-03-21/img${index + 1}.JPG`
+      (_, index) => `/images/2025-03-21/img${index + 1}.webp`,
     );
   };
 

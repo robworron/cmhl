@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styles from "./leagueinfo.module.css";
 
-const GALE_CENTER = "/assets/gale-centre.jpg";
+const GALE_CENTER = "/assets/other/gale-centre.webp";
 
 export default function LeagueInfo() {
   return (

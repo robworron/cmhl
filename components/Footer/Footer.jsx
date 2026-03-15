@@ -4,7 +4,7 @@ import { EnvelopeIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 
 import styles from "./footer.module.css";
 
-const LEAGUE_LOGO = "/assets/logos/logo-transparent-white.png";
+const LEAGUE_LOGO = "/assets/logos/logo-transparent-white.webp";
 const AXEMEN_LOGO = "/assets/logos/axemen-transparent.png";
 const BULLDOGS_LOGO = "/assets/logos/bulldogs-transparent.png";
 const GULLS_LOGO = "/assets/logos/gulls-transparent.png";
