@@ -4,8 +4,10 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 
 import axios from "axios";
 
+import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
+import { TEAMS } from "@/utils/teams";
 
 import styles from "./scoreboard.module.css";
 
@@ -70,6 +72,26 @@ export default function Scoreboard() {
     return <h2>Invalid schedule data</h2>;
   }
 
+  const renderFinals = () => {
+    return scheduleData
+      .filter((game) => game[1] === "91")
+      .map((game, index) => (
+        <FinalsBanner
+          key={index}
+          home={TEAMS["AXE"].name}
+          homePrimary={TEAMS["AXE"].primaryColor}
+          homeSecondary={TEAMS["AXE"].secondaryColor}
+          homeLogo={TEAMS["AXE"].logoFile}
+          away={TEAMS["SEA"].name}
+          awayPrimary={TEAMS["SEA"].primaryColor}
+          awaySecondary={TEAMS["SEA"].secondaryColor}
+          awayLogo={TEAMS["SEA"].logoFile}
+          date={game[2]?.split(",")[0] || "TBD"}
+          time={game[4] || "TBD"}
+        />
+      ));
+  };
+
   const renderMatchups = () => {
     return scheduleData.map((game, index) => (
       <ScoreboardMatchup
@@ -86,17 +108,35 @@ export default function Scoreboard() {
     ));
   };
 
+  const renderLeftArrow = () => (
+    <button className={styles.scoreboardArrow} onClick={handlePrevClick}>
+      &lt;
+    </button>
+  );
+
+  const renderRightArrow = () => (
+    <button className={styles.scoreboardArrow} onClick={handleNextClick}>
+      &gt;
+    </button>
+  );
+
+  /** FOR FINALS */
+  /**
   return (
     <div className={styles.scoreboard}>
-      <button className={styles.scoreboardArrow} onClick={handlePrevClick}>
-        &lt;
-      </button>
+      <div className={styles.scoreboardFinals}>{renderFinals()}</div>
+    </div>
+  );
+*/
+
+  /** FOR REGULAR SEASON */
+  return (
+    <div className={styles.scoreboard}>
+      {renderLeftArrow()}
       <div className={styles.scoreboardScroll} ref={scrollRef}>
         <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
       </div>
-      <button className={styles.scoreboardArrow} onClick={handleNextClick}>
-        &gt;
-      </button>
+      {renderRightArrow()}
     </div>
   );
 }

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
 }
 
 @media (min-width: 1024px) {

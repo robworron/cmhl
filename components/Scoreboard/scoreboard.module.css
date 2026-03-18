@@ -32,6 +32,13 @@
   min-width: max-content;
 }
 
+.scoreboardFinals {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  min-width: max-content;
+}
+
 @media (min-width: 1024px) {
   .scoreboardArrow {
     display: flex;

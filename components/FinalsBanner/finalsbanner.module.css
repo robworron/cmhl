@@ -1,0 +1,111 @@
+.finalsBanner {
+  background-color: var(--primary-grey);
+  display: flex;
+  flex-direction: row;
+  color: var(--primary-black);
+  width: 100%;
+  font-size: 18px;
+}
+
+.finalsBanner h4,
+.finalsBanner h6 {
+  margin: 0px;
+}
+
+.finalsBannerLeft {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(
+    to right,
+    var(--primary-grey) -80%,
+    var(--colorTop) 70%,
+    var(--primary-grey) 100%
+  );
+  padding: 2px;
+}
+
+.finalsBannerLeftContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.finalsBannerCenter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.finalsBannerRight {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    var(--primary-grey) 0%,
+    var(--colorTop) 30%,
+    var(--primary-grey) 180%
+  );
+  padding: 2px;
+}
+
+.finalsBannerRightContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .finalsBanner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 22px;
+  }
+
+  .finalsBannerLeft {
+    flex: 2;
+    display: flex;
+    background: linear-gradient(
+      to right,
+      var(--primary-grey) 0%,
+      var(--colorTop) 85%,
+      var(--primary-grey) 100%
+    );
+    padding: 2px;
+  }
+
+  .finalsBannerLeftContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+  }
+
+  .finalsBannerCenter {
+    flex: 1;
+  }
+
+  .finalsBannerRight {
+    flex: 2;
+    display: flex;
+    background: linear-gradient(
+      to right,
+      var(--primary-grey) 0%,
+      var(--colorTop) 15%,
+      var(--primary-grey) 100%
+    );
+  }
+
+  .finalsBannerRightContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+  }
+}
