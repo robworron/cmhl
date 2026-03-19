@@ -19,10 +19,12 @@
   background: linear-gradient(
     to right,
     var(--primary-grey) -80%,
+    var(--colorTop) 30%,
     var(--colorTop) 70%,
     var(--primary-grey) 100%
   );
   padding: 2px;
+  color: white;
 }
 
 .finalsBannerLeftContent {
@@ -49,9 +51,11 @@
     to right,
     var(--primary-grey) 0%,
     var(--colorTop) 30%,
+    var(--colorTop) 70%,
     var(--primary-grey) 180%
   );
   padding: 2px;
+  color: white;
 }
 
 .finalsBannerRightContent {
@@ -74,6 +78,7 @@
     background: linear-gradient(
       to right,
       var(--primary-grey) 0%,
+      var(--colorTop) 50%,
       var(--colorTop) 85%,
       var(--primary-grey) 100%
     );
@@ -85,6 +90,7 @@
     justify-content: space-around;
     align-items: center;
     width: 50%;
+    color: white;
   }
 
   .finalsBannerCenter {
@@ -98,6 +104,7 @@
       to right,
       var(--primary-grey) 0%,
       var(--colorTop) 15%,
+      var(--colorTop) 50%,
       var(--primary-grey) 100%
     );
   }
@@ -107,5 +114,6 @@
     justify-content: space-around;
     align-items: center;
     width: 50%;
+    color: white;
   }
 }

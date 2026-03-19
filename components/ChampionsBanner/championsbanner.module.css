@@ -1,11 +1,12 @@
 .championsBanner {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  gap: 50px;
   width: 100%;
   height: 50px;
-  background: var(--primary-grey);
-  border-radius: 80px;
+  background: radial-gradient(var(--colorPrimary) 30%, var(--primary-grey) 50%);
+  color: white;
 }
 
 .championsBanner h1 {
@@ -24,14 +25,13 @@
 
 .championsBannerTrophy {
   position: relative;
-  width: 70px;
-  height: 130px;
+  width: 100px;
+  height: 100%;
 }
 
 @media (min-width: 768px) {
   .championsBanner {
-    max-width: 750px;
-    height: 80px;
+    height: 100%;
   }
 
   .championsBanner h1 {
@@ -40,13 +40,13 @@
 
   .championsBannerLogo {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 100%;
   }
 
   .championsBannerTrophy {
     position: relative;
-    width: 110px;
-    height: 180px;
+    width: 250px;
+    height: 100%;
   }
 }

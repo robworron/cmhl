@@ -1,24 +1,28 @@
 import React from "react";
-
 import Image from "next/image";
 
+import { TEAMS } from "@/utils/teams";
+
 import styles from "./championsbanner.module.css";
+const TROPHY = "/assets/other/league-cup-transparent.webp";
 
-export const ChampionsBanner = () => {
-  const WINNERS_LOGO = "/assets/logos/axemen-transparent.png";
-  const TROPHY = "/assets/league/league-cup.png";
-
+export default function ChampionsBanner({ team, year }) {
   return (
-    <div className={styles.championsBanner}>
+    <div
+      className={styles.championsBanner}
+      style={{
+        "--colorPrimary": TEAMS[team].primaryColor,
+      }}
+    >
       <div className={styles.championsBannerLogo}>
         <Image
-          src={WINNERS_LOGO}
+          src={TEAMS[team].logoFile}
           fill
           style={{ objectFit: "contain" }}
           alt="Winners Logo"
         />
       </div>
-      <h1>2024-25 CMHL CHAMPIONS</h1>
+      <h1>{year} CMHL CHAMPIONS</h1>
       <div className={styles.championsBannerTrophy}>
         <Image
           src={TROPHY}
@@ -29,4 +33,4 @@ export const ChampionsBanner = () => {
       </div>
     </div>
   );
-};
+}

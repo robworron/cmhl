@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 
 import axios from "axios";
 
+import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
@@ -72,6 +73,22 @@ export default function Scoreboard() {
     return <h2>Invalid schedule data</h2>;
   }
 
+  const renderMatchups = () => {
+    return scheduleData.map((game, index) => (
+      <ScoreboardMatchup
+        key={index}
+        home={game[5] || "TBD"}
+        homeScore={game[6] || "--"}
+        away={game[7] || "TBD"}
+        awayScore={game[8] || "--"}
+        date={game[2]?.split(",")[0] || "TBD"}
+        time={game[4] || "TBD"}
+        gameNum={game[1] || "N/A"}
+        rink={game[3] || "TBD"}
+      />
+    ));
+  };
+
   const renderFinals = () => {
     return scheduleData
       .filter((game) => game[1] === "91")
@@ -92,20 +109,8 @@ export default function Scoreboard() {
       ));
   };
 
-  const renderMatchups = () => {
-    return scheduleData.map((game, index) => (
-      <ScoreboardMatchup
-        key={index}
-        home={game[5] || "TBD"}
-        homeScore={game[6] || "--"}
-        away={game[7] || "TBD"}
-        awayScore={game[8] || "--"}
-        date={game[2]?.split(",")[0] || "TBD"}
-        time={game[4] || "TBD"}
-        gameNum={game[1] || "N/A"}
-        rink={game[3] || "TBD"}
-      />
-    ));
+  const renderChampionsBanner = () => {
+    return <ChampionsBanner team="SEA" year="2025-26" />;
   };
 
   const renderLeftArrow = () => (
@@ -120,15 +125,6 @@ export default function Scoreboard() {
     </button>
   );
 
-  /** FOR FINALS */
-  /**
-  return (
-    <div className={styles.scoreboard}>
-      <div className={styles.scoreboardFinals}>{renderFinals()}</div>
-    </div>
-  );
-*/
-
   /** FOR REGULAR SEASON */
   return (
     <div className={styles.scoreboard}>
@@ -139,4 +135,24 @@ export default function Scoreboard() {
       {renderRightArrow()}
     </div>
   );
+
+  /** FOR FINALS */
+  /**
+  return (
+    <div className={styles.scoreboard}>
+      <div className={styles.scoreboardFinals}>{renderFinals()}</div>
+    </div>
+  );
+  */
+
+  /** FOR OFFSEASON */
+  /**
+  return (
+    <div className={styles.scoreboard}>
+      <div className={styles.scoreboardChampions}>
+        {renderChampionsBanner()}
+      </div>
+    </div>
+  );
+  */
 }

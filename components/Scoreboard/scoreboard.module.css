@@ -39,6 +39,15 @@
   min-width: max-content;
 }
 
+.scoreboardChampions {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 @media (min-width: 1024px) {
   .scoreboardArrow {
     display: flex;
