@@ -1,5 +1,4 @@
 import Logo from "@/components/Logo/Logo";
-import { getTeamLogoByAbbreviation } from "@/utils/formats";
 
 import styles from "./teamboxscore.module.css";
 
@@ -25,8 +24,8 @@ export default function TeamBoxscore({ team, skaterData, goalieData }) {
                   index === 0
                     ? styles.teamboxscoreNumberCell
                     : index === 1
-                    ? styles.teamboxscorePlayerCell
-                    : styles.teamboxscoreStatCell
+                      ? styles.teamboxscorePlayerCell
+                      : styles.teamboxscoreStatCell
                 }
               >
                 {stat}
@@ -61,8 +60,8 @@ export default function TeamBoxscore({ team, skaterData, goalieData }) {
                   index === 0
                     ? styles.teamboxscoreNumberCell
                     : index === 1
-                    ? styles.teamboxscorePlayerCell
-                    : styles.teamboxscoreStatCell
+                      ? styles.teamboxscorePlayerCell
+                      : styles.teamboxscoreStatCell
                 }
               >
                 {stat}

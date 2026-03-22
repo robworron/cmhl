@@ -8,6 +8,7 @@ import GoalieStats from "@/components/GoalieStats/GoalieStats";
 import SkaterStats from "@/components/SkaterStats/SkaterStats";
 import StatsLegend from "@/components/StatsLegend/StatsLegend";
 import { fetchStats } from "@/utils/fetchStats";
+import config from "../config";
 
 import styles from "./stats.module.css";
 
@@ -15,7 +16,7 @@ export default function StatsPage() {
   const [stats, setStats] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("skater");
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
-  const [selectedYear, setSelectedYear] = useState("2025-26");
+  const [selectedYear, setSelectedYear] = useState(config.currentSeasonLong); //this value may need to be temporary set to prior year until first weeks stats are launched each year
 
   const handleTeamChange = (team) => {
     setSelectedTeam(team);
@@ -62,40 +63,16 @@ export default function StatsPage() {
           <div className={styles.statsDropdowns}>
             <Dropdown
               onSelect={handleYearChange}
-              defaultValue={"2025-26"}
-              options={["2024-25", "2025-26"]}
+              defaultValue={config.currentSeasonLong} //this value may need to be temporary set to prior year until first weeks stats are launched each year
+              options={config.seasons.filter((season) => season !== "2023-24")}
             />
-            {selectedYear === "2024-25" ? (
-              <Dropdown
-                onSelect={handleTeamChange}
-                defaultValue={"All Teams"}
-                options={[
-                  "All Teams",
-                  "Axemen",
-                  "Gulls",
-                  "Jagrbombs",
-                  "Mighty Drunks",
-                  "Rockies",
-                  "Toonie Tuesday",
-                ]}
-              />
-            ) : (
-              <Dropdown
-                onSelect={handleTeamChange}
-                defaultValue={"All Teams"}
-                options={[
-                  "All Teams",
-                  "Axemen",
-                  "Bulldogs",
-                  "Gulls",
-                  "Jagrbombs",
-                  "Mighty Drunks",
-                  "Rockies",
-                  "Seamen",
-                  "Toonie Tuesday",
-                ]}
-              />
-            )}
+            <Dropdown
+              onSelect={handleTeamChange}
+              defaultValue={"All Teams"}
+              options={
+                config.teamsMappings[selectedYear || config.currentSeasonLong]
+              }
+            />
           </div>
         </div>
         {selectedCategory === "skater" && (

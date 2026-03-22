@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useContext, createContext } from "react";
-
 import { fetchSchedule } from "@/utils/fetchSchedule";
+import config from "@/app/config";
 
 export const ScheduleContext = createContext();
 
@@ -16,7 +16,9 @@ export const ScheduleProvider = ({ children }) => {
         const data = await fetchSchedule();
         setScheduleData(data);
       } catch (e) {
-        setScheduleError("ERROR: Failed to fetch 2025 Schedule");
+        setScheduleError(
+          `ERROR: Failed to fetch ${config.currentSeason} Schedule`,
+        );
       }
     };
 

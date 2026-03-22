@@ -8,7 +8,6 @@ import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
-import { TEAMS } from "@/utils/teams";
 
 import styles from "./scoreboard.module.css";
 
@@ -47,8 +46,8 @@ export default function Scoreboard() {
     const fetchWeekNumber = async () => {
       try {
         const response = await axios.get(
-          "https://cmhlniagara.com/api/week_number",
-          //"http://localhost:3000/api/week_number",
+          //"https://cmhlniagara.com/api/week_number",
+          "http://localhost:3000/api/week_number",
         );
         const weekNum = Number(response.data[0][0]);
         if (scrollRef.current) {
@@ -95,22 +94,15 @@ export default function Scoreboard() {
       .map((game, index) => (
         <FinalsBanner
           key={index}
-          home={TEAMS["AXE"].name}
-          homePrimary={TEAMS["AXE"].primaryColor}
-          homeSecondary={TEAMS["AXE"].secondaryColor}
-          homeLogo={TEAMS["AXE"].logoFile}
-          away={TEAMS["SEA"].name}
-          awayPrimary={TEAMS["SEA"].primaryColor}
-          awaySecondary={TEAMS["SEA"].secondaryColor}
-          awayLogo={TEAMS["SEA"].logoFile}
+          //time={game[4] || "TBD"}
+          time={"TBA"}
           date={game[2]?.split(",")[0] || "TBD"}
-          time={game[4] || "TBD"}
         />
       ));
   };
 
   const renderChampionsBanner = () => {
-    return <ChampionsBanner team="SEA" year="2025-26" />;
+    return <ChampionsBanner />;
   };
 
   const renderLeftArrow = () => (
@@ -126,6 +118,7 @@ export default function Scoreboard() {
   );
 
   /** FOR REGULAR SEASON */
+  /**
   return (
     <div className={styles.scoreboard}>
       {renderLeftArrow()}
@@ -135,15 +128,14 @@ export default function Scoreboard() {
       {renderRightArrow()}
     </div>
   );
+  */
 
   /** FOR FINALS */
-  /**
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardFinals}>{renderFinals()}</div>
     </div>
   );
-  */
 
   /** FOR OFFSEASON */
   /**

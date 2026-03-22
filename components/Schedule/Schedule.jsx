@@ -1,35 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 import ScheduleMatchup from "@/components/ScheduleMatchup/ScheduleMatchup";
+import config from "@/app/config";
 
 import styles from "./schedule.module.css";
 
 export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
 
   const formatGameNum = (year, gameNum) => {
-    if (year === "2023-24") {
-      if (gameNum === "45") return "SF 1";
-      if (gameNum === "46") return "SF 2";
-      if (gameNum === "47") return "FINAL";
-    } else if (year === "2024-25") {
-      if (gameNum === "QF1") return "QF 1";
-      if (gameNum === "QF2") return "QF 2";
-      if (gameNum === "SF1") return "SF 1";
-      if (gameNum === "SF2") return "SF 2";
-      if (gameNum === "Final") return "FINAL";
-    } else if (year === "2025-26") {
-      if (gameNum === "85") return "QF 1";
-      if (gameNum === "86") return "QF 2";
-      if (gameNum === "87") return "QF 3";
-      if (gameNum === "88") return "QF 4";
-      if (gameNum === "89") return "SF 1";
-      if (gameNum === "90") return "SF 2";
-      if (gameNum === "91") return "FINAL";
-    }
-    return `Game ${gameNum}`;
+    return config.gameMappings[year]?.[gameNum] ?? `Game ${gameNum}`;
   };
 
   const formatWeekHeader = (year, week) => {
@@ -57,7 +39,7 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
     (game) =>
       scheduleTeam === "All Teams" ||
       game[5] === scheduleTeam ||
-      game[7] === scheduleTeam
+      game[7] === scheduleTeam,
   );
 
   const gamesByWeek = filteredGames.reduce((acc, game) => {

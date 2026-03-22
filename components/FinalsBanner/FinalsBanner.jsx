@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
 import Logo from "@/components/Logo/Logo";
+import { TEAMS } from "@/utils/teams";
+import config from "@/app/config";
 
 import styles from "./finalsbanner.module.css";
 
@@ -11,18 +13,7 @@ const determineLogoSize = (width) => {
   return { w: 50, h: 40 };
 };
 
-export default function FinalsBanner({
-  home,
-  homePrimary,
-  homeSecondary,
-  homeLogo,
-  away,
-  awayPrimary,
-  awaySecondary,
-  awayLogo,
-  time,
-  date,
-}) {
+export default function FinalsBanner({ time, date }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -37,17 +28,17 @@ export default function FinalsBanner({
       <div
         className={styles.finalsBannerLeft}
         style={{
-          "--colorTop": homePrimary,
-          "--colorBottom": homeSecondary,
+          "--colorTop": TEAMS[config.finalsHome].primaryColor,
+          "--colorBottom": TEAMS[config.finalsHome].secondaryColor,
         }}
       >
         <div className={styles.finalsBannerLeftContent}>
-          <h4>{home}</h4>
+          <h4>{TEAMS[config.finalsHome].name}</h4>
           <Logo
-            src={homeLogo}
+            src={TEAMS[config.finalsHome].logoFile}
             width={determineLogoSize(windowWidth).w}
             height={determineLogoSize(windowWidth).h}
-            alt={home}
+            alt={TEAMS[config.finalsHome].name}
           />
         </div>
       </div>
@@ -59,18 +50,18 @@ export default function FinalsBanner({
       <div
         className={styles.finalsBannerRight}
         style={{
-          "--colorTop": awayPrimary,
-          "--colorBottom": awaySecondary,
+          "--colorTop": TEAMS[config.finalsAway].primaryColor,
+          "--colorBottom": TEAMS[config.finalsAway].secondaryColor,
         }}
       >
         <div className={styles.finalsBannerRightContent}>
           <Logo
-            src={awayLogo}
+            src={TEAMS[config.finalsAway].logoFile}
             width={determineLogoSize(windowWidth).w}
             height={determineLogoSize(windowWidth).h}
-            alt={away}
+            alt={TEAMS[config.finalsAway].name}
           />
-          <h4>{away}</h4>
+          <h4>{TEAMS[config.finalsAway].name}</h4>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const determineLogoSize = (width) => {
   return { w: 40, h: 35 };
 };
 
-export default function SkaterStats({ data, year, team }) {
+export default function SkaterStats({ data, team }) {
   const HEADER = [
     "RK",
     "Player",
@@ -30,7 +30,7 @@ export default function SkaterStats({ data, year, team }) {
   ];
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const [sortConfig, setSortConfig] = useState({
     key: "P",
@@ -83,7 +83,7 @@ export default function SkaterStats({ data, year, team }) {
 
   const sortedSkaterStats = useMemo(
     () => getSortedSkaterStats(),
-    [data, sortConfig]
+    [data, sortConfig],
   );
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export default function SkaterStats({ data, year, team }) {
                     <td key={colIndex} className={styles.skaterstatsStatsCell}>
                       {col}
                     </td>
-                  )
+                  ),
                 )}
               </tr>
             ))}

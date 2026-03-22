@@ -15,7 +15,7 @@ const determineLogoSize = (width) => {
   return { w: 40, h: 35 };
 };
 
-export default function GoalieStats({ data, year, team }) {
+export default function GoalieStats({ data, team }) {
   const HEADER = [
     "RK",
     "Player",
@@ -30,7 +30,7 @@ export default function GoalieStats({ data, year, team }) {
   ];
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const [sortConfig, setSortConfig] = useState({
     key: "W",
@@ -83,7 +83,7 @@ export default function GoalieStats({ data, year, team }) {
 
   const sortedGoalieStats = useMemo(
     () => getSortedGoalieStats(),
-    [data, sortConfig]
+    [data, sortConfig],
   );
 
   useEffect(() => {
@@ -138,7 +138,7 @@ export default function GoalieStats({ data, year, team }) {
                     <td key={colIndex} className={styles.goaliestatsStatsCell}>
                       {col}
                     </td>
-                  )
+                  ),
                 )}
               </tr>
             ))}

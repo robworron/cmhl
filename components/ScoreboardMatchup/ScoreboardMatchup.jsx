@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 
 import Logo from "@/components/Logo/Logo";
-
 import { getTeamLogoByName } from "@/utils/formats";
+import config from "@/app/config";
+
 import styles from "./scoreboardmatchup.module.css";
 
 const determineLogoSize = (width) => {
@@ -23,32 +24,14 @@ export default function ScoreboardMatchup({
   rink,
 }) {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
 
   const formatPlayoffMatchupGameNum = (gameNum) => {
-    if (gameNum === "85") {
-      return "QF 1";
-    }
-    if (gameNum === "86") {
-      return "QF 2";
-    }
-    if (gameNum === "87") {
-      return "QF 3";
-    }
-    if (gameNum === "88") {
-      return "QF 4";
-    }
-    if (gameNum === "89") {
-      return "SF 1";
-    }
-    if (gameNum === "90") {
-      return "SF 2";
-    }
-    if (gameNum === "91") {
-      return "FINAL";
-    }
-    return `Game #${gameNum}`;
+    return (
+      config.gameMappings[config.currentSeasonLong]?.[gameNum] ??
+      `Game ${gameNum}`
+    );
   };
 
   const logoSize = useMemo(() => determineLogoSize(windowWidth), [windowWidth]);

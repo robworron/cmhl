@@ -6,6 +6,23 @@ export default function NewsFeed() {
   return (
     <section className={styles.newsfeed}>
       <NewsItem
+        title="Seamen, Axemen to Battle for CMHL Supremacy"
+        date="Sunday, March 22, 2026"
+        images={[
+          "newsfeed/2026-playoff-bracket-f.webp",
+          "newsfeed/2026-03-22/img1.webp",
+          "newsfeed/2026-03-22/img2.webp",
+          "newsfeed/2026-03-22/img3.webp",
+          "newsfeed/2026-03-22/img4.webp",
+          "newsfeed/2026-03-22/img5.webp",
+          "newsfeed/2026-03-22/img6.webp",
+          "newsfeed/2026-03-22/img7.webp",
+          "newsfeed/2026-03-22/img8.webp",
+        ]}
+        imageSize="Large"
+        textBody={`NOTE TO PLAYERS - GAME TIME TBA. CHECK BACK LATER THIS WEEK FOR MORE INFORMATION.\n\nThe Seamen and Axemen are set to face off next Friday in the 2026 CMHL Final after each earned wins in last night's semi-finals.\n\nFirst, the Seamen beat Toonie Tuesday in a tightly contested 5-3 game. Despite a two goal effort from Zack Keldson, the Seamen's Brad Pagetto scored to take an early lead and never looked back. The offense was led by Alex DiCarlo and Matthew Maidens who potted two each, and Reid Morgan shut the door in net to secure a CMHL Finals berth.\n\nThe late game saw a 2025 CMHL Finals rematch as the Axemen took down the Gulls 7-3. Cesare Caldaroni opened the scoring to grab the lead late in the first for the Gulls, but seven unanswered goals ultimately secured the win for the Axemen. Two tallies each by Luke Rymarchuk and Stephen Negus led the charge for the Axemen and solid goaltending from Cassidy Traver set up the date with the Seamen.\n\nNext week's title match's time is TBA as the Axemen look to become the first back-to-back champions in CMHL history, and the Seamen aim to win the title in their debut season. Good luck to both teams in their final hurdle to win the 2026 CMHL Championship, and thank you to both the Gulls and Toonie Tuesday on another great year.`}
+      />
+      <NewsItem
         title="Final Four"
         date="Saturday, March 14, 2026"
         images={["newsfeed/2026-playoff-bracket-sf.webp"]}
