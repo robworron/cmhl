@@ -1,0 +1,11 @@
+.pastchampions {
+  width: auto;
+  padding: 10px;
+  background-color: var(--secondary-grey);
+  border-radius: 10px;
+}
+
+.pastchampions h4 {
+  margin: 0;
+  font-size: 24px;
+}

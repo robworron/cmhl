@@ -95,7 +95,7 @@ export default function Scoreboard() {
         <FinalsBanner
           key={index}
           //time={game[4] || "TBD"}
-          time={"TBA"}
+          time={"10:15PM"}
           date={game[2]?.split(",")[0] || "TBD"}
         />
       ));

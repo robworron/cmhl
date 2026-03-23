@@ -71,6 +71,12 @@ export const TEAMS = {
   },
 };
 
+// MOST RECENT CHAMPION FIRST
+export const PAST_CHAMPIONS = [
+  { year: 2025, team: "Axemen" },
+  { year: 2024, team: "Gulls" },
+];
+
 export const TEAM_TO_ABBREVIATION = {
   "All Teams": "All Teams",
   Axemen: "AXE",
