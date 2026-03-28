@@ -131,14 +131,15 @@ export default function Scoreboard() {
   */
 
   /** FOR FINALS */
+  /**
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardFinals}>{renderFinals()}</div>
     </div>
   );
+  */
 
   /** FOR OFFSEASON */
-  /**
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardChampions}>
@@ -146,5 +147,4 @@ export default function Scoreboard() {
       </div>
     </div>
   );
-  */
 }

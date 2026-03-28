@@ -24,7 +24,7 @@ export default function ChampionsBanner() {
           alt="Winners Logo"
         />
       </div>
-      <h1>{config.currentSeason} CMHL CHAMPIONS</h1>
+      <h1>2026 CMHL CHAMPIONS</h1>
       <div className={styles.championsBannerTrophy}>
         <Image
           src={TROPHY}

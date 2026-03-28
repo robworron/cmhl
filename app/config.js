@@ -7,7 +7,7 @@ const config = {
   offseason: false,
   finalsHome: "SEA", // USE ABBREVIATION
   finalsAway: "AXE", // USE ABBREVIATION
-  champion: "", // USE ABBREVIATION
+  champion: "AXE", // USE ABBREVIATION
   gameMappings: {
     "2023-24": {
       45: "SF 1",
