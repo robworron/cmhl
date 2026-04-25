@@ -1,7 +1,13 @@
 import config from "@/app/config";
 
 export async function fetchStandings(season = config.currentSeasonShort) {
-  const res = await fetch(`/api/standings/${season}`, {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
+  const res = await fetch(`${baseUrl}/api/standings/${season}`, {
     next: { revalidate: 86400 },
   });
 
