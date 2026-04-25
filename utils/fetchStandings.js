@@ -1,7 +1,11 @@
-export async function fetchStandings(season) {
-  const res = await fetch(`http://localhost:3000/api/standings/${season}`, {
-    next: { revalidate: 86400 },
-  });
+import { getSheetData } from "@/utils/googleSheets";
 
-  return res.json();
+export async function fetchStandings(season) {
+  const spreadsheetId = process.env.SHEETS_SPREADSHEET_ID;
+
+  const range = `${season}_standings!A2:J`;
+
+  const data = await getSheetData(spreadsheetId, range);
+
+  return data;
 }
