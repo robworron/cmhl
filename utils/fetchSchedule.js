@@ -1,19 +1,11 @@
-import config from "@/app/config";
+import { getSheetData } from "./googleSheets";
 
-export async function fetchSchedule(season = config.currentSeasonShort) {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+export async function fetchSchedule(season) {
+  const spreadsheetId = process.env.SHEETS_SPREADSHEET_ID;
 
-  const res = await fetch(`${baseUrl}/api/schedule/${season}`, {
-    next: { revalidate: 86400 },
-  });
+  const range = `${season}_schedule!A2:I`;
 
-  if (!res.ok) {
-    throw new Error(`Failed to fetch schedule for ${season}`);
-  }
+  const data = await getSheetData(spreadsheetId, range);
 
-  return res.json();
+  return data;
 }
