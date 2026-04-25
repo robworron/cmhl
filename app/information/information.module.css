@@ -1,11 +1,11 @@
-.info {
+.information {
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 50px 0px;
 }
 
-.infoBody {
+.informationBody {
   max-width: 1120px;
   width: 90%;
 }

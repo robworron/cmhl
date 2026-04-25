@@ -11,7 +11,7 @@ const determineLogoSize = (width) => {
 
 export default function Dropdown({ onSelect, defaultValue, options }) {
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +46,10 @@ export default function Dropdown({ onSelect, defaultValue, options }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    setSelectedOption(defaultValue);
+  }, [defaultValue]);
+
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
       <button className={styles.dropdownButton} onClick={toggleDropdown}>
@@ -57,7 +61,7 @@ export default function Dropdown({ onSelect, defaultValue, options }) {
         <div className={styles.dropdownContent}>
           {options.map((selection, index) => (
             <div
-              key={index}
+              key={selection}
               className={styles.dropdownOption}
               onClick={() => handleSelect(selection)}
             >

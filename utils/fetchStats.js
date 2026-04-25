@@ -1,13 +1,21 @@
-export async function fetchStats(season = "2025", position = "skater") {
-  try {
-    const res = await fetch(`/api/stats/${position}/${season}`);
+import config from "@/app/config";
 
-    if (!res.ok)
-      throw new Error(`Failed to fetch ${position} stats for ${season}`);
+export async function fetchStats(
+  season = config.currentSeasonShort,
+  position = "skater",
+) {
+  const baseUrl =
+    typeof window === "undefined"
+      ? process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      : "";
 
-    return res.json();
-  } catch (err) {
-    console.error(err);
-    return null;
+  const res = await fetch(`${baseUrl}/api/stats/${position}/${season}`, {
+    next: { revalidate: 86400 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${position} stats for ${season}`);
   }
+
+  return res.json();
 }

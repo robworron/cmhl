@@ -1,58 +1,21 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-
-import Dropdown from "@/components/Dropdown/Dropdown";
-import Standings from "@/components/Standings/Standings";
-import StandingsLegend from "@/components/StandingsLegend/StandingsLegend";
-import Tiebreak from "@/components/Tiebreak/Tiebreak";
+import StandingsClient from "@/components/StandingsClient/StandingsClient";
 import { fetchStandings } from "@/utils/fetchStandings";
 
-import styles from "./standings.module.css";
+export const metadata = {
+  title: "Standings",
+  description:
+    "Current CMHL standings. Track team rankings in Niagara's most competitive men's hockey league.",
+};
 
-export default function StandingsPage() {
-  const [selectedYear, setSelectedYear] = useState("2025-26");
-  const [standings, setStandings] = useState([]);
-  const [error, setError] = useState(null);
+export default async function StandingsPage({ searchParams }) {
+  const params = await searchParams;
+  const year = params.year || "2025";
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
-  };
+  const standings = await fetchStandings(year);
 
-  useEffect(() => {
-    const getStandings = async () => {
-      const year =
-        selectedYear === "2025-26"
-          ? "2025"
-          : selectedYear === "2024-25"
-          ? "2024"
-          : "2023";
-      try {
-        const data = await fetchStandings(year);
-        setStandings(data);
-      } catch (e) {
-        setError(`ERROR: Failed to fetch ${selectedYear} Standings`);
-      }
-    };
+  if (!standings) {
+    return <div>ERROR: Failed to load standings for {year}</div>;
+  }
 
-    getStandings();
-  }, [selectedYear]);
-
-  return (
-    <div className={styles.standings}>
-      <div className={styles.standingsBody}>
-        <div className={styles.standingsHeader}>
-          <h1>Standings</h1>
-          <Dropdown
-            onSelect={handleYearChange}
-            defaultValue={"2025-26"}
-            options={["2023-24", "2024-25", "2025-26"]}
-          />
-        </div>
-        {error ? <h2>{error}</h2> : <Standings standingsData={standings} />}
-        <StandingsLegend />
-        <Tiebreak />
-      </div>
-    </div>
-  );
+  return <StandingsClient standings={standings} selectedYear={year} />;
 }

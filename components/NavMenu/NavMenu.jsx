@@ -105,7 +105,11 @@ export default function NavMenu() {
           </Link>
         </li>
         <li className={styles.navmenuListItem}>
-          <Link href="/info" className={styles.navmenuLink} onClick={closeMenu}>
+          <Link
+            href="/information"
+            className={styles.navmenuLink}
+            onClick={closeMenu}
+          >
             <h4>Info</h4>
             <svg
               xmlns="http://www.w3.org/2000/svg"

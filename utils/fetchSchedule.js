@@ -1,12 +1,18 @@
-export async function fetchSchedule(season = "2025") {
-  try {
-    const res = await fetch(`/api/schedule/${season}`);
+import config from "@/app/config";
 
-    if (!res.ok) throw new Error(`Failed to fetch schedule for ${season}`);
+export async function fetchSchedule(season = config.currentSeasonShort) {
+  const baseUrl =
+    typeof window === "undefined"
+      ? process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      : "";
 
-    return res.json();
-  } catch (err) {
-    console.error(err);
-    return null;
+  const res = await fetch(`${baseUrl}/api/schedule/${season}`, {
+    next: { revalidate: 86400 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch schedule for ${season}`);
   }
+
+  return res.json();
 }

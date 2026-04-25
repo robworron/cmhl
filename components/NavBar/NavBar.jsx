@@ -15,7 +15,7 @@ const NAV_LINKS = [
   { name: "Schedule", path: "/schedule" },
   { name: "Standings", path: "/standings" },
   { name: "Stats", path: "/stats" },
-  { name: "Info", path: "/info" },
+  { name: "Info", path: "/information" },
   { name: "Gallery", path: "/gallery" },
 ];
 

@@ -7,7 +7,7 @@ const GALE_CENTER = "/assets/other/gale-centre.webp";
 export default function LeagueInfo() {
   return (
     <div className={styles.leagueinfo}>
-      <h1>CMHL League Information</h1>
+      <h1>Information</h1>
       <div className={styles.leagueinfoInformation}>
         <div className={styles.leagueinfoImage}>
           <Image

@@ -1,11 +1,16 @@
-.stats {
+.standingsclient {
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 20px 0px;
 }
 
-.statsBody {
+.standingsclient h1 {
+  margin: 0px 0px 5px 0px;
+  font-size: 40px;
+}
+
+.standingsclientBody {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,35 +18,20 @@
   max-width: 1120px;
 }
 
-.statsHeader {
+.standingsclientHeader {
   width: 90%;
   padding: 20px 0px 10px 0px;
 }
 
-.statsDropdowns {
+.standingsclientDropdown {
+  font-size: 10pt;
+  flex: 1;
   display: flex;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.stats h1 {
-  margin: 0px;
-  font-size: 40px;
-}
-
-.statsHeader h2 {
-  margin: 40px 0px 0px 0px;
-}
-
-.statsButtons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  justify-content: end;
 }
 
 @media (min-width: 768px) {
-  .stats {
+  .standingsclient {
     padding: 50px 0px;
   }
 }

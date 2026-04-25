@@ -1,7 +1,17 @@
 const config = {
-  currentSeason: "2025", // USE ONE SEASON (ie. 2025, not 2025-26)
+  currentSeasonShort: "2025", // USE ONE SEASON (ie. 2025, not 2025-26)
   currentSeasonLong: "2025-26",
   seasons: ["2023-24", "2024-25", "2025-26"],
+  seasonShortToLong: {
+    2023: "2023-24",
+    2024: "2024-25",
+    2025: "2025-26",
+  },
+  seasonLongToShort: {
+    "2023-24": "2023",
+    "2024-25": "2024",
+    "2025-26": "2025",
+  },
   regularSeason: false,
   finals: true,
   offseason: false,

@@ -8,14 +8,17 @@ import "./globals.css";
 import styles from "./webpage.module.css";
 
 export const metadata = {
-  title: "CMHL",
-  description: "Canucks Men's Hockey League",
+  title: {
+    default: "CMHL | Canucks Men's Hockey League",
+    template: "%s | CMHL",
+  },
+  description:
+    "Niagara's most competitive men's recreational hockey league, based at the Gale Centre in Niagara Falls. Stats, schedules, and standings updated regularly.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {

@@ -17,7 +17,7 @@ export const ScheduleProvider = ({ children }) => {
         setScheduleData(data);
       } catch (e) {
         setScheduleError(
-          `ERROR: Failed to fetch ${config.currentSeason} Schedule`,
+          `ERROR: Failed to fetch ${config.currentSeasonShort} Schedule`,
         );
       }
     };
