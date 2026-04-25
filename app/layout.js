@@ -2,6 +2,7 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import NavMenu from "@/components/NavMenu/NavMenu";
+import { fetchSchedule } from "@/utils/fetchSchedule";
 import Providers from "./Providers";
 
 import "./globals.css";
@@ -21,11 +22,12 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const schedule = await fetchSchedule("2025");
   return (
     <html lang="en">
       <body>
-        <Providers>
+        <Providers schedule={schedule}>
           <div className={styles.webpageHeader}>
             <Header />
             <NavBar />
