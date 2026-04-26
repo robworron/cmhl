@@ -1,13 +1,10 @@
-import React from "react";
-
 import Scoreboard from "@/components/Scoreboard/Scoreboard";
-
 import styles from "./header.module.css";
 
-export default function Header() {
+export default function Header({ scheduleData, weekNum }) {
   return (
     <header className={styles.header}>
-      <Scoreboard />
+      <Scoreboard scheduleData={scheduleData} weekNum={weekNum} />
     </header>
   );
 }

@@ -1,19 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useContext } from "react";
-
-import axios from "axios";
-
+import React, { useEffect, useRef } from "react";
 import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
-import { ScheduleContext } from "../../contexts/2025_ScheduleContext";
-
 import styles from "./scoreboard.module.css";
 
-export default function Scoreboard() {
-  const { scheduleData, error } = useContext(ScheduleContext);
-  const [weekNumberError, setWeekNumberError] = useState(null);
+export default function Scoreboard({ scheduleData, weekNum }) {
   const scrollRef = useRef(null);
 
   const getScrollWidth = () => {
@@ -43,29 +36,15 @@ export default function Scoreboard() {
   };
 
   useEffect(() => {
-    const fetchWeekNumber = async () => {
-      try {
-        const response = await axios.get(
-          "https://cmhlniagara.com/api/week_number",
-          //"http://localhost:3000/api/week_number",
-        );
-        const weekNum = Number(response.data[0][0]);
-        if (scrollRef.current) {
-          const scrollAmount = (((weekNum - 1) * getScrollWidth()) / 2) * 4; // current week * scrolling width / number of games scrolling by * total num games in a week
-          scrollRef.current.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth",
-          });
-        }
-      } catch (e) {
-        console.error("Failed to fetch week number:", e);
-        setWeekNumberError("ERROR: Failed to fetch week number");
-      }
-    };
-    fetchWeekNumber();
-  }, [scheduleData]);
+    if (!scrollRef.current || !weekNum) return;
 
-  if (error || weekNumberError) return <h2>{error || weekNumberError}</h2>;
+    const scrollAmount = (((weekNum - 1) * getScrollWidth()) / 2) * 4;
+
+    scrollRef.current.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  }, [weekNum]);
 
   if (!Array.isArray(scheduleData)) {
     console.error("Schedule is not an array:", scheduleData);
@@ -118,7 +97,7 @@ export default function Scoreboard() {
   );
 
   /** FOR REGULAR SEASON */
-  /**
+
   return (
     <div className={styles.scoreboard}>
       {renderLeftArrow()}
@@ -128,7 +107,6 @@ export default function Scoreboard() {
       {renderRightArrow()}
     </div>
   );
-  */
 
   /** FOR FINALS */
   /**
@@ -140,6 +118,7 @@ export default function Scoreboard() {
   */
 
   /** FOR OFFSEASON */
+  /**
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardChampions}>
@@ -147,4 +126,5 @@ export default function Scoreboard() {
       </div>
     </div>
   );
+  */
 }

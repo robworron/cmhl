@@ -11,7 +11,7 @@ import StatsLegend from "@/components/StatsLegend/StatsLegend";
 import config from "@/app/config";
 import styles from "./statsclient.module.css";
 
-export default function StatsClient({ stats, selectedYear, selectedCategory }) {
+export default function StatsClient({ stats, selectedYear, selectedPosition }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
@@ -22,8 +22,8 @@ export default function StatsClient({ stats, selectedYear, selectedCategory }) {
     router.replace(`/stats?${params.toString()}`);
   }
 
-  function handleCategoryChange(category) {
-    updateParam("category", category);
+  function handlePositionChange(position) {
+    updateParam("category", position);
   }
 
   function handleYearChange(year) {
@@ -43,16 +43,16 @@ export default function StatsClient({ stats, selectedYear, selectedCategory }) {
           <h1>Stats</h1>
           <div className={styles.statsClientButtons}>
             <Button
-              primary={selectedCategory !== "skater"}
+              primary={selectedPosition !== "skater"}
               label="Skaters"
               size={"Large"}
-              onClick={() => handleCategoryChange("skater")}
+              onClick={() => handlePositionChange("skater")}
             />
             <Button
-              primary={selectedCategory !== "goalie"}
+              primary={selectedPosition !== "goalie"}
               label="Goalies"
               size={"Large"}
-              onClick={() => handleCategoryChange("goalie")}
+              onClick={() => handlePositionChange("goalie")}
             />
           </div>
           <div className={styles.statsClientDropdowns}>
@@ -76,10 +76,10 @@ export default function StatsClient({ stats, selectedYear, selectedCategory }) {
             />
           </div>
         </div>
-        {selectedCategory === "skater" && (
+        {selectedPosition === "skater" && (
           <SkaterStats data={stats} year={selectedYear} team={selectedTeam} />
         )}
-        {selectedCategory === "goalie" && (
+        {selectedPosition === "goalie" && (
           <GoalieStats data={stats} year={selectedYear} team={selectedTeam} />
         )}
         <StatsLegend />

@@ -10,14 +10,14 @@ export const metadata = {
 export default async function StatsPage({ searchParams }) {
   const params = await searchParams;
   const year = params.year || "2025";
-  const category = params.category || "skater";
+  const position = params.position || "skater";
 
-  const stats = await fetchStats(year, category);
+  const stats = await fetchStats(year, position);
 
   if (!stats) {
     return (
       <div>
-        ERROR: Failed to load {category} stats for {year}
+        ERROR: Failed to load {position} stats for {year}
       </div>
     );
   }
@@ -26,7 +26,7 @@ export default async function StatsPage({ searchParams }) {
     <StatsClient
       stats={stats}
       selectedYear={year}
-      selectedCategory={category}
+      selectedPosition={position}
     />
   );
 }

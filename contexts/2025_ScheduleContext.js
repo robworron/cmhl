@@ -4,8 +4,8 @@ import React, { useState, useContext, createContext } from "react";
 
 export const ScheduleContext = createContext();
 
-export const ScheduleProvider = ({ children, initialData }) => {
-  const [scheduleData] = useState(initialData || []);
+export const ScheduleProvider = ({ children }) => {
+  const [scheduleData] = useState([]);
   const [scheduleError] = useState(null);
 
   return (

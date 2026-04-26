@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import NavMenu from "@/components/NavMenu/NavMenu";
 import { fetchSchedule } from "@/utils/fetchSchedule";
+import { fetchWeekNum } from "@/utils/getWeekNum";
 import Providers from "./Providers";
 
 import "./globals.css";
@@ -24,12 +25,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const schedule = await fetchSchedule("2025");
+  const weekNum = await fetchWeekNum();
   return (
     <html lang="en">
       <body>
-        <Providers schedule={schedule}>
+        <Providers>
           <div className={styles.webpageHeader}>
-            <Header />
+            <Header scheduleData={schedule} weekNum={weekNum} />
             <NavBar />
           </div>
           <NavMenu />
@@ -42,3 +44,5 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
+
+// MAKE LAYOUT DO THE SCHEDULE FETCHING, PASS TO HEADER, THEN TO SCOREBOARD

@@ -1,13 +1,10 @@
 import { MenuProvider } from "@/contexts/MenuContext";
-import { ScheduleProvider } from "@/contexts/2025_ScheduleContext";
 import { WindowWidthProvider } from "@/contexts/WindowWidthContext";
 
-export default function Providers({ children, schedule }) {
+export default function Providers({ children }) {
   return (
     <WindowWidthProvider>
-      <ScheduleProvider initialData={schedule}>
-        <MenuProvider>{children}</MenuProvider>
-      </ScheduleProvider>
+      <MenuProvider>{children}</MenuProvider>
     </WindowWidthProvider>
   );
 }
