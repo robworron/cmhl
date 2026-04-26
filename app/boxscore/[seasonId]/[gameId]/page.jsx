@@ -3,6 +3,8 @@ import React, { use, useState, useEffect } from "react";
 
 import { TEAMS, TEAM_TO_ABBREVIATION } from "@/utils/teams";
 
+// SERVER SIDE DATA FETCHING IMPLEMENTATION NEEDED
+
 import BoxscoreBanner from "@/components/BoxscoreBanner/BoxscoreBanner";
 import Button from "@/components/Button/Button";
 import GameSummary from "@/components/GameSummary/GameSummary";
@@ -37,16 +39,16 @@ export default function BoxscorePage({ params }) {
     : [];
 
   const filteredSkaterData = unfilteredSkaterData.filter(
-    (data) => data[1] === gameId
+    (data) => data[1] === gameId,
   );
   const filteredGoalieData = unfilteredGoalieData.filter(
-    (data) => data[1] === gameId
+    (data) => data[1] === gameId,
   );
   const filteredGameSummaryData = unfilteredGameSummaryData.filter(
-    (data) => data[1] === gameId
+    (data) => data[1] === gameId,
   );
   const filteredGameInfoData = unfilteredScheduleData.filter(
-    (game) => game[1] === gameId
+    (game) => game[1] === gameId,
   );
 
   const gameTeams = [
@@ -55,16 +57,16 @@ export default function BoxscorePage({ params }) {
   ];
 
   const homeSkaters = filteredSkaterData.filter(
-    (data) => data[4] === gameTeams[0]
+    (data) => data[4] === gameTeams[0],
   );
   const awaySkaters = filteredSkaterData.filter(
-    (data) => data[4] === gameTeams[1]
+    (data) => data[4] === gameTeams[1],
   );
   const homeGoalies = filteredGoalieData.filter(
-    (data) => data[4] === gameTeams[0]
+    (data) => data[4] === gameTeams[0],
   );
   const awayGoalies = filteredGoalieData.filter(
-    (data) => data[4] === gameTeams[1]
+    (data) => data[4] === gameTeams[1],
   );
 
   useEffect(() => {

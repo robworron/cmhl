@@ -1,13 +1,11 @@
-export async function fetchGoalieGameData(season = "2025") {
-  try {
-    const res = await fetch(`/api/gameData/goalie/${season}`);
+import { getSheetData } from "@/utils/googleSheets";
 
-    if (!res.ok)
-      throw new Error(`Failed to fetch goalie game data for ${season}`);
+export async function fetchGoalieGameData(season) {
+  const spreadsheetId = process.env.SHEETS_SPREADSHEET_ID;
 
-    return res.json();
-  } catch (err) {
-    console.error(err);
-    return null;
-  }
+  const range = `${season}_gamestats_goalie!A2:L`;
+
+  const data = await getSheetData(spreadsheetId, range);
+
+  return data;
 }

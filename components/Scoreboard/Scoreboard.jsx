@@ -97,7 +97,7 @@ export default function Scoreboard({ scheduleData, weekNum }) {
   );
 
   /** FOR REGULAR SEASON */
-
+  /**
   return (
     <div className={styles.scoreboard}>
       {renderLeftArrow()}
@@ -107,6 +107,7 @@ export default function Scoreboard({ scheduleData, weekNum }) {
       {renderRightArrow()}
     </div>
   );
+ */
 
   /** FOR FINALS */
   /**
@@ -118,7 +119,7 @@ export default function Scoreboard({ scheduleData, weekNum }) {
   */
 
   /** FOR OFFSEASON */
-  /**
+
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardChampions}>
@@ -126,5 +127,4 @@ export default function Scoreboard({ scheduleData, weekNum }) {
       </div>
     </div>
   );
-  */
 }

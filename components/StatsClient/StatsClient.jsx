@@ -23,7 +23,7 @@ export default function StatsClient({ stats, selectedYear, selectedPosition }) {
   }
 
   function handlePositionChange(position) {
-    updateParam("category", position);
+    updateParam("position", position);
   }
 
   function handleYearChange(year) {
