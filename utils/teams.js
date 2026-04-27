@@ -73,6 +73,7 @@ export const TEAMS = {
 
 // MOST RECENT CHAMPION FIRST
 export const PAST_CHAMPIONS = [
+  { year: 2026, team: "Axemen" },
   { year: 2025, team: "Axemen" },
   { year: 2024, team: "Gulls" },
 ];

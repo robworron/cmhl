@@ -14,10 +14,10 @@ const determineLogoSize = (width) => {
 };
 
 export default function Linescore({
-  homeScoring,
-  awayScoring,
   homeTeam,
   awayTeam,
+  homeScoring,
+  awayScoring,
 }) {
   if (!homeTeam || !awayTeam) return;
   const windowWidth = useWindowWidth();
