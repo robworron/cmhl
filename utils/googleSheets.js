@@ -1,4 +1,5 @@
 import { google } from "googleapis";
+import "../env.js";
 
 const { SHEETS_CLIENT_EMAIL, SHEETS_PRIVATE_KEY } = process.env;
 

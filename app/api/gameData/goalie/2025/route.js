@@ -16,7 +16,7 @@ export async function GET() {
     console.error("Error fetching 2025 gamestats goalie data:", error);
     return NextResponse.json(
       { error: "Failed to fetch data", details: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,5 +1,5 @@
 import BoxscoreClient from "@/components/BoxscoreClient/BoxscoreClient";
-import { TEAM_TO_ABBREVIATION, TEAMS } from "@/utils/teams";
+import { TEAM_TO_ABBREVIATION } from "@/utils/teams";
 import { fetchGameSummaryData } from "@/utils/fetchGameSummaryData";
 import { fetchGoalieGameData } from "@/utils/fetchGoalieGameData";
 import { fetchSkaterGameData } from "@/utils/fetchSkaterGameData";
