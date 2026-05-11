@@ -14,7 +14,7 @@ In addition to gameday information, the league keeps track of player and game st
 
 ## Tech Stack
 
-- Next.js (Introduced later)
+- Next.js
 - React
 - JavaScript
 - CSS (Vanilla)
@@ -23,27 +23,28 @@ In addition to gameday information, the league keeps track of player and game st
 
 ## Key Features
 
-- Responsive design using media queries and a windowWidth context provider
-- Schedule data cached using React Context provider to reduce API calls and improve performance
-- League data managed through Google Sheets and retrieved via the Google Sheets API
-- Dynamic data updates without requiring code changes
-- Environment variables stored in a .env file
-- Dynamic routing for web pages using season (year) and a game number to formulate a path
+- Responsive design using media queries and a windowWidth context provider.
+- Schedule data cached using React Context provider to reduce API calls and improve performance.
+- League data managed through Google Sheets and retrieved via the Google Sheets API.
+- Dynamic data updates without requiring code changes.
+- Environment variables stored in a .env file not saved in the codebase or exposed on GitHub.
+- Dynamic routing for web pages using season (year) and a game number to formulate a path.
 
 ## Architecture Decisions
 
-- Initially hosted on GitHub Pages and did not use the Next.js framework before the client requested dynamic updating and game-by-game player statistics
-- Used Next.js App Router for modern routing patterns
+- Initially hosted on GitHub Pages and did not use the Next.js framework before the client requested dynamic updating and game-by-game player statistics.
+- Used Next.js App Router for modern routing patterns.
 - Google Sheets was chosen as the data source because the league commissioner was already comfortable managing spreadsheets. This allowed league data to be updated without requiring direct access to the codebase.
-- Dynamic routing was required to avoid hard-coding a new page for every game's player statistics
+- Dynamic routing was required to avoid hard-coding a new page for every game's player statistics.
+- Used a Server/Client split where the server is responsible for fetching and passing data down to the client as props. Client is not exposed to fetch logic and is strictly responsible for UI rendering and interactivity.
 
 ## Folder Structure
 
-- /app for pages, providers, and global styles
-- /components for reusable UI components
-- /contexts for fetching data from the sheet and storing in contexts to reduce API calls
-- /utils for reusable functions like invoking an API call or formatting data
-- /public for static assets (images)
+- /app for pages, providers, and global styles.
+- /components for reusable UI components.
+- /contexts for shared UI state used across the component tree. windowWidthContext tracks the browser width to drive responsiveness, and menuContext manages the mobile navigation toggle state.
+- /utils for reusable functions like invoking an API call or formatting data.
+- /public for static assets (images).
 
 ## Technical Decisions
 
