@@ -1,19 +1,21 @@
 .newsitem {
   max-width: 90%;
   min-width: 235px;
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 30px;
 }
 
 .newsitemTitle {
+  font-family: var(--font-heading);
   font-size: 40pt;
   margin-top: 5px;
   margin-bottom: 0px;
 }
 
 .newsitemDate {
+  font-family: var(--font-accent);
   font-size: 16pt;
   margin-top: 5px;
 }

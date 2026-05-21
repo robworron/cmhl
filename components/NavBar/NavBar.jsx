@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 import Logo from "@/components/Logo/Logo";
 import { useMenu } from "../../contexts/MenuContext";
@@ -35,9 +35,7 @@ export default function NavBar() {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.navbarBlackLine} />
-      <div className={styles.navbarWhiteLine} />
-      <div className={styles.navbarRedLine}>
+      <div className={styles.navbarLine}>
         {windowWidth === null ? null : isDesktop ? (
           <>
             <Link href="/" className={styles.navbarLogo}>
@@ -97,8 +95,6 @@ export default function NavBar() {
           </>
         )}
       </div>
-      <div className={styles.navbarWhiteLine} />
-      <div className={styles.navbarBlackLine} />
     </div>
   );
 }

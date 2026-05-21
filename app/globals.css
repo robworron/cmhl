@@ -1,16 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@400;600;700&family=Work+Sans:wght@400;600;700&display=swap");
+
 :root {
   --primary-red: #c00;
-  --primary-black: #111;
+  --primary-black: #222;
   --primary-grey: #ddd;
-  --secondary-black: #222;
+  --secondary-black: #333;
   --secondary-grey: #aaa;
-  --font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Archivo", sans-serif;
+  --font-accent: "Work Sans", sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: var(--primary-grey);
-  font-family: var(--font-family);
+  background-color: white;
+  font-family: var(--font-body);
   color: var(--primary-black);
 }
 
