@@ -83,6 +83,10 @@
     max-width: 1200px;
   }
 
+  .championsBannerChampion {
+    width: 240px;
+  }
+
   .championsBannerNextYear {
     width: 360px;
   }
