@@ -15,7 +15,7 @@ export default function NewsSection({ newsItems }) {
           key={1}
           alt="News Section Image"
           fill
-          style={{ borderRadius: 8, objectFit: "cover" }}
+          style={{ borderRadius: 8, objectFit: "fill" }}
         />
         <div className={styles.newssectionImageOverlay}>
           <h2 className={styles.newssectionImageOverlayHeader}>
@@ -43,7 +43,9 @@ export default function NewsSection({ newsItems }) {
             ),
           )}
           <li>
-            <Link href="/news">All Stories</Link>
+            <Link href="/news" style={{ fontWeight: "bold" }}>
+              All Stories
+            </Link>
           </li>
         </ul>
       </div>

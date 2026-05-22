@@ -1,5 +1,6 @@
 import NewsItem from "@/components/NewsItem/NewsItem";
 import { NEWS } from "@/utils/news";
+import styles from "./newsarticlepage.module.css";
 
 export default function NewsArticlePage({ params }) {
   const { newsId } = params;
@@ -12,5 +13,9 @@ export default function NewsArticlePage({ params }) {
   });
 
   console.log(newsItemData);
-  return <NewsItem data={newsItemData} />;
+  return (
+    <div className={styles.newsArticlePage}>
+      <NewsItem data={newsItemData} />
+    </div>
+  );
 }
