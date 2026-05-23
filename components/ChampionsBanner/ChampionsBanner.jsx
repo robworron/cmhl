@@ -13,7 +13,9 @@ export default function ChampionsBanner() {
     <div className={styles.championsBanner}>
       <div className={styles.championsBannerNextYear}>
         <h3>REGISTER FOR NEXT YEAR</h3>
-        <h5>cmhlniagara@gmail.com</h5>
+        <h5>
+          <a href="mailto:cmhlniagara@gmail.com">cmhlniagara@gmail.com</a>
+        </h5>
       </div>
       <div
         className={styles.championsBannerChampion}

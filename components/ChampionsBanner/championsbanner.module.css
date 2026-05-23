@@ -35,6 +35,11 @@
   font-size: small;
 }
 
+.championsBannerNextYear a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+
 .championsBannerLogo {
   position: absolute;
   z-index: 3;

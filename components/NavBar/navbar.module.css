@@ -68,6 +68,12 @@
   font-family: var(--font-accent);
 }
 
+.navbarContact a {
+  color: white;
+  text-decoration: underline;
+  margin: auto 0 auto 0;
+}
+
 .navbarMenuButton {
   background: none;
   border: none;

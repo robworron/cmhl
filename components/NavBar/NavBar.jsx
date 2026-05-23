@@ -62,7 +62,7 @@ export default function NavBar() {
 
             <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
-              <p>cmhlniagara@gmail.com</p>
+              <a href="mailto:cmhlniagara@gmail.com">cmhlniagara@gmail.com</a>
             </div>
           </>
         ) : (
@@ -90,7 +90,7 @@ export default function NavBar() {
             />
             <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
-              <p>cmhlniagara@gmail.com</p>
+              <a href="mailto:cmhlniagara@gmail.com">cmhlniagara@gmail.com</a>
             </div>
           </>
         )}
