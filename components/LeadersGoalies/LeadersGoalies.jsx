@@ -16,7 +16,7 @@ export default function LeadersGoalies({ list }) {
         <p className={styles.center}>Wins</p>
       </div>
       {list.map((goalie, index) => (
-        <div className={styles.leadersgoaliesTeam}>
+        <div key={index} className={styles.leadersgoaliesTeam}>
           <div className={styles.teamCell}>
             <p className={styles.rank}>{index + 1}</p>
             <Image

@@ -55,6 +55,23 @@
   text-decoration: none;
 }
 
+@media (min-width: 768px) {
+  .leadersstandings {
+    padding: 10px 20px;
+    font-size: x-small;
+  }
+
+  .teamCell {
+    gap: 1px;
+  }
+}
+
+@media (min-width: 880px) {
+  .leadersstandings {
+    font-size: small;
+  }
+}
+
 @media (min-width: 1440px) {
   .leadersstandings {
     font-size: medium;

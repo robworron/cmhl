@@ -36,7 +36,7 @@
 }
 
 .rank {
-  font-size: x-small;
+  font-size: small;
   color: var(--secondary-grey);
 }
 
@@ -53,6 +53,23 @@
   display: flex;
   justify-content: center;
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .leadersskaters {
+    padding: 10px 20px;
+    font-size: x-small;
+  }
+
+  .teamCell {
+    gap: 1px;
+  }
+}
+
+@media (min-width: 880px) {
+  .leadersskaters {
+    font-size: small;
+  }
 }
 
 @media (min-width: 1440px) {

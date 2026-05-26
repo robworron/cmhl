@@ -55,6 +55,23 @@
   text-decoration: none;
 }
 
+@media (min-width: 768px) {
+  .leadersgoalies {
+    padding: 10px 20px;
+    font-size: x-small;
+  }
+
+  .teamCell {
+    gap: 1px;
+  }
+}
+
+@media (min-width: 880px) {
+  .leadersgoalies {
+    font-size: small;
+  }
+}
+
 @media (min-width: 1440px) {
   .leadersgoalies {
     font-size: medium;

@@ -1,0 +1,60 @@
+.homeschedulematchup {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.styles.homeschedulematchupTeams {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeschedulematchupTeamInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.homeschedulematchupGameInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 10px;
+}
+
+.homeschedulematchupGameInfo h5 {
+  margin: 0;
+}
+
+.homeschedulematchupImage {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.homeschedulematchupSmall {
+  display: flex;
+  margin: 0;
+}
+
+.homeschedulematchupLarge {
+  display: none;
+}
+
+@media (min-width: 425px) {
+  .homeschedulematchupSmall {
+    display: none;
+  }
+
+  .homeschedulematchupLarge {
+    display: flex;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeschedulematchupImage {
+    width: 40px;
+    height: 40px;
+  }
+}

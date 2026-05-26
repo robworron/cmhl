@@ -7,5 +7,5 @@ export async function fetchWeekNum() {
 
   const data = await getSheetData(spreadsheetId, range);
 
-  return data;
+  return data[0][0];
 }
