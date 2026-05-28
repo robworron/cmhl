@@ -16,7 +16,9 @@ const NAV_LINKS = [
   { name: "Standings", path: "/standings" },
   { name: "Stats", path: "/stats" },
   { name: "Info", path: "/information" },
+  { name: "Rules", path: "/rules" },
   { name: "Gallery", path: "/gallery" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function NavBar() {

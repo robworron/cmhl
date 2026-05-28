@@ -1,7 +1,4 @@
-import React from "react";
-
 import { EnvelopeIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
-
 import styles from "./footer.module.css";
 
 const LEAGUE_LOGO = "/assets/logos/logo-transparent-white.webp";

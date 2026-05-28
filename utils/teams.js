@@ -2,6 +2,10 @@ export const TEAMS = {
   CMHL: {
     name: "Canucks Mens Hockey League",
     abbreviation: "CMHL",
+    instagram: null,
+    inauguralSeason: 2023,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/logo-transparent-black.webp",
     primaryColor: "#E6202A",
     secondaryColor: "#FFF",
@@ -9,6 +13,10 @@ export const TEAMS = {
   AXE: {
     name: "Axemen",
     abbreviation: "AXE",
+    instagram: null,
+    inauguralSeason: 2023,
+    finalSeason: null,
+    championships: [2025, 2026],
     logoFile: "/assets/logos/axemen-transparent.png",
     primaryColor: "#C2202E",
     secondaryColor: "#231F20",
@@ -16,6 +24,10 @@ export const TEAMS = {
   BUL: {
     name: "Bulldogs",
     abbreviation: "BUL",
+    instagram: null,
+    inauguralSeason: 2025,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/bulldogs-transparent.png",
     primaryColor: "#47473F",
     secondaryColor: "#F11F18",
@@ -23,6 +35,10 @@ export const TEAMS = {
   GUL: {
     name: "Gulls",
     abbreviation: "GUL",
+    instagram: "https://www.instagram.com/gullsnia",
+    inauguralSeason: 2023,
+    finalSeason: null,
+    championships: [2024],
     logoFile: "/assets/logos/gulls-transparent.png",
     primaryColor: "#124733",
     secondaryColor: "#8C2633",
@@ -30,6 +46,10 @@ export const TEAMS = {
   JGR: {
     name: "Jagrbombs",
     abbreviation: "JGR",
+    instagram: "https://www.instagram.com/jagr.bombss",
+    inauguralSeason: 2024,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/jagrbombs-transparent.png",
     primaryColor: "#E4D5B8",
     secondaryColor: "#6C0D15",
@@ -37,6 +57,10 @@ export const TEAMS = {
   MDR: {
     name: "Mighty Drunks",
     abbreviation: "MDR",
+    instagram: null,
+    inauguralSeason: 2024,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/mightydrunks-transparent.png",
     primaryColor: "#3F1B35",
     secondaryColor: "#066564",
@@ -44,6 +68,10 @@ export const TEAMS = {
   RCK: {
     name: "Rockies",
     abbreviation: "RCK",
+    instagram: null,
+    inauguralSeason: 2023,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/rockies-transparent.png",
     primaryColor: "#D12026",
     secondaryColor: "#8F8D8D",
@@ -51,6 +79,10 @@ export const TEAMS = {
   SEA: {
     name: "Seamen",
     abbreviation: "SEA",
+    instagram: "https://www.instagram.com/seamen_hockey",
+    inauguralSeason: 2025,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/seamen-transparent.png",
     primaryColor: "#EF6F16",
     secondaryColor: "#3DCFC4",
@@ -58,6 +90,10 @@ export const TEAMS = {
   TTU: {
     name: "Toonie Tuesday",
     abbreviation: "TTU",
+    instagram: "https://www.instagram.com/toonie.tuesday",
+    inauguralSeason: 2024,
+    finalSeason: null,
+    championships: [],
     logoFile: "/assets/logos/toonietuesday-transparent.png",
     primaryColor: "#0AABEC",
     secondaryColor: "#030104",
@@ -65,6 +101,10 @@ export const TEAMS = {
   WDK: {
     name: "Whiskey Dekes",
     abbreviation: "WDK",
+    instagram: null,
+    inauguralSeason: 2023,
+    finalSeason: 2024,
+    championships: [],
     logoFile: "/assets/logos/whiskeydekes-transparent.png",
     primaryColor: "#F1A722",
     secondaryColor: "#060604",
@@ -73,9 +113,30 @@ export const TEAMS = {
 
 // MOST RECENT CHAMPION FIRST
 export const PAST_CHAMPIONS = [
-  { year: 2026, team: "Axemen" },
-  { year: 2025, team: "Axemen" },
-  { year: 2024, team: "Gulls" },
+  {
+    year: 2026,
+    champion: "Axemen",
+    championRecord: "16-5-0",
+    runnerup: "Seamen",
+    runnerupRecord: "16-4-1",
+    score: "4-3 OT",
+  },
+  {
+    year: 2025,
+    champion: "Axemen",
+    championRecord: "12-6-3",
+    runnerup: "Gulls",
+    runnerupRecord: "14-4-3",
+    score: "3-2",
+  },
+  {
+    year: 2024,
+    champion: "Gulls",
+    championRecord: "10-10-2",
+    runnerup: "Axemen",
+    runnerupRecord: "15-3-4",
+    score: "5-4 OT",
+  },
 ];
 
 export const TEAM_TO_ABBREVIATION = {

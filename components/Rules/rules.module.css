@@ -1,6 +1,6 @@
 .rules {
   width: auto;
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
   padding: 10px;
   border-radius: 10px;
 }

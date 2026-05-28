@@ -7,12 +7,10 @@ import { TEAM_TO_ABBREVIATION } from "@/utils/teams";
 import styles from "./skaterstats.module.css";
 
 const determineLogoSize = (width) => {
-  if (width >= 1440) {
-    return { w: 70, h: 55 };
-  } else if (width >= 768) {
-    return { w: 55, h: 45 };
+  if (width >= 768) {
+    return { w: 40, h: 30 };
   }
-  return { w: 40, h: 35 };
+  return { w: 30, h: 22 };
 };
 
 export default function SkaterStats({ data, team }) {

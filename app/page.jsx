@@ -70,16 +70,19 @@ export default async function Home() {
               title="Info"
               description="Learn more about the CMHL"
               icon={INFO_ICON}
+              pageSrc="/information"
             />
             <HomeCard
               title="Rules"
               description="View league rules and regulations"
               icon={RULES_ICON}
+              pageSrc="/rules"
             />
             <HomeCard
               title="Contact"
               description="Get in touch with the CMHL"
               icon={CONTACT_ICON}
+              pageSrc="/contact"
             />
           </div>
         </div>
@@ -94,16 +97,19 @@ export default async function Home() {
                 title="Info"
                 description="Learn more about the CMHL"
                 icon={INFO_ICON}
+                pageSrc="/information"
               />
               <HomeCard
                 title="Rules"
                 description="View league rules and regulations"
                 icon={RULES_ICON}
+                pageSrc="/rules"
               />
               <HomeCard
                 title="Contact"
                 description="Get in touch with the CMHL"
                 icon={CONTACT_ICON}
+                pageSrc="/contact"
               />
             </div>
           </div>

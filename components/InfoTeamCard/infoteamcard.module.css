@@ -1,0 +1,45 @@
+.infoteamcard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--primary-grey);
+  padding: 20px 10px;
+}
+
+.infoteamcardLeft {
+  display: flex;
+  gap: 5px;
+}
+
+.infoteamcardRight {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoteamcard h4 {
+  font-family: var(--font-accent);
+  margin: 0;
+}
+
+.infoteamcard h6 {
+  color: var(--secondary-grey);
+  margin: 0;
+}
+
+.infoteamcardLogo {
+  position: relative;
+  width: 90px;
+  height: 75px;
+}
+
+.infoteamcardInstagramLogo {
+  width: 17px;
+  height: 17px;
+  padding: 5px;
+  background-color: var(--primary-black);
+  border-radius: 100px;
+}
+
+.infoteamcardInstagramLogo:hover {
+  background-color: var(--secondary-grey);
+}
