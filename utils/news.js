@@ -22,6 +22,8 @@ export const NEWS = [
   {
     id: 20260322,
     title: "Seamen, Axemen to Battle for CMHL Supremacy",
+    subtitle:
+      "Seamen take down Toonie Tuesday, while Axemen dispatch of Gulls to set up Final",
     date: "March 22, 2026",
     primaryImage: "/news-images/20260322.webp",
     images: [
@@ -40,6 +42,7 @@ export const NEWS = [
   {
     id: 20260314,
     title: "Final Four",
+    subtitle: "Seamen, Axemen, Gulls, Toonie Tuesday advance to semifinals",
     date: "March 14, 2026",
     primaryImage: "/news-images/20260314.webp",
     images: ["newsfeed/2026-playoff-bracket-sf.webp"],
@@ -48,6 +51,7 @@ export const NEWS = [
   {
     id: 20260307,
     title: "2026 CMHL Playoff Field Set",
+    subtitle: "2026 regular season comes to an end and sets up quaterfinals",
     date: "March 7, 2026",
     primaryImage: "/news-images/20260307.webp",
     images: ["newsfeed/2026-playoff-bracket-qf.webp"],
@@ -56,6 +60,8 @@ export const NEWS = [
   {
     id: 20251010,
     title: "CMHL Returns",
+    subtitle:
+      "New season of CMHL arrives as the league expands to eight teams with the addition of two new teams",
     date: "October 10, 2025",
     primaryImage: "/news-images/20251010.webp",
     images: ["other/league-cup-transparent.webp"],
@@ -65,6 +71,8 @@ export const NEWS = [
     id: 20250323,
     title: "Axemen Edge Gulls, Claim Title",
     date: "March 23, 2025",
+    subtitle:
+      "Axemen earn first franchise title as they avenge last year's title match defeat against the Gulls",
     primaryImage: "/news-images/20250323.webp",
     images: [
       "newsfeed/2025-03-23/image1.jpeg",
@@ -84,6 +92,8 @@ export const NEWS = [
   {
     id: 20250317,
     title: "Repeat or Revenge?",
+    subtitle:
+      "Gulls, Axemen to square off in final for second straight years after earning semifinal victories",
     date: "March 17, 2025",
     primaryImage: "/news-images/20250317.webp",
     images: [
@@ -106,6 +116,8 @@ export const NEWS = [
   {
     id: 20250311,
     title: "2025 CMHL Semifinals Set",
+    subtitle:
+      "Axemen beat Rockies, Jagrbombs triumph Mighty Drunks to advance to semifinals",
     date: "March 11, 2025",
     primaryImage: "/news-images/20250311.webp",
     images: ["newsfeed/2025-playoff-bracket-sf.webp"],
@@ -114,6 +126,8 @@ export const NEWS = [
   {
     id: 20250302,
     title: "2025 CMHL Playoffs Begin",
+    subtitle:
+      "Gulls, Toonie Tuesday earn byes as four others are set to square off in quarterfinals",
     date: "March 2, 2025",
     primaryImage: "/news-images/20250302.webp",
     images: ["newsfeed/2025-playoff-bracket-qf.webp"],
@@ -122,6 +136,8 @@ export const NEWS = [
   {
     id: 20240725,
     title: "Gulls Win Inaugural CMHL Season",
+    subtitle:
+      "Gulls win instant classic and claim league's first title in victory over the Axemen",
     date: "July 25, 2024",
     primaryImage: "/news-images/20240725.webp",
     images: ["newsfeed/gulls-win-2024.webp"],
@@ -130,6 +146,8 @@ export const NEWS = [
   {
     id: 20231003,
     title: "Welcome to the CMHL",
+    subtitle:
+      "New league founded in Niagara Falls, Ontario set to debut in October 2023",
     date: "October 3, 2023",
     primaryImage: "/news-images/20231003.webp",
     images: ["logos/logo-transparent-black.webp"],

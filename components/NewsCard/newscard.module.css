@@ -1,0 +1,101 @@
+.newscard {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary-grey);
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: var(--primary-black);
+}
+
+.newscard:hover {
+  transform: scale(1.05);
+}
+
+.newscardThumbnail {
+  position: relative;
+  width: 130px;
+  height: 80px;
+}
+
+.newscardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+
+.newscardContent h5 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: small;
+}
+
+.newscardContent h6 {
+  margin: 0;
+  font-size: xx-small;
+  color: #aaa;
+  font-weight: 100;
+}
+
+.newscardContent p {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: x-small;
+}
+
+.newscardContentHeading {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 425px) {
+  .newscardThumbnail {
+    width: 150px;
+    height: 100px;
+  }
+
+  .newscardContent h5 {
+    font-size: medium;
+  }
+
+  .newscardContent h6 {
+    font-size: x-small;
+  }
+
+  .newscardContent p {
+    font-size: small;
+  }
+}
+
+@media (min-width: 768px) {
+  .newscard {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .newscardThumbnail {
+    width: 120px;
+    height: 80px;
+  }
+
+  .newscardContent {
+    width: 70%;
+  }
+
+  .newscardContent h5 {
+    font-size: large;
+  }
+
+  .newscardContent h6 {
+    font-size: small;
+  }
+
+  .newscardContent p {
+    font-size: medium;
+  }
+}
