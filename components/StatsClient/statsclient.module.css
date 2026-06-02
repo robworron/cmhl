@@ -28,6 +28,13 @@
 .statsClient h1 {
   margin: 0px;
   font-size: 40px;
+  font-family: var(--font-heading);
+}
+
+.statsClient p {
+  margin: 10px 0 0 0;
+  font-family: var(--font-accent);
+  font-weight: 600;
 }
 
 .statsClientHeader h2 {

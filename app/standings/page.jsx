@@ -10,6 +10,7 @@ export const metadata = {
 export default async function StandingsPage({ searchParams }) {
   const params = await searchParams;
   const year = params.year || "2025";
+  const category = params.category || "season";
 
   const standings = await fetchStandings(year);
 
@@ -17,5 +18,11 @@ export default async function StandingsPage({ searchParams }) {
     return <div>ERROR: Failed to load standings for {year}</div>;
   }
 
-  return <StandingsClient standings={standings} selectedYear={year} />;
+  return (
+    <StandingsClient
+      standings={standings}
+      selectedYear={year}
+      category={category}
+    />
+  );
 }

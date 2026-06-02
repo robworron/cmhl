@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import Button from "@/components/Button/Button";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import Standings from "@/components/Standings/Standings";
 import StandingsLegend from "@/components/StandingsLegend/StandingsLegend";
@@ -12,6 +14,7 @@ import config from "@/app/config";
 export default function StandingsClient({ standings, selectedYear }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isPlayoffs = searchParams.get("category") === "playoffs";
 
   function updateParam(key, value) {
     const params = new URLSearchParams(searchParams.toString());
@@ -22,6 +25,11 @@ export default function StandingsClient({ standings, selectedYear }) {
   const handleYearChange = (year) => {
     const shortSeason = config.seasonLongToShort[year];
     updateParam("year", shortSeason);
+  };
+
+  // THIS IS WHERE YOU ARE - MUST ADD REGULAR SEASON / PLAYOFFS TO SEARCH PARAMS
+  const handleCategoryChange = (category) => {
+    updateParam("category", category);
   };
 
   return (
@@ -36,10 +44,30 @@ export default function StandingsClient({ standings, selectedYear }) {
             }
             options={config.seasons}
           />
+          <div className={styles.standingsclientButtons}>
+            <Button
+              primary={isPlayoffs}
+              onClick={() => handleCategoryChange("season")}
+              label="Season"
+              size="Large"
+            />
+            <Button
+              primary={!isPlayoffs}
+              onClick={() => handleCategoryChange("playoffs")}
+              label="Playoffs"
+              size="Large"
+            />
+          </div>
         </div>
-        <Standings standingsData={standings} />
-        <StandingsLegend />
-        <Tiebreak />
+        {isPlayoffs ? (
+          <></>
+        ) : (
+          <>
+            <Standings standingsData={standings} />
+            <StandingsLegend />
+            <Tiebreak />
+          </>
+        )}
       </div>
     </div>
   );

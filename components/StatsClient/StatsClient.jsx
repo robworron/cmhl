@@ -11,7 +11,12 @@ import StatsLegend from "@/components/StatsLegend/StatsLegend";
 import config from "@/app/config";
 import styles from "./statsclient.module.css";
 
-export default function StatsClient({ stats, selectedYear, selectedPosition }) {
+export default function StatsClient({
+  stats,
+  selectedYear,
+  selectedPosition,
+  updatedWeek,
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
@@ -41,20 +46,6 @@ export default function StatsClient({ stats, selectedYear, selectedPosition }) {
       <div className={styles.statsClientBody}>
         <div className={styles.statsClientHeader}>
           <h1>Stats</h1>
-          <div className={styles.statsClientButtons}>
-            <Button
-              primary={selectedPosition !== "skater"}
-              label="Skaters"
-              size={"Large"}
-              onClick={() => handlePositionChange("skater")}
-            />
-            <Button
-              primary={selectedPosition !== "goalie"}
-              label="Goalies"
-              size={"Large"}
-              onClick={() => handlePositionChange("goalie")}
-            />
-          </div>
           <div className={styles.statsClientDropdowns}>
             <Dropdown
               onSelect={handleYearChange}
@@ -75,6 +66,23 @@ export default function StatsClient({ stats, selectedYear, selectedPosition }) {
               }
             />
           </div>
+          <div className={styles.statsClientButtons}>
+            <Button
+              primary={selectedPosition !== "skater"}
+              label="Skaters"
+              size={"Large"}
+              onClick={() => handlePositionChange("skater")}
+            />
+            <Button
+              primary={selectedPosition !== "goalie"}
+              label="Goalies"
+              size={"Large"}
+              onClick={() => handlePositionChange("goalie")}
+            />
+          </div>
+          {config.timeOfYear === "regularSeason" ? (
+            <p>{`Stats Updated as of Week ${updatedWeek}`}</p>
+          ) : null}
         </div>
         {selectedPosition === "skater" && (
           <SkaterStats data={stats} year={selectedYear} team={selectedTeam} />

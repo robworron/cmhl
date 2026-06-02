@@ -26,6 +26,7 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   };
 
   const formatURL = (year, game) => {
+    if (year === "2023") return null;
     const season = year.split("-")[0];
     return `/boxscore/${season}/${game}`;
   };

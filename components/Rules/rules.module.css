@@ -7,10 +7,12 @@
 
 .rules h1 {
   font-size: 24px;
+  font-family: var(--font-heading);
 }
 
 .rules h2 {
   font-size: 16px;
+  font-family: var(--font-heading);
 }
 
 @media (min-width: 768px) {

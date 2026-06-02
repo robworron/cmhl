@@ -8,9 +8,9 @@ import styles from "./standings.module.css";
 
 const determineLogoSize = (width) => {
   if (width >= 1440) {
-    return { w: 120, h: 100 };
+    return { w: 90, h: 75 };
   } else if (width >= 768) {
-    return { w: 84, h: 70 };
+    return { w: 60, h: 50 };
   } else {
     return { w: 48, h: 40 };
   }
@@ -20,7 +20,7 @@ export default function Standings({ standingsData }) {
   const HEADER = ["RK", "Team", "W", "L", "T", "P", "GF", "GA", "GD", "ST"];
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
   const [sortConfig, setSortConfig] = useState({
     key: "P",
@@ -77,7 +77,7 @@ export default function Standings({ standingsData }) {
 
   const sortedStandingsData = useMemo(
     () => getSortedStandings(),
-    [standingsData, sortConfig]
+    [standingsData, sortConfig],
   );
 
   if (!Array.isArray(standingsData) || standingsData.length === 0) {
@@ -129,7 +129,7 @@ export default function Standings({ standingsData }) {
                   <td key={colIndex + 2} className={styles.standingsStatCell}>
                     {row[colIndex + 2]}
                   </td>
-                )
+                ),
               )}
             </tr>
           ))}
