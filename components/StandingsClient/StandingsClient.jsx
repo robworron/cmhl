@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-
+import Image from "next/image";
 import Button from "@/components/Button/Button";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import Standings from "@/components/Standings/Standings";
@@ -57,7 +57,13 @@ export default function StandingsClient({ standings, selectedYear }) {
           </div>
         </div>
         {isPlayoffs ? (
-          <></>
+          <div className={styles.standingsclientPlayoffsBracket}>
+            <Image
+              src={`/standings/${Number(selectedYear) + 1}.webp`}
+              alt={`${Number(selectedYear) + 1} Playoffs Bracket`}
+              fill
+            />
+          </div>
         ) : (
           <>
             <Standings standingsData={standings} />

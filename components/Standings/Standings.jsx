@@ -43,6 +43,11 @@ export default function Standings({ standingsData }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const isHighlightedColumn = (column) => {
+    if (column === sortConfig.key) return true;
+    return false;
+  };
+
   const sortStandings = () => {
     if (!sortConfig.key) return standingsData;
 
@@ -57,7 +62,7 @@ export default function Standings({ standingsData }) {
   };
 
   const handleSort = (column) => {
-    if (column === "Team" || column === "ST") return;
+    if (column === "Team" || column === "ST" || column === "RK") return;
 
     setSortConfig((prevConfig) => {
       if (prevConfig.key === column) {
@@ -107,7 +112,7 @@ export default function Standings({ standingsData }) {
         <tbody>
           {sortedStandingsData.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              <td className={styles.standingsStatCell}>{row.rank}</td>
+              <td className={styles.standingsStatCell}>{rowIndex + 1}</td>
               <td className={styles.standingsTeamCell}>
                 <Logo
                   src={getTeamLogoByName(row.team)}
@@ -117,16 +122,70 @@ export default function Standings({ standingsData }) {
                 />
                 {windowWidth < 768 ? TEAM_TO_ABBREVIATION[row.team] : row.team}
               </td>
-              <td className={styles.standingsStatCell}>{row.wins}</td>
-              <td className={styles.standingsStatCell}>{row.losses}</td>
-              <td className={styles.standingsStatCell}>{row.ties}</td>
-              <td className={styles.standingsStatCell}>{row.points}</td>
-              <td className={styles.standingsStatCell}>{row.goalsFor}</td>
-              <td className={styles.standingsStatCell}>{row.goalsAgainst}</td>
-              <td className={styles.standingsStatCell}>
+              <td
+                className={
+                  isHighlightedColumn("W")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.wins}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("L")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.losses}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("T")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.ties}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("P")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.points}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("GF")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.goalsFor}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("GA")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
+                {row.goalsAgainst}
+              </td>
+              <td
+                className={
+                  isHighlightedColumn("GD")
+                    ? styles.standingsSortedCell
+                    : styles.standingsStatCell
+                }
+              >
                 {row.goalDifferential}
               </td>
-              <td className={styles.standingsStatCell}>{row.streak}</td>
+              <td>{row.streak}</td>
             </tr>
           ))}
         </tbody>
