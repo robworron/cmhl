@@ -13,24 +13,27 @@ export default async function BoxscorePage({ params }) {
   const gameSummary = await fetchGameSummaryData(seasonId);
   const gameData = await fetchGame(seasonId, gameId);
 
-  const home = gameData[0][5];
-  const away = gameData[0][7];
+  const home = gameData.homeTeam;
+  const away = gameData.awayTeam;
   const homeAbbreviation = TEAM_TO_ABBREVIATION[home];
   const awayAbbreviation = TEAM_TO_ABBREVIATION[away];
 
   const filteredHomeSkaterData = skaterData.filter(
-    (row) => row[1] === gameId && row[4] === homeAbbreviation,
+    (row) => row.gameId === gameId && row.team === homeAbbreviation,
   );
   const filteredHomeGoalieData = goalieData.filter(
-    (row) => row[1] === gameId && row[4] === homeAbbreviation,
+    (row) => row.gameId === gameId && row.team === homeAbbreviation,
   );
   const filteredAwaySkaterData = skaterData.filter(
-    (row) => row[1] === gameId && row[4] === awayAbbreviation,
+    (row) => row.gameId === gameId && row.team === awayAbbreviation,
   );
   const filteredAwayGoalieData = goalieData.filter(
-    (row) => row[1] === gameId && row[4] === awayAbbreviation,
+    (row) => row.gameId === gameId && row.team === awayAbbreviation,
   );
-  const filteredGameSummary = gameSummary.filter((row) => row[1] === gameId);
+
+  const filteredGameSummary = gameSummary.filter(
+    (row) => row.gameId === gameId,
+  );
 
   function calcTeamScoringLine(abbreviation) {
     const result = [];
@@ -38,14 +41,15 @@ export default async function BoxscorePage({ params }) {
     for (var period = 1; period <= 3; period++) {
       const periodScoring = filteredGameSummary.filter(
         (row) =>
-          row[2] === abbreviation &&
-          row[3] === period.toString() &&
-          row.length === 8,
+          row.team === abbreviation &&
+          row.period === period.toString() &&
+          row.penalty === null,
       );
       result[period - 1] = periodScoring.length;
     }
 
-    const final = gameData[0][abbreviation === homeAbbreviation ? 6 : 8];
+    const final =
+      gameData[abbreviation === homeAbbreviation ? "homeScore" : "awayScore"];
     result.push(final);
 
     return result;
@@ -54,9 +58,9 @@ export default async function BoxscorePage({ params }) {
   return (
     <BoxscoreClient
       gameNum={gameId}
-      date={gameData[0][2]}
-      time={gameData[0][4]}
-      rink={gameData[0][3]}
+      date={gameData.date}
+      time={gameData.time}
+      rink={gameData.rink}
       gameSummary={filteredGameSummary}
       homeTeam={home}
       homeScoringLine={calcTeamScoringLine(homeAbbreviation)}

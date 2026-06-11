@@ -55,27 +55,26 @@ export default function Scoreboard({ scheduleData, weekNum }) {
     return scheduleData.map((game, index) => (
       <ScoreboardMatchup
         key={index}
-        home={game[5] || "TBD"}
-        homeScore={game[6] || "--"}
-        away={game[7] || "TBD"}
-        awayScore={game[8] || "--"}
-        date={game[2]?.split(",")[0] || "TBD"}
-        time={game[4] || "TBD"}
-        gameNum={game[1] || "N/A"}
-        rink={game[3] || "TBD"}
+        home={game.homeTeam || "TBD"}
+        homeScore={game.homeScore || "--"}
+        away={game.awayTeam || "TBD"}
+        awayScore={game.awayScore || "--"}
+        date={game.date?.split(",")[0] || "TBD"}
+        time={game.time || "TBD"}
+        gameNum={game.gameNumber || "N/A"}
+        rink={game.rink || "TBD"}
       />
     ));
   };
 
   const renderFinals = () => {
     return scheduleData
-      .filter((game) => game[1] === "91")
+      .filter((game) => game.gameNumber === "91")
       .map((game, index) => (
         <FinalsBanner
           key={index}
-          //time={game[4] || "TBD"}
-          time={"10:15PM"}
-          date={game[2]?.split(",")[0] || "TBD"}
+          time={game.time || "TBD"}
+          date={game.date?.split(",")[0] || "TBD"}
         />
       ));
   };
@@ -97,7 +96,7 @@ export default function Scoreboard({ scheduleData, weekNum }) {
   );
 
   /** FOR REGULAR SEASON */
-  /**
+
   return (
     <div className={styles.scoreboard}>
       {renderLeftArrow()}
@@ -107,7 +106,6 @@ export default function Scoreboard({ scheduleData, weekNum }) {
       {renderRightArrow()}
     </div>
   );
- */
 
   /** FOR FINALS */
   /**
@@ -119,12 +117,12 @@ export default function Scoreboard({ scheduleData, weekNum }) {
   */
 
   /** FOR OFFSEASON */
-
+  /*
   return (
     <div className={styles.scoreboard}>
       <div className={styles.scoreboardChampions}>
         {renderChampionsBanner()}
       </div>
     </div>
-  );
+  );*/
 }

@@ -12,7 +12,6 @@ export default function NewsArticlePage({ params }) {
     return null;
   });
 
-  console.log(newsItemData);
   return (
     <div className={styles.newsArticlePage}>
       <NewsItem data={newsItemData} />

@@ -40,7 +40,6 @@ export default function ScheduleClient({ schedule, selectedYear }) {
               defaultValue={config.seasonShortToLong[selectedYear]}
               options={["2023-24", "2024-25", "2025-26"]}
             />
-            {console.log(selectedYear)}
             {selectedYear === "2023" ? (
               <Dropdown
                 onSelect={handleTeamChange}

@@ -17,10 +17,10 @@ export default async function HomeSchedule({ games }) {
           )}
           <HomeScheduleMatchup
             key={index}
-            home={TEAMS[TEAM_TO_ABBREVIATION[game[5]]]}
-            away={TEAMS[TEAM_TO_ABBREVIATION[game[7]]]}
-            date={game[2]}
-            time={game[4]}
+            home={TEAMS[TEAM_TO_ABBREVIATION[game.homeTeam]]}
+            away={TEAMS[TEAM_TO_ABBREVIATION[game.awayTeam]]}
+            date={game.date}
+            time={game.time}
           />
         </div>
       ))}

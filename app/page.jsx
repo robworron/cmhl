@@ -33,33 +33,13 @@ export default async function Home() {
     config.currentSeasonShort,
   );
 
-  const skaterLeaders = skaterData.map((item) => ({
-    name: item[1],
-    team: item[2],
-    points: item[6],
-  }));
-
-  const goalieLeaders = goalieData.map((item) => ({
-    name: item[1],
-    team: item[2],
-    wins: item[4],
-  }));
-
-  const standingsLeaders = standingsData.map((item) => ({
-    teamName: item[1],
-    wins: item[2],
-    losses: item[3],
-    ties: item[4],
-    points: item[5],
-  }));
-
   return (
     <div className={styles.home}>
       <NewsSection newsItems={NEWS} />
       <section className={styles.homeLeaders}>
-        <LeadersSkaters list={skaterLeaders} />
-        <LeadersGoalies list={goalieLeaders} />
-        <LeadersStandings list={standingsLeaders} />
+        <LeadersSkaters list={skaterData} />
+        <LeadersGoalies list={goalieData} />
+        <LeadersStandings list={standingsData} />
       </section>
       <section className={styles.homeContent}>
         <div className={styles.homeMobile}>

@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Button from "@/components/Button/Button";
@@ -27,7 +25,6 @@ export default function StandingsClient({ standings, selectedYear }) {
     updateParam("year", shortSeason);
   };
 
-  // THIS IS WHERE YOU ARE - MUST ADD REGULAR SEASON / PLAYOFFS TO SEARCH PARAMS
   const handleCategoryChange = (category) => {
     updateParam("category", category);
   };

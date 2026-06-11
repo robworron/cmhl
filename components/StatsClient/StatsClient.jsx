@@ -52,7 +52,7 @@ export default function StatsClient({
               defaultValue={
                 config.seasonShortToLong[selectedYear] ||
                 config.currentSeasonLong
-              } //this value may need to be temporary set to prior year until first weeks stats are launched each year
+              }
               options={config.seasons.filter((season) => season !== "2023-24")}
             />
             <Dropdown

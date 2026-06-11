@@ -18,6 +18,16 @@ const determineLogoSize = (width) => {
 
 export default function Standings({ standingsData }) {
   const HEADER = ["RK", "Team", "W", "L", "T", "P", "GF", "GA", "GD", "ST"];
+  const HEADER_MAP = {
+    W: "wins",
+    L: "losses",
+    T: "ties",
+    P: "points",
+    GF: "goalsFor",
+    GA: "goalsAgainst",
+    GD: "goalDifferential",
+    ST: "streak",
+  };
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024,
@@ -33,50 +43,37 @@ export default function Standings({ standingsData }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const getSortedStandings = () => {
+  const sortStandings = () => {
     if (!sortConfig.key) return standingsData;
 
-    const columnKey = HEADER.indexOf(sortConfig.key);
-    if (columnKey === -1) return standingsData;
-
     const sortedStandings = [...standingsData].sort((a, b) => {
-      const aValue = a[columnKey];
-      const bValue = b[columnKey];
-      const aNumber = Number(aValue);
-      const bNumber = Number(bValue);
-
-      if (!isNaN(aNumber) && !isNaN(bNumber)) {
-        return sortConfig.direction === "ascending"
-          ? aNumber - bNumber
-          : bNumber - aNumber;
-      }
-
-      return sortConfig.direction === "ascending"
-        ? String(aValue).localeCompare(String(bValue))
-        : String(bValue).localeCompare(String(aValue));
+      const aValue = Number(a[HEADER_MAP[sortConfig.key]]);
+      const bValue = Number(b[HEADER_MAP[sortConfig.key]]);
+      if (aValue < bValue) return sortConfig.direction === "ascending" ? -1 : 1;
+      if (aValue > bValue) return sortConfig.direction === "ascending" ? 1 : -1;
+      return 0;
     });
-
     return sortedStandings;
   };
 
-  const handleSort = (columnKey) => {
-    if (columnKey === "Team" || columnKey === "ST") return;
+  const handleSort = (column) => {
+    if (column === "Team" || column === "ST") return;
 
     setSortConfig((prevConfig) => {
-      if (prevConfig.key === columnKey) {
+      if (prevConfig.key === column) {
         return {
-          key: columnKey,
+          key: column,
           direction:
             prevConfig.direction === "ascending" ? "descending" : "ascending",
         };
       } else {
-        return { key: columnKey, direction: "descending" };
+        return { key: column, direction: "descending" };
       }
     });
   };
 
   const sortedStandingsData = useMemo(
-    () => getSortedStandings(),
+    () => sortStandings(),
     [standingsData, sortConfig],
   );
 
@@ -110,27 +107,26 @@ export default function Standings({ standingsData }) {
         <tbody>
           {sortedStandingsData.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              <td className={styles.standingsStatCell}>{row[0]}</td>
+              <td className={styles.standingsStatCell}>{row.rank}</td>
               <td className={styles.standingsTeamCell}>
                 <Logo
-                  src={getTeamLogoByName(row[1])}
+                  src={getTeamLogoByName(row.team)}
                   width={determineLogoSize(windowWidth).w}
                   height={determineLogoSize(windowWidth).h}
-                  alt={`${row[1]} logo`}
+                  alt={`${row.team} logo`}
                 />
-                {windowWidth < 768 ? TEAM_TO_ABBREVIATION[row[1]] : row[1]}
+                {windowWidth < 768 ? TEAM_TO_ABBREVIATION[row.team] : row.team}
               </td>
-              {HEADER.slice(2).map((_, colIndex) =>
-                colIndex === HEADER.indexOf(sortConfig.key) - 2 ? (
-                  <td key={colIndex + 2} className={styles.standingsSortedCell}>
-                    <b>{row[colIndex + 2]}</b>
-                  </td>
-                ) : (
-                  <td key={colIndex + 2} className={styles.standingsStatCell}>
-                    {row[colIndex + 2]}
-                  </td>
-                ),
-              )}
+              <td className={styles.standingsStatCell}>{row.wins}</td>
+              <td className={styles.standingsStatCell}>{row.losses}</td>
+              <td className={styles.standingsStatCell}>{row.ties}</td>
+              <td className={styles.standingsStatCell}>{row.points}</td>
+              <td className={styles.standingsStatCell}>{row.goalsFor}</td>
+              <td className={styles.standingsStatCell}>{row.goalsAgainst}</td>
+              <td className={styles.standingsStatCell}>
+                {row.goalDifferential}
+              </td>
+              <td className={styles.standingsStatCell}>{row.streak}</td>
             </tr>
           ))}
         </tbody>
