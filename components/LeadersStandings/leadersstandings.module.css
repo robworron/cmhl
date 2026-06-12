@@ -37,7 +37,8 @@
 
 .rank {
   font-size: small;
-  color: var(--secondary-grey);
+  color: var(--primary-black);
+  opacity: 50%;
 }
 
 .bold {

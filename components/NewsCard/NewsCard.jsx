@@ -10,7 +10,7 @@ export default function NewsCard({ article }) {
           src={article.primaryImage}
           alt={`${article.date} news article photo`}
           fill
-          style={{ borderRadius: 5 }}
+          style={{ borderRadius: 5, objectFit: "contain" }}
         />
       </div>
       <div className={styles.newscardContent}>
