@@ -36,6 +36,25 @@ export default function NavMenu() {
           </Link>
         </li>
         <li className={styles.navmenuListItem}>
+          <Link href="/news" className={styles.navmenuLink} onClick={closeMenu}>
+            <h4>News</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width={1.5}
+              stroke="white"
+              style={{ width: 30 }}
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"
+              />
+            </svg>
+          </Link>
+        </li>
+        <li className={styles.navmenuListItem}>
           <Link
             href="/schedule"
             className={styles.navmenuLink}
@@ -106,6 +125,29 @@ export default function NavMenu() {
         </li>
         <li className={styles.navmenuListItem}>
           <Link
+            href="/rules"
+            className={styles.navmenuLink}
+            onClick={closeMenu}
+          >
+            <h4>Rules</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width={1.5}
+              stroke="white"
+              style={{ width: 30 }}
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99"
+              />
+            </svg>
+          </Link>
+        </li>
+        <li className={styles.navmenuListItem}>
+          <Link
             href="/information"
             className={styles.navmenuLink}
             onClick={closeMenu}
@@ -127,7 +169,7 @@ export default function NavMenu() {
             </svg>
           </Link>
         </li>
-        <li className={styles.navmenuListItem} style={{ border: "0px" }}>
+        <li className={styles.navmenuListItem}>
           <Link
             href="/gallery"
             className={styles.navmenuLink}
@@ -146,6 +188,29 @@ export default function NavMenu() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+              />
+            </svg>
+          </Link>
+        </li>
+        <li className={styles.navmenuListItem} style={{ border: "0px" }}>
+          <Link
+            href="/contact"
+            className={styles.navmenuLink}
+            onClick={closeMenu}
+          >
+            <h4>Contact</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width={1.5}
+              stroke="white"
+              style={{ width: 30 }}
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
               />
             </svg>
           </Link>

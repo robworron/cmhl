@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 152px;
+  top: 135px;
   left: 0;
   z-index: 1000000;
   transform: translateX(-100%);
@@ -28,7 +28,7 @@
 .navmenuListItem {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px;
