@@ -5,19 +5,19 @@ import Photo from "@/components/Photo/Photo";
 
 import styles from "./newsitem.module.css";
 
-export default function NewsItem({ title, date, images, imageSize, textBody }) {
-  const text = textBody.split("\n\n");
+export default function NewsItem({ data }) {
+  const text = data.textBody.split("\n\n");
   const imageComponent =
-    images.length === 1 ? (
-      <Photo name={images[0]} size={imageSize} />
+    data.images.length === 1 ? (
+      <Photo name={data.images[0]} size={data.imageSize} />
     ) : (
-      <ImageCarousel images={images} size={imageSize} />
+      <ImageCarousel images={data.images} size={data.imageSize} />
     );
 
   return (
     <div className={styles.newsitem}>
-      <h1 className={styles.newsitemTitle}>{title}</h1>
-      <p className={styles.newsitemDate}>{date}</p>
+      <h1 className={styles.newsitemTitle}>{data.title}</h1>
+      <p className={styles.newsitemDate}>{data.date}</p>
       <div className={styles.newsitemBody}>
         {imageComponent}
         {text.map((paragraph, index) => (

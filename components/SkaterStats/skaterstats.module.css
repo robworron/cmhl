@@ -4,15 +4,16 @@
 }
 
 .skaterstats {
-  font-size: 16px;
-  min-width: 800px;
+  font-size: medium;
+  min-width: 700px;
   border-collapse: collapse;
   margin: 20px 0px;
   text-align: center;
-  line-height: 50px;
+  line-height: 35px;
 }
 
 .skaterstats th {
+  font-family: var(--font-heading);
   color: white;
   background-color: var(--primary-black);
 }
@@ -22,7 +23,7 @@
 }
 
 .skaterstats tr:nth-child(even) {
-  background-color: #c2c2c2;
+  background-color: var(--primary-grey);
 }
 
 .skaterstatsPlayerCell {
@@ -46,35 +47,31 @@
 }
 
 @media (min-width: 768px) {
-  .skaterstats {
-    font-size: 20px;
-    min-width: 1200px;
-    line-height: 60px;
-  }
-
-  .skaterstatsSortedCell {
-    width: 80px;
-  }
-
-  .skaterstatsStatsCell {
-    width: 80px;
-  }
-}
-
-@media (min-width: 1024px) {
   .skaterstatsScroll {
     display: flex;
     justify-content: center;
   }
 
   .skaterstats {
-    font-size: 18px;
-    min-width: 0px;
+    min-width: 768px;
+    line-height: 35px;
+  }
+
+  .skaterstatsPlayerCell {
+    min-width: 200px;
+  }
+
+  .skaterstatsSortedCell {
+    width: 66px;
+  }
+
+  .skaterstatsStatsCell {
+    width: 66px;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .skaterstats {
-    font-size: 18px;
+    min-width: 800px;
   }
 }

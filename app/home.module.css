@@ -3,14 +3,77 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 20px;
   overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
+.homeMobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.homeDesktop {
+  display: none;
+}
+
+.homeLeaders {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.homeCards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 20px 0 40px 0;
+}
+
+@media (min-width: 768px) {
   .home {
     padding: 10px;
+  }
+
+  .homeContent {
+    margin: 20px auto;
+  }
+  .homeMobile {
+    display: none;
+  }
+
+  .homeDesktop {
+    display: flex;
+    max-width: 1200px;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .homeDesktopLeft {
+    flex-grow: 1;
+  }
+
+  .homeDesktopRight {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homeLeaders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeLeaders {
+    gap: 20px;
   }
 }

@@ -11,7 +11,12 @@ import StatsLegend from "@/components/StatsLegend/StatsLegend";
 import config from "@/app/config";
 import styles from "./statsclient.module.css";
 
-export default function StatsClient({ stats, selectedYear, selectedPosition }) {
+export default function StatsClient({
+  stats,
+  selectedYear,
+  selectedPosition,
+  updatedWeek,
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
@@ -41,6 +46,26 @@ export default function StatsClient({ stats, selectedYear, selectedPosition }) {
       <div className={styles.statsClientBody}>
         <div className={styles.statsClientHeader}>
           <h1>Stats</h1>
+          <div className={styles.statsClientDropdowns}>
+            <Dropdown
+              onSelect={handleYearChange}
+              defaultValue={
+                config.seasonShortToLong[selectedYear] ||
+                config.currentSeasonLong
+              }
+              options={config.seasons.filter((season) => season !== "2023-24")}
+            />
+            <Dropdown
+              onSelect={handleTeamChange}
+              defaultValue={selectedTeam}
+              options={
+                config.teamsMappings[
+                  config.seasonShortToLong[selectedYear] ||
+                    config.currentSeasonLong
+                ]
+              }
+            />
+          </div>
           <div className={styles.statsClientButtons}>
             <Button
               primary={selectedPosition !== "skater"}
@@ -55,26 +80,9 @@ export default function StatsClient({ stats, selectedYear, selectedPosition }) {
               onClick={() => handlePositionChange("goalie")}
             />
           </div>
-          <div className={styles.statsClientDropdowns}>
-            <Dropdown
-              onSelect={handleYearChange}
-              defaultValue={
-                config.seasonShortToLong[selectedYear] ||
-                config.currentSeasonLong
-              } //this value may need to be temporary set to prior year until first weeks stats are launched each year
-              options={config.seasons.filter((season) => season !== "2023-24")}
-            />
-            <Dropdown
-              onSelect={handleTeamChange}
-              defaultValue={selectedTeam}
-              options={
-                config.teamsMappings[
-                  config.seasonShortToLong[selectedYear] ||
-                    config.currentSeasonLong
-                ]
-              }
-            />
-          </div>
+          {config.timeOfYear === "regularSeason" ? (
+            <p>{`Stats Updated as of Week ${updatedWeek}`}</p>
+          ) : null}
         </div>
         {selectedPosition === "skater" && (
           <SkaterStats data={stats} year={selectedYear} team={selectedTeam} />

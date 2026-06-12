@@ -13,6 +13,7 @@
 }
 
 .standings th {
+  font-family: var(--font-heading);
   background-color: var(--primary-black);
   color: white;
 }
@@ -22,7 +23,7 @@
 }
 
 .standings tr:nth-child(even) {
-  background-color: #c2c2c2;
+  background-color: var(--primary-grey);
 }
 
 .standingsRankCell,

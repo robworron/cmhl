@@ -1,11 +1,125 @@
 .pastchampions {
-  width: auto;
-  padding: 10px;
-  background-color: var(--secondary-grey);
-  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
 }
 
-.pastchampions h4 {
+.pastchampions h2 {
+  font-family: var(--font-heading);
+}
+
+.pastchampionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0px;
+  text-align: center;
+  border: 1px solid var(--primary-grey);
+  line-height: 30px;
+}
+
+.pastchampionsTable h5 {
   margin: 0;
-  font-size: 24px;
+  font-size: x-small;
+}
+
+.pastchampionsTable h6 {
+  margin: 0;
+  font-size: xx-small;
+}
+
+.pastchampionsTable th {
+  font-family: var(--font-heading);
+  background-color: var(--primary-black);
+  color: white;
+  font-size: small;
+  padding: 3px;
+}
+
+.pastchampionsTable tr:nth-child(odd) {
+  background-color: white;
+}
+
+.pastchampionsTable tr:nth-child(even) {
+  background-color: var(--primary-grey);
+}
+
+.pastchampionsTeam {
+  display: flex;
+  align-items: center;
+}
+
+.pastchampionsTeam h6 {
+  display: none;
+  margin: 0 0 0 5px;
+  color: #aaa;
+}
+
+.pastchampionsTeamLogo {
+  position: relative;
+  width: 30px;
+  height: 25px;
+}
+
+@media (min-width: 375px) {
+  .pastchampionsTable h5 {
+    font-size: small;
+  }
+
+  .pastchampionsTable h6 {
+    font-size: x-small;
+  }
+}
+
+@media (min-width: 768px) {
+  .pastchampionsTable {
+    line-height: 40px;
+  }
+
+  .pastchampionsTable th {
+    font-size: medium;
+  }
+
+  .pastchampionsTable h5 {
+    font-size: medium;
+  }
+
+  .pastchampionsTable h6 {
+    font-size: small;
+  }
+
+  .pastchampionsTeam h6 {
+    display: flex;
+  }
+
+  .pastchampionsTeamLogo {
+    width: 42px;
+    height: 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pastchampionsTable {
+    line-height: 50px;
+  }
+
+  .pastchampionsTable th {
+    font-size: large;
+  }
+
+  .pastchampionsTable h5 {
+    font-size: large;
+  }
+
+  .pastchampionsTable h6 {
+    font-size: medium;
+  }
+
+  .pastchampionsTeam h6 {
+    display: flex;
+  }
+
+  .pastchampionsTeamLogo {
+    width: 48px;
+    height: 40px;
+  }
 }

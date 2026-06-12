@@ -11,18 +11,18 @@ export default function GameSummary({
   awayGoalies,
 }) {
   const determineTeam = (teamAbbr) => {
-    if (teamAbbr === homeSkaters[0][4]) {
+    if (teamAbbr === homeSkaters[0].team) {
       return [homeSkaters, homeGoalies];
     }
     return [awaySkaters, awayGoalies];
   };
 
   const getPlayerName = (skaters, goalies, num) => {
-    const skater = skaters.find((p) => p[3] === num);
-    if (skater) return skater[2];
+    const skater = skaters.find((p) => p.number === num);
+    if (skater) return skater.player;
 
-    const goalie = goalies.find((p) => p[3] === num);
-    if (goalie) return goalie[2];
+    const goalie = goalies.find((p) => p.number === num);
+    if (goalie) return goalie.player;
 
     return "";
   };
@@ -32,32 +32,45 @@ export default function GameSummary({
       <h6>No Scoring</h6>
     ) : (
       periodData.map((row, index) => {
-        const [teamSkaters, teamGoalies] = determineTeam(row[2]);
+        const [teamSkaters, teamGoalies] = determineTeam(row.team);
 
-        const scorerName = getPlayerName(teamSkaters, teamGoalies, row[4]);
-        const primaryAssist = getPlayerName(teamSkaters, teamGoalies, row[5]);
-        const secondaryAssist = getPlayerName(teamSkaters, teamGoalies, row[6]);
-        const penaltyName = getPlayerName(teamSkaters, teamGoalies, row[8]);
+        const scorerName = getPlayerName(teamSkaters, teamGoalies, row.scorer);
+        const primaryAssist = getPlayerName(
+          teamSkaters,
+          teamGoalies,
+          row.assist1,
+        );
+        const secondaryAssist = getPlayerName(
+          teamSkaters,
+          teamGoalies,
+          row.assist2,
+        );
+        const penaltyName = getPlayerName(
+          teamSkaters,
+          teamGoalies,
+          row.penalty,
+        );
 
         return (
           <div className={styles.gamesummaryGoalSummary} key={index}>
             <Logo
-              src={getTeamLogoByAbbreviation(row[2])}
+              src={getTeamLogoByAbbreviation(row.team)}
               width={25}
               height={20}
             />
-            {row[4] ? (
+            {row.scorer ? (
               <h6>
-                <b>{row[2]} GOAL</b> -- Scorer: {`${row[4]} `}
+                <b>{row.team} GOAL</b> -- Scorer: {`${row.scorer} `}
                 {scorerName}
-                {primaryAssist && `, Assist: ${row[5]} ${primaryAssist}`}
-                {secondaryAssist && `, Assist: ${row[6]} ${secondaryAssist}`} (
-                {row[7]})
+                {primaryAssist && `, Assist: ${row.assist1} ${primaryAssist}`}
+                {secondaryAssist &&
+                  `, Assist: ${row.assist2} ${secondaryAssist}`}{" "}
+                ({row.type})
               </h6>
             ) : (
               <h6>
-                <b>{row[2]} PEN</b> -- {`${row[8]} ${penaltyName}`} ({row[9]}{" "}
-                min)
+                <b>{row.team} PEN</b> -- {`${row.penalty} ${penaltyName}`} (
+                {row.minutes} min)
               </h6>
             )}
           </div>
@@ -65,9 +78,15 @@ export default function GameSummary({
       })
     );
 
-  const period1 = gameData.filter((data) => data[3] === "1");
-  const period2 = gameData.filter((data) => data[3] === "2");
-  const period3 = gameData.filter((data) => data[3] === "3");
+  const period1 = gameData.filter((data) => data.period === "1");
+  const period2 = gameData.filter((data) => data.period === "2");
+  const period3 = gameData.filter((data) => data.period === "3");
+
+  console.log(gameData);
+  console.log(homeSkaters);
+  console.log(homeGoalies);
+  console.log(awaySkaters);
+  console.log(awayGoalies);
 
   return (
     <div className={styles.gamesummary}>

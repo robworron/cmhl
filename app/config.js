@@ -1,6 +1,7 @@
 const config = {
   currentSeasonShort: "2025", // USE ONE SEASON (ie. 2025, not 2025-26)
-  currentSeasonLong: "2025-26",
+  currentSeasonLong: "2025-26", // USE ENTIRE SEASON (ie. 2025-26, not 2025)
+  numTeams: 8,
   seasons: ["2023-24", "2024-25", "2025-26"],
   seasonShortToLong: {
     2023: "2023-24",
@@ -12,9 +13,7 @@ const config = {
     "2024-25": "2024",
     "2025-26": "2025",
   },
-  regularSeason: false,
-  finals: true,
-  offseason: false,
+  timeOfYear: "offseasonRegister", // OPTIONS ARE: 'regularSeason', 'finals', 'offseasonChampions', 'offseasonRegister', 'offseasonSchedule'
   finalsHome: "SEA", // USE ABBREVIATION
   finalsAway: "AXE", // USE ABBREVIATION
   champion: "AXE", // USE ABBREVIATION

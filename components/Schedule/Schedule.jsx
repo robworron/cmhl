@@ -26,6 +26,7 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   };
 
   const formatURL = (year, game) => {
+    if (year === "2023") return null;
     const season = year.split("-")[0];
     return `/boxscore/${season}/${game}`;
   };
@@ -38,12 +39,12 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   const filteredGames = scheduleData.filter(
     (game) =>
       scheduleTeam === "All Teams" ||
-      game[5] === scheduleTeam ||
-      game[7] === scheduleTeam,
+      game.homeTeam === scheduleTeam ||
+      game.awayTeam === scheduleTeam,
   );
 
   const gamesByWeek = filteredGames.reduce((acc, game) => {
-    const week = game[0];
+    const week = game.week;
     if (!acc[week]) acc[week] = [];
     acc[week].push(game);
     return acc;
@@ -66,18 +67,18 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
           <h2>{formatWeekHeader(scheduleYear, week)}</h2>
           <div className={styles.scheduleWeek}>
             {gamesByWeek[week].map((game, index) => (
-              <div key={`matchup-${game[1]}`}>
+              <div key={`matchup-${game.gameNumber}`}>
                 <ScheduleMatchup
-                  home={game[5]}
-                  homeScore={game[6]}
-                  away={game[7]}
-                  awayScore={game[8]}
-                  time={game[4]}
-                  date={game[2]}
-                  gameNum={formatGameNum(scheduleYear, game[1])}
-                  rink={game[3]}
+                  home={game.homeTeam}
+                  homeScore={game.homeScore}
+                  away={game.awayTeam}
+                  awayScore={game.awayScore}
+                  time={game.time}
+                  date={game.date}
+                  gameNum={formatGameNum(scheduleYear, game.gameNumber)}
+                  rink={game.rink}
                   buttonSize={getButtonSize(windowWidth)}
-                  boxscoreUrl={formatURL(scheduleYear, game[1])}
+                  boxscoreUrl={formatURL(scheduleYear, game.gameNumber)}
                 />
               </div>
             ))}

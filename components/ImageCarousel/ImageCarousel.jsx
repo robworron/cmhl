@@ -13,7 +13,7 @@ import Photo from "@/components/Photo/Photo";
 
 import "./swiper-overrides.css";
 
-export default function ImageCarousel({ images, size }) {
+export default function ImageCarousel({ images }) {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -27,7 +27,7 @@ export default function ImageCarousel({ images, size }) {
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          <Photo name={image} size={size} />
+          <Photo name={image} />
         </SwiperSlide>
       ))}
     </Swiper>

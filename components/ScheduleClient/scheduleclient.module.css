@@ -8,6 +8,12 @@
 .scheduleclient h1 {
   margin: 0px 0px 5px 0px;
   font-size: 40px;
+  font-family: var(--font-heading);
+}
+
+.scheduleclient p {
+  font-size: x-small;
+  color: #999;
 }
 
 .scheduleclientHeader {
@@ -32,5 +38,9 @@
 @media (min-width: 768px) {
   .scheduleclient {
     padding: 50px 0px;
+  }
+
+  .scheduleclient p {
+    font-size: small;
   }
 }

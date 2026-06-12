@@ -1,0 +1,58 @@
+.homeschedule {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.homeschedule a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+
+.homeschedule h2,
+.homeschedule h5 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+.homeschedule h3 {
+  font-family: var(--font-heading);
+  margin: 20px 0 0 0;
+}
+
+.homeschedule h6 {
+  margin: 5px 0 20px 0;
+  color: #666;
+}
+
+.homescheduleGame {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-accent);
+}
+
+.homescheduleSeparator {
+  width: 80%;
+  height: 2px;
+  background-color: var(--primary-grey);
+  margin: 5px auto 10px auto;
+  opacity: 0.5;
+  border-radius: 100px;
+}
+
+@media (min-width: 768px) {
+  .homeschedule {
+    margin: 0;
+  }
+
+  .homeschedule h6 {
+    margin: 5px 0 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .homeschedule h6 {
+    margin: 5px 0 20px 0;
+  }
+}

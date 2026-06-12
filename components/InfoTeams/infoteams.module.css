@@ -1,0 +1,36 @@
+.infoteams {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoteams h2 {
+  font-family: var(--font-heading);
+}
+
+.infoteamsTeams {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .infoteamsTeams {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .infoteamsTeams {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .infoteamsTeams {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

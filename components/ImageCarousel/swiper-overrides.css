@@ -6,3 +6,7 @@
 .swiper-pagination-bullet-active {
   background: var(--primary-red);
 }
+
+.swiper-slide {
+  width: 100% !important;
+}

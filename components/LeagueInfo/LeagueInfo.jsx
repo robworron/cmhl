@@ -13,8 +13,7 @@ export default function LeagueInfo() {
           <Image
             src={GALE_CENTER}
             fill
-            style={{ objectFit: "contain" }}
-            alt="Gale Centre"
+            alt="Gale Centre Arena image"
             priority
           />
         </div>
@@ -35,21 +34,6 @@ export default function LeagueInfo() {
             <tr className={styles.leagueinfoRow}>
               <td>Location</td>
               <td>5152 Thorold Stone Road, Niagara Falls, ON.</td>
-            </tr>
-            <tr className={styles.leagueinfoRow}>
-              <td>Teams</td>
-              <td>
-                Axemen, Bulldogs, Gulls, Jagrbombs, Mighty Drunks, Rockies,
-                Seamen, Toonie Tuesday
-              </td>
-            </tr>
-            <tr className={styles.leagueinfoRow}>
-              <td>League Start Date</td>
-              <td>Friday, October 10, 2025</td>
-            </tr>
-            <tr className={styles.leagueinfoRow}>
-              <td>League End Date</td>
-              <td>Friday, March 27, 2026</td>
             </tr>
             <tr className={styles.leagueinfoRow}>
               <td>Contact</td>

@@ -1,16 +1,18 @@
 .rules {
   width: auto;
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
   padding: 10px;
   border-radius: 10px;
 }
 
 .rules h1 {
   font-size: 24px;
+  font-family: var(--font-heading);
 }
 
 .rules h2 {
   font-size: 16px;
+  font-family: var(--font-heading);
 }
 
 @media (min-width: 768px) {

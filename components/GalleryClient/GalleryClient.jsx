@@ -5,18 +5,18 @@ import Dropdown from "@/components/Dropdown/Dropdown";
 import styles from "./galleryclient.module.css";
 
 export default function GalleryClient() {
-  const [selectedDate, setSelectedDate] = useState("2025-03-14");
+  const [selectedDate, setSelectedDate] = useState("2026-03-20");
 
   const getPaths = (date) => {
-    if (date === "2025-03-14") {
+    if (date === "2026-03-20") {
       return Array.from(
-        { length: 75 },
-        (_, index) => `/images/2025-03-14/img${index + 1}.webp`,
+        { length: 164 },
+        (_, index) => `/gallery/2026-03-20/img${index + 1}.webp`,
       );
     }
     return Array.from(
-      { length: 215 },
-      (_, index) => `/images/2025-03-21/img${index + 1}.webp`,
+      { length: 232 },
+      (_, index) => `/gallery/2026-03-27/img${index + 1}.webp`,
     );
   };
 
@@ -26,17 +26,19 @@ export default function GalleryClient() {
     <div className={styles.galleryclient}>
       <div className={styles.galleryclientBody}>
         <div className={styles.galleryclientHeader}>
-          <h1>2024-2025</h1>
+          <h1>2025-2026</h1>
           <Dropdown
             onSelect={handleDateChange}
             defaultValue={selectedDate}
-            options={["2025-03-14", "2025-03-21"]}
+            options={["2026-03-20", "2026-03-27"]}
           />
         </div>
         <section className={styles.galleryclientPhotoSection}>
-          {getPaths(selectedDate).map((src, index) => (
-            <img key={index} src={src} alt={`Image ${index + 1}`} />
-          ))}
+          {getPaths(selectedDate).map((src, index) =>
+            index + 1 !== 98 && index + 1 !== 99 && index + 1 !== 112 ? ( // brute force solution that specifically indexes the 3 images that are missing from the gallery and skips them
+              <img key={index} src={src} alt={`Image ${index + 1}`} />
+            ) : null,
+          )}
         </section>
       </div>
     </div>

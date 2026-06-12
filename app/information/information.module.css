@@ -6,6 +6,15 @@
 }
 
 .informationBody {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   max-width: 1120px;
   width: 90%;
+}
+
+@media (min-width: 768px) {
+  .informationBody {
+    gap: 60px;
+  }
 }

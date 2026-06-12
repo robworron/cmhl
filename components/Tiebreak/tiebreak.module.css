@@ -1,10 +1,11 @@
 .tiebreak {
   width: 90%;
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
   border-radius: 5px;
   margin-top: 20px;
   padding: 10px 0px;
   max-width: 500px;
+  font-family: var(--font-heading);
 }
 
 .tiebreak h2 {

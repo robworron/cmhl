@@ -3,26 +3,15 @@
   display: flex;
   flex-direction: column;
   color: white;
-  background-color: black;
+  background-color: var(--primary-black);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   box-shadow: 0 2px 10px grey;
+  padding: 5px;
+  font-family: var(--font-heading);
 }
 
-.navbarBlackLine {
-  background-color: var(--primary-black);
-  width: 100%;
-  height: 7px;
-}
-
-.navbarWhiteLine {
-  background-color: white;
-  width: 100%;
-  height: 7px;
-}
-
-.navbarRedLine {
-  background-color: var(--primary-red);
+.navbarLine {
   width: 100%;
   height: 40px;
   display: flex;
@@ -76,6 +65,13 @@
   justify-content: flex-end;
   margin-left: auto;
   font-size: 12px;
+  font-family: var(--font-accent);
+}
+
+.navbarContact a {
+  color: white;
+  text-decoration: underline;
+  margin: auto 0 auto 0;
 }
 
 .navbarMenuButton {
@@ -121,12 +117,7 @@
 }
 
 @media (min-width: 1024px) {
-  .navbarBlackLine,
-  .navbarWhiteLine {
-    height: 10px;
-  }
-
-  .navbarRedLine {
+  .navbarLine {
     gap: 20px;
   }
 
@@ -145,6 +136,10 @@
 }
 
 @media (min-width: 1440px) {
+  .navbar {
+    padding: 5px 10px;
+  }
+
   .navbarContact {
     font-size: 16px;
   }

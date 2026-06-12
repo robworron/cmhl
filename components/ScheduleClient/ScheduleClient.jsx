@@ -40,7 +40,7 @@ export default function ScheduleClient({ schedule, selectedYear }) {
               defaultValue={config.seasonShortToLong[selectedYear]}
               options={["2023-24", "2024-25", "2025-26"]}
             />
-            {selectedYear === "2023-24" ? (
+            {selectedYear === "2023" ? (
               <Dropdown
                 onSelect={handleTeamChange}
                 defaultValue={"All Teams"}
@@ -52,7 +52,7 @@ export default function ScheduleClient({ schedule, selectedYear }) {
                   "Whiskey Dekes",
                 ]}
               />
-            ) : selectedYear === "2024-25" ? (
+            ) : selectedYear === "2024" ? (
               <Dropdown
                 onSelect={handleTeamChange}
                 defaultValue={"All Teams"}
@@ -84,6 +84,9 @@ export default function ScheduleClient({ schedule, selectedYear }) {
               />
             )}
           </div>
+          {selectedYear === "2023" ? (
+            <p>Historical game data for 2023-24 season unavailable</p>
+          ) : null}
         </div>
         <Schedule
           scheduleData={schedule}

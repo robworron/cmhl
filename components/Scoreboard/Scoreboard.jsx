@@ -5,6 +5,7 @@ import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import styles from "./scoreboard.module.css";
+import config from "@/app/config";
 
 export default function Scoreboard({ scheduleData, weekNum }) {
   const scrollRef = useRef(null);
@@ -55,27 +56,26 @@ export default function Scoreboard({ scheduleData, weekNum }) {
     return scheduleData.map((game, index) => (
       <ScoreboardMatchup
         key={index}
-        home={game[5] || "TBD"}
-        homeScore={game[6] || "--"}
-        away={game[7] || "TBD"}
-        awayScore={game[8] || "--"}
-        date={game[2]?.split(",")[0] || "TBD"}
-        time={game[4] || "TBD"}
-        gameNum={game[1] || "N/A"}
-        rink={game[3] || "TBD"}
+        home={game.homeTeam || "TBD"}
+        homeScore={game.homeScore || "--"}
+        away={game.awayTeam || "TBD"}
+        awayScore={game.awayScore || "--"}
+        date={game.date?.split(",")[0] || "TBD"}
+        time={game.time || "TBD"}
+        gameNum={game.gameNumber || "N/A"}
+        rink={game.rink || "TBD"}
       />
     ));
   };
 
   const renderFinals = () => {
     return scheduleData
-      .filter((game) => game[1] === "91")
+      .filter((game) => game.gameNumber === "91")
       .map((game, index) => (
         <FinalsBanner
           key={index}
-          //time={game[4] || "TBD"}
-          time={"10:15PM"}
-          date={game[2]?.split(",")[0] || "TBD"}
+          time={game.time || "TBD"}
+          date={game.date?.split(",")[0] || "TBD"}
         />
       ));
   };
@@ -96,35 +96,30 @@ export default function Scoreboard({ scheduleData, weekNum }) {
     </button>
   );
 
-  /** FOR REGULAR SEASON */
-  /**
-  return (
-    <div className={styles.scoreboard}>
-      {renderLeftArrow()}
-      <div className={styles.scoreboardScroll} ref={scrollRef}>
-        <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
-      </div>
-      {renderRightArrow()}
-    </div>
-  );
- */
-
-  /** FOR FINALS */
-  /**
-  return (
-    <div className={styles.scoreboard}>
-      <div className={styles.scoreboardFinals}>{renderFinals()}</div>
-    </div>
-  );
-  */
-
-  /** FOR OFFSEASON */
-
-  return (
-    <div className={styles.scoreboard}>
-      <div className={styles.scoreboardChampions}>
-        {renderChampionsBanner()}
-      </div>
-    </div>
-  );
+  switch (config.timeOfYear) {
+    case "offseasonSchedule" || "regularSeason":
+      return (
+        <div className={styles.scoreboard}>
+          {renderLeftArrow()}
+          <div className={styles.scoreboardScroll} ref={scrollRef}>
+            <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
+          </div>
+          {renderRightArrow()}
+        </div>
+      );
+    case "finals":
+      return (
+        <div className={styles.scoreboard}>
+          <div className={styles.scoreboardFinals}>{renderFinals()}</div>
+        </div>
+      );
+    default:
+      return (
+        <div className={styles.scoreboard}>
+          <div className={styles.scoreboardChampions}>
+            {renderChampionsBanner()}
+          </div>
+        </div>
+      );
+  }
 }

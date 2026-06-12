@@ -1,7 +1,7 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
-
+import Image from "next/image";
+import Button from "@/components/Button/Button";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import Standings from "@/components/Standings/Standings";
 import StandingsLegend from "@/components/StandingsLegend/StandingsLegend";
@@ -12,6 +12,7 @@ import config from "@/app/config";
 export default function StandingsClient({ standings, selectedYear }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isPlayoffs = searchParams.get("category") === "playoffs";
 
   function updateParam(key, value) {
     const params = new URLSearchParams(searchParams.toString());
@@ -22,6 +23,10 @@ export default function StandingsClient({ standings, selectedYear }) {
   const handleYearChange = (year) => {
     const shortSeason = config.seasonLongToShort[year];
     updateParam("year", shortSeason);
+  };
+
+  const handleCategoryChange = (category) => {
+    updateParam("category", category);
   };
 
   return (
@@ -36,10 +41,36 @@ export default function StandingsClient({ standings, selectedYear }) {
             }
             options={config.seasons}
           />
+          <div className={styles.standingsclientButtons}>
+            <Button
+              primary={isPlayoffs}
+              onClick={() => handleCategoryChange("season")}
+              label="Season"
+              size="Large"
+            />
+            <Button
+              primary={!isPlayoffs}
+              onClick={() => handleCategoryChange("playoffs")}
+              label="Playoffs"
+              size="Large"
+            />
+          </div>
         </div>
-        <Standings standingsData={standings} />
-        <StandingsLegend />
-        <Tiebreak />
+        {isPlayoffs ? (
+          <div className={styles.standingsclientPlayoffsBracket}>
+            <Image
+              src={`/standings/${Number(selectedYear) + 1}.webp`}
+              alt={`${Number(selectedYear) + 1} Playoffs Bracket`}
+              fill
+            />
+          </div>
+        ) : (
+          <>
+            <Standings standingsData={standings} />
+            <StandingsLegend />
+            <Tiebreak />
+          </>
+        )}
       </div>
     </div>
   );

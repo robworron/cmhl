@@ -1,62 +1,124 @@
 .championsBanner {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   width: 100%;
-  height: 50px;
-  background: radial-gradient(var(--colorPrimary) 60%, var(--primary-grey) 70%);
+  height: 100%;
+  font-family: var(--font-heading);
+}
+
+.championsBannerChampion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100%;
   color: white;
 }
 
-.championsBanner h1 {
-  font-size: medium;
+.championsBannerNextYear {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 220px;
+  color: var(--primary-black);
+}
+
+.championsBannerNextYear h3 {
   margin: 0;
-  padding: 0;
-  padding-right: 5px;
-  text-align: center;
+  padding-left: 10px;
+}
+
+.championsBannerNextYear h5 {
+  margin: 0;
+  padding-left: 10px;
+  font-size: small;
+}
+
+.championsBannerNextYear a {
+  color: var(--primary-black);
+  text-decoration: underline;
 }
 
 .championsBannerLogo {
-  position: relative;
-  width: 150px;
-  height: 90px;
+  position: absolute;
+  z-index: 3;
+  left: -10px;
+  width: 70px;
+  height: 80%;
 }
 
 .championsBannerTrophy {
-  position: relative;
-  width: 150px;
-  height: 100px;
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  height: 100%;
+}
+
+.championsBannerText {
+  display: none;
+}
+
+@media (min-width: 375px) {
+  .championsBannerNextYear {
+    width: 270px;
+  }
 }
 
 @media (min-width: 768px) {
-  .championsBanner {
-    gap: 50px;
+  .championsBannerTrophy {
     height: 100%;
-    background: radial-gradient(
-      var(--colorPrimary) 30%,
-      var(--primary-grey) 50%
-    );
   }
 
-  .championsBanner h1 {
+  .championsBannerNextYear {
+    width: 400px;
+  }
+
+  .championsBannerNextYear h3 {
     font-size: x-large;
   }
 
-  .championsBannerLogo {
-    position: relative;
-    width: 250px;
-    height: 100%;
-  }
-
-  .championsBannerTrophy {
-    position: relative;
-    width: 250px;
-    height: 100%;
+  .championsBannerNextYear h5 {
+    font-size: large;
   }
 }
 
 @media (min-width: 1024px) {
-  .championsBanner h1 {
-    font-size: xx-large;
+  .championsBanner {
+    max-width: 1200px;
+  }
+
+  .championsBannerChampion {
+    width: 240px;
+  }
+
+  .championsBannerNextYear {
+    width: 360px;
+  }
+
+  .championsBannerLogo {
+    width: 100px;
+    height: 80%;
+    left: -30px;
+  }
+
+  .championsBannerTrophy {
+    width: 120px;
+    height: 100%;
+  }
+
+  .championsBannerText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 40px;
+    z-index: 1;
+    background: radial-gradient(var(--champion-color) 20%, transparent 70%);
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-family: var(--font-accent);
+    font-size: small;
   }
 }

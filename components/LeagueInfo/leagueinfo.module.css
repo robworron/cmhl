@@ -1,12 +1,17 @@
 .leagueinfo {
-  background-color: var(--secondary-grey);
+  background-color: var(--primary-grey);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  padding: 20px;
+  padding: 0px 20px;
   height: fit-content;
-  margin-bottom: 30px;
+  margin: 0 auto;
+}
+
+.leagueinfoTable td {
+  font-size: small;
+  padding: 20px 10px;
 }
 
 .leagueinfo td:nth-child(odd) {
@@ -19,18 +24,20 @@
 
 .leagueinfo h1 {
   text-align: center;
+  font-family: var(--font-heading);
 }
 
 .leagueinfoInformation {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .leagueinfoImage {
   position: relative;
   width: 100%;
-  height: 190px;
+  aspect-ratio: 16/9;
 }
 
 .leagueinfoTable {
@@ -38,49 +45,57 @@
   width: 100%;
 }
 
-.leagueinfoTable td {
-  font-size: 12px;
-  padding: 10px;
-}
-
 .leagueinfoRow {
   border-top: 1px solid;
 }
 
+@media (min-width: 425px) {
+  .leagueinfo {
+    max-width: 500px;
+  }
+}
+
 @media (min-width: 768px) {
   .leagueinfo {
-    font-size: 20px;
+    width: 70%;
+    max-width: 600px;
   }
 
-  .leagueinfo td {
-    font-size: 16px;
-    padding: 15px;
-  }
-
-  .leagueinfoImage {
-    position: relative;
-    width: 80%;
-    height: 330px;
-  }
-
-  .leagueinfoTable {
-    width: 80%;
+  .leagueinfoTable td {
+    font-size: medium;
   }
 }
 
 @media (min-width: 1024px) {
-  .leagueinfo td {
-    font-size: 16px;
+  .leagueinfo {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px 40px;
   }
 
-  .leagueinfoImage {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    padding-bottom: 20px;
+  .leagueinfoInformation {
+    flex-direction: row;
+    gap: 30px;
   }
 
   .leagueinfoTable {
-    margin-top: 20px;
+    width: 30%;
+  }
+
+  .leagueinfoTable td {
+    font-size: small;
+    padding: 20px 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .leagueinfo {
+    max-width: 1040px;
+    padding: 40px;
+  }
+
+  .leagueinfoTable td {
+    font-size: medium;
+    padding: 25px 10px;
   }
 }

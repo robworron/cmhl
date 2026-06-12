@@ -36,14 +36,14 @@ export default function TeamBoxscore({ team, skaterData, goalieData }) {
         <tbody>
           {skaterData.map((player, row) => (
             <tr key={row}>
-              <td>{player[3]}</td>
-              <td>{player[2]}</td>
-              <td>{player[6]}</td>
-              <td>{player[7]}</td>
-              <td>{Number(player[6]) + Number(player[7])}</td>
-              <td>{player[8]}</td>
-              <td>{player[9]}</td>
-              <td>{player[10]}</td>
+              <td>{player.number}</td>
+              <td>{player.player}</td>
+              <td>{player.goals}</td>
+              <td>{player.assists}</td>
+              <td>{Number(player.goals) + Number(player.assists)}</td>
+              <td>{player.penaltyMinutes}</td>
+              <td>{player.powerplayPoints}</td>
+              <td>{player.shorthandedPoints}</td>
             </tr>
           ))}
         </tbody>
@@ -72,14 +72,14 @@ export default function TeamBoxscore({ team, skaterData, goalieData }) {
         <tbody>
           {goalieData.map((player, row) => (
             <tr key={row}>
-              <td>{player[3]}</td>
-              <td>{player[2]}</td>
-              <td>{player[6] === "1" ? player[6] : "0"}</td>
-              <td>{player[7]}</td>
-              <td>{player[8]}</td>
-              <td>{player[9]}</td>
-              <td>{player[10]}</td>
-              <td>{player[11]}</td>
+              <td>{player.number}</td>
+              <td>{player.player}</td>
+              <td>{player.wins === "1" ? player.wins : "0"}</td>
+              <td>{player.goalsAgainst}</td>
+              <td>{player.saves}</td>
+              <td>{player.savePercentage}</td>
+              <td>{player.goalsAgainstAverage}</td>
+              <td>{player.shutouts}</td>
             </tr>
           ))}
         </tbody>

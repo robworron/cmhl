@@ -1,7 +1,4 @@
-import React from "react";
-
-import { EnvelopeIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
-
+import Link from "next/link";
 import styles from "./footer.module.css";
 
 const LEAGUE_LOGO = "/assets/logos/logo-transparent-white.webp";
@@ -17,8 +14,6 @@ const TOONIE_TUESDAY_LOGO = "/assets/logos/toonietuesday-transparent.png";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerRedLine} />
-      <div className={styles.footerWhiteLine} />
       <div className={styles.footerLogos}>
         <div className={styles.footerTeamLogos}>
           <img
@@ -87,17 +82,41 @@ export default function Footer() {
         </div>
       </div>
       <p>est. 2023</p>
-      <h5 style={{ marginBottom: 0 }}>
-        Website Designed & Developed by Rob Worron
-      </h5>
-      <div className={styles.footerEmailInfo}>
-        <EnvelopeIcon style={{ width: 24, padding: 3 }} />
-        <h5 style={{ margin: 0 }}>rworron94@gmail.com</h5>
+      <div className={styles.footerPageLinks}>
+        <Link href="/">
+          <h5>Home</h5>
+        </Link>
+        <Link href="/news">
+          <h5>News</h5>
+        </Link>
+        <Link href="/schedule">
+          <h5>Schedule</h5>
+        </Link>
+        <Link href="/standings">
+          <h5>Standings</h5>
+        </Link>
+        <Link href="/stats">
+          <h5>Stats</h5>
+        </Link>
+        <Link href="/information">
+          <h5>Info</h5>
+        </Link>
+        <Link href="/rules">
+          <h5>Rules</h5>
+        </Link>
+        <Link href="/gallery">
+          <h5>Gallery</h5>
+        </Link>
+        <Link href="/contact">
+          <h5>Contact</h5>
+        </Link>
       </div>
-      <div className={styles.footerWebsiteInfo}>
-        <GlobeAltIcon style={{ width: 24, padding: 3 }} />
-        <h5 style={{ margin: 0 }}>https://www.robworron.ca/</h5>
-      </div>
+      <h6>
+        Website Designed & Developed by{" "}
+        <Link href={"https://www.robworron.ca/"} target="__blank">
+          Rob Worron
+        </Link>
+      </h6>
     </footer>
   );
 }

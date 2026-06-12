@@ -1,0 +1,91 @@
+.leadersskaters {
+  width: 80%;
+  background-color: var(--primary-grey);
+  border-radius: 16px;
+  padding: 10px 30px;
+  margin: 0px auto;
+  font-size: small;
+}
+
+.leadersskaters h3 {
+  font-family: var(--font-heading);
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+
+.leadersskatersHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+
+.leadersskatersSubHeader,
+.leadersskatersTeam {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr;
+  align-items: center;
+}
+
+.teamCell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rank {
+  font-size: small;
+  color: var(--secondary-grey);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  margin: 0px auto;
+}
+
+.button {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .leadersskaters {
+    padding: 10px 20px;
+    font-size: x-small;
+  }
+
+  .teamCell {
+    gap: 1px;
+  }
+}
+
+@media (min-width: 880px) {
+  .leadersskaters {
+    font-size: small;
+  }
+}
+
+@media (min-width: 1440px) {
+  .leadersskaters {
+    font-size: medium;
+  }
+
+  .leadersskaters h3 {
+    font-size: xx-large;
+  }
+
+  .rank {
+    font-size: small;
+  }
+
+  .teamCell {
+    gap: 8px;
+  }
+}

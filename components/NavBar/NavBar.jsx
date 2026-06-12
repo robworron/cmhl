@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 import Logo from "@/components/Logo/Logo";
 import { useMenu } from "../../contexts/MenuContext";
@@ -16,7 +16,9 @@ const NAV_LINKS = [
   { name: "Standings", path: "/standings" },
   { name: "Stats", path: "/stats" },
   { name: "Info", path: "/information" },
+  { name: "Rules", path: "/rules" },
   { name: "Gallery", path: "/gallery" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function NavBar() {
@@ -35,9 +37,7 @@ export default function NavBar() {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.navbarBlackLine} />
-      <div className={styles.navbarWhiteLine} />
-      <div className={styles.navbarRedLine}>
+      <div className={styles.navbarLine}>
         {windowWidth === null ? null : isDesktop ? (
           <>
             <Link href="/" className={styles.navbarLogo}>
@@ -64,7 +64,7 @@ export default function NavBar() {
 
             <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
-              <p>cmhlniagara@gmail.com</p>
+              <a href="mailto:cmhlniagara@gmail.com">cmhlniagara@gmail.com</a>
             </div>
           </>
         ) : (
@@ -92,13 +92,11 @@ export default function NavBar() {
             />
             <div className={styles.navbarContact}>
               <EnvelopeIcon style={{ width: 24, padding: 5 }} />
-              <p>cmhlniagara@gmail.com</p>
+              <a href="mailto:cmhlniagara@gmail.com">cmhlniagara@gmail.com</a>
             </div>
           </>
         )}
       </div>
-      <div className={styles.navbarWhiteLine} />
-      <div className={styles.navbarBlackLine} />
     </div>
   );
 }
