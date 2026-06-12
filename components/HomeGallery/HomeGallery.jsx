@@ -7,7 +7,11 @@ export default function HomeGallery() {
   return (
     <div className={styles.homegallery}>
       <div className={styles.homegalleryImage}>
-        <Image src="/home/gallery-thumbnail.png" alt="Gallery Thumbnail" fill />
+        <Image
+          src="/home/gallery-thumbnail.png"
+          alt="Gallery Thumbnail"
+          fill
+        />
         <div className={styles.homegalleryOverlay}>
           <h2 className={styles.homegalleryOverlayHeader}>Gallery</h2>
           <p className={styles.homegalleryOverlaySubheader}>
