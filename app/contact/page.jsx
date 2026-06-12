@@ -1,3 +1,3 @@
 export default function ContactPage() {
-  return <></>;
+  return <h2 style={{ margin: 60 }}>COMING SOON</h2>;
 }
