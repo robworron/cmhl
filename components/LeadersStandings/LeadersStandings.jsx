@@ -24,7 +24,7 @@ export default function LeadersStandings({ list }) {
             <Image
               src={TEAMS[TEAM_TO_ABBREVIATION[team.teamName]].logoFile}
               alt={team.teamName}
-              width={30}
+              width={36}
               height={30}
             />
             <p>{TEAM_TO_ABBREVIATION[team.teamName]}</p>

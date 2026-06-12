@@ -22,7 +22,7 @@ export default function LeadersSkaters({ list }) {
             <Image
               src={TEAMS[skater.team].logoFile}
               alt={skater.team}
-              width={30}
+              width={36}
               height={30}
             />
             <p>{skater.team}</p>

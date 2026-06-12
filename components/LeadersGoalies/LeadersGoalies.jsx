@@ -22,7 +22,7 @@ export default function LeadersGoalies({ list }) {
             <Image
               src={TEAMS[goalie.team].logoFile}
               alt={goalie.team}
-              width={30}
+              width={36}
               height={30}
             />
             <p>{goalie.team}</p>

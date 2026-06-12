@@ -5,6 +5,7 @@ import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import styles from "./scoreboard.module.css";
+import config from "@/app/config";
 
 export default function Scoreboard({ scheduleData, weekNum }) {
   const scrollRef = useRef(null);
@@ -95,34 +96,30 @@ export default function Scoreboard({ scheduleData, weekNum }) {
     </button>
   );
 
-  /** FOR REGULAR SEASON */
-
-  return (
-    <div className={styles.scoreboard}>
-      {renderLeftArrow()}
-      <div className={styles.scoreboardScroll} ref={scrollRef}>
-        <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
-      </div>
-      {renderRightArrow()}
-    </div>
-  );
-
-  /** FOR FINALS */
-  /**
-  return (
-    <div className={styles.scoreboard}>
-      <div className={styles.scoreboardFinals}>{renderFinals()}</div>
-    </div>
-  );
-  */
-
-  /** FOR OFFSEASON */
-  /*
-  return (
-    <div className={styles.scoreboard}>
-      <div className={styles.scoreboardChampions}>
-        {renderChampionsBanner()}
-      </div>
-    </div>
-  );*/
+  switch (config.timeOfYear) {
+    case "offseasonSchedule" || "regularSeason":
+      return (
+        <div className={styles.scoreboard}>
+          {renderLeftArrow()}
+          <div className={styles.scoreboardScroll} ref={scrollRef}>
+            <div className={styles.scoreboardMatchups}>{renderMatchups()}</div>
+          </div>
+          {renderRightArrow()}
+        </div>
+      );
+    case "finals":
+      return (
+        <div className={styles.scoreboard}>
+          <div className={styles.scoreboardFinals}>{renderFinals()}</div>
+        </div>
+      );
+    default:
+      return (
+        <div className={styles.scoreboard}>
+          <div className={styles.scoreboardChampions}>
+            {renderChampionsBanner()}
+          </div>
+        </div>
+      );
+  }
 }

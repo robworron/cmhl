@@ -8,18 +8,6 @@
   color: white;
 }
 
-.footerRedLine {
-  background-color: var(--primary-red);
-  width: 100%;
-  height: 20px;
-}
-
-.footerWhiteLine {
-  background-color: white;
-  width: 100%;
-  height: 20px;
-}
-
 .footerLogos {
   display: flex;
   flex-direction: row;
@@ -47,22 +35,28 @@
   height: 35px;
 }
 
-.footerEmailInfo {
+.footerPageLinks {
   display: flex;
-  align-items: center;
-  color: white;
+  flex-direction: column;
+  gap: 10;
+  margin: 20px 0;
+  text-align: center;
 }
 
-.footerWebsiteInfo {
-  display: flex;
-  align-items: center;
-  color: white;
-  padding-bottom: 10px;
+.footer a {
+  color: var(--primary-grey);
+  text-decoration: none;
 }
 
-.footer h4,
 .footer h5 {
-  font-size: small;
+  font-size: x-small;
+  margin: 0;
+}
+
+.footer h6 {
+  font-size: x-small;
+  color: var(--secondary-grey);
+  margin-top: 0;
 }
 
 .footer p {
@@ -87,13 +81,21 @@
     height: 60px;
   }
 
+  .footerPageLinks {
+    flex-direction: row;
+    gap: 20;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .footer h5 {
+    font-size: small;
+    margin: 0;
+  }
+
   .footer p {
     margin-bottom: 0;
     font-size: 12px;
-  }
-
-  .footer h4 {
-    font-size: large;
   }
 }
 

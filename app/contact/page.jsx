@@ -1,3 +1,9 @@
+import styles from "./contact.module.css";
+
 export default function ContactPage() {
-  return <h2 style={{ margin: 60 }}>COMING SOON</h2>;
+  return (
+    <div className={styles.contact}>
+      <h2>Coming Soon</h2>
+    </div>
+  );
 }

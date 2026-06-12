@@ -5,9 +5,20 @@
   margin: 40px auto;
 }
 
-.homeschedule h2 {
+.homeschedule a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+
+.homeschedule h2,
+.homeschedule h5 {
   font-family: var(--font-heading);
   margin: 0;
+}
+
+.homeschedule h3 {
+  font-family: var(--font-heading);
+  margin: 20px 0 0 0;
 }
 
 .homeschedule h6 {
