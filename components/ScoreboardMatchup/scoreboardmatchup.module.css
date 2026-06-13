@@ -1,4 +1,5 @@
 .scoreboardmatchup {
+  position: relative;
   background-color: var(--primary-grey);
   display: flex;
   flex-direction: column;
@@ -8,6 +9,32 @@
   border-right: 1px solid var(--primary-black);
   width: 150px;
   height: 100%;
+  overflow: hidden;
+  transition: filter 0.2s ease-in;
+}
+
+.scoreboardmatchupOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.scoreboardmatchupOverlay svg {
+  width: 60%;
+  height: 60%;
+}
+
+.scoreboardmatchup:hover .scoreboardmatchupOverlay {
+  opacity: 1;
 }
 
 .scoreboardmatchup h6 {

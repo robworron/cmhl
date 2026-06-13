@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
+import Link from "next/link";
 import Logo from "@/components/Logo/Logo";
 import { getTeamLogoByName } from "@/utils/formats";
+import { RINK_ICON } from "@/utils/icons";
 import config from "@/app/config";
-
 import styles from "./scoreboardmatchup.module.css";
 
 const determineLogoSize = (width) => {
@@ -44,6 +44,12 @@ export default function ScoreboardMatchup({
 
   return (
     <div className={styles.scoreboardmatchup}>
+      <Link
+        href={`/boxscore/${config.currentSeasonShort}/${gameNum}`}
+        className={styles.scoreboardmatchupOverlay}
+      >
+        {RINK_ICON}BOXSCORE
+      </Link>
       <div className={styles.scoreboardmatchupInfo}>
         <div>
           <h6>{date}</h6>
