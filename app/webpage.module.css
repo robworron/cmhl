@@ -2,6 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 1000000;
+  height: 135px;
+  overflow: hidden;
 }
 
 .webpageMain {
@@ -15,5 +17,15 @@
 @media (min-width: 768px) {
   .webpage {
     height: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .webpage {
+    height: 100%;
+  }
+
+  .webpageHeader {
+    height: 160px;
   }
 }
