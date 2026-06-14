@@ -8,7 +8,7 @@
   border-left: 1px solid var(--primary-black);
   border-right: 1px solid var(--primary-black);
   width: 150px;
-  height: 85px;
+  height: 95px;
   overflow: hidden;
   transition: filter 0.2s ease-in;
 }
