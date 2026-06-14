@@ -3,6 +3,10 @@
   background-color: #f0f0f0;
 }
 
+.homegallery a {
+  text-decoration: none;
+}
+
 .homegalleryImage {
   position: relative;
   width: 100%;

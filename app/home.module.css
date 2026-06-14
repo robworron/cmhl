@@ -23,7 +23,7 @@
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1070px;
 }
 
 .homeCards {
@@ -67,7 +67,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 100%;
-    max-width: 1200px;
     margin: 20px auto;
   }
 }
@@ -75,5 +74,11 @@
 @media (min-width: 1024px) {
   .homeLeaders {
     gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeLeaders {
+    max-width: 1280px;
   }
 }

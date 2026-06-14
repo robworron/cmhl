@@ -18,7 +18,6 @@ const NAV_LINKS = [
   { name: "Info", path: "/information" },
   { name: "Rules", path: "/rules" },
   { name: "Gallery", path: "/gallery" },
-  { name: "Contact", path: "/contact" },
 ];
 
 export default function NavBar() {

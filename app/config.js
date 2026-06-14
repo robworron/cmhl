@@ -13,7 +13,7 @@ const config = {
     "2024-25": "2024",
     "2025-26": "2025",
   },
-  timeOfYear: "offseasonSchedule", // OPTIONS ARE: 'regularSeason', 'finals', 'offseasonChampions', 'offseasonRegister', 'offseasonSchedule'
+  timeOfYear: "offseasonRegister", // OPTIONS ARE: 'regularSeason', 'finals', 'offseasonChampions', 'offseasonRegister', 'offseasonSchedule'
   finalsHome: "SEA", // USE ABBREVIATION
   finalsAway: "AXE", // USE ABBREVIATION
   champion: "AXE", // USE ABBREVIATION

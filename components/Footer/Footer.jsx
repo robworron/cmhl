@@ -107,9 +107,11 @@ export default function Footer() {
         <Link href="/gallery">
           <h5>Gallery</h5>
         </Link>
+        {/**
         <Link href="/contact">
           <h5>Contact</h5>
         </Link>
+         */}
       </div>
       <h6>
         Website Designed & Developed by{" "}

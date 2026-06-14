@@ -169,7 +169,7 @@ export default function NavMenu() {
             </svg>
           </Link>
         </li>
-        <li className={styles.navmenuListItem}>
+        <li className={styles.navmenuListItem} style={{ border: "0px" }}>
           <Link
             href="/gallery"
             className={styles.navmenuLink}
@@ -192,6 +192,7 @@ export default function NavMenu() {
             </svg>
           </Link>
         </li>
+        {/**
         <li className={styles.navmenuListItem} style={{ border: "0px" }}>
           <Link
             href="/contact"
@@ -214,7 +215,7 @@ export default function NavMenu() {
               />
             </svg>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
