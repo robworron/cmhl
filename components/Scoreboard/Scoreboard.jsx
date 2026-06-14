@@ -97,7 +97,8 @@ export default function Scoreboard({ scheduleData, weekNum }) {
   );
 
   switch (config.timeOfYear) {
-    case "offseasonSchedule" || "regularSeason":
+    case "offseasonSchedule":
+    case "regularSeason":
       return (
         <div className={styles.scoreboard}>
           {renderLeftArrow()}
