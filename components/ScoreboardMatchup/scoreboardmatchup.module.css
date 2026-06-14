@@ -14,7 +14,6 @@
 }
 
 .scoreboardmatchupOverlay {
-  display: none;
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -26,6 +25,7 @@
   font-family: var(--font-heading);
   text-decoration: none;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.2s ease-in;
 }
 
@@ -36,6 +36,7 @@
 
 .scoreboardmatchup:hover .scoreboardmatchupOverlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .scoreboardmatchup h6 {
