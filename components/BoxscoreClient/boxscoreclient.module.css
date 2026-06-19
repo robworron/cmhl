@@ -64,4 +64,10 @@
     align-items: center;
     width: 50%;
   }
+
+  .boxscoreTeams {
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+  }
 }

@@ -89,6 +89,10 @@
   margin: 5px 10px;
 }
 
+.boxscorebannerNotice {
+  color: #999;
+}
+
 @media (min-width: 768px) {
   .boxscorebanner {
     width: 80%;

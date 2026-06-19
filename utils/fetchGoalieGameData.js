@@ -41,6 +41,5 @@ export function fetchGoalieGameData(season) {
   if (season === config.currentSeasonShort) {
     return fetchCurrentSeason(season);
   }
-
   return fetchArchivedSeason(season);
 }

@@ -82,12 +82,6 @@ export default function GameSummary({
   const period2 = gameData.filter((data) => data.period === "2");
   const period3 = gameData.filter((data) => data.period === "3");
 
-  console.log(gameData);
-  console.log(homeSkaters);
-  console.log(homeGoalies);
-  console.log(awaySkaters);
-  console.log(awayGoalies);
-
   return (
     <div className={styles.gamesummary}>
       <h4>

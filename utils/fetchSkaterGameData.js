@@ -16,11 +16,11 @@ async function getSkaterGameData(season) {
     number: row[3],
     team: row[4],
     gamesPlayed: row[5],
-    goals: row[6],
-    assists: row[7],
-    penaltyMinutes: row[8],
-    powerplayPoints: row[9],
-    shorthandedPoints: row[10],
+    goals: row[6] || 0,
+    assists: row[7] || 0,
+    penaltyMinutes: row[8] || 0,
+    powerplayPoints: row[9] || 0,
+    shorthandedPoints: row[10] || 0,
   }));
 }
 

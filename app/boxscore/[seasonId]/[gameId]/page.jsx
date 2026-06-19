@@ -12,7 +12,7 @@ export default async function BoxscorePage({ params }) {
   const goalieData = await fetchGoalieGameData(seasonId);
   const gameSummary = await fetchGameSummaryData(seasonId);
   const gameData = await fetchGame(seasonId, gameId);
-
+  console.log(skaterData);
   const home = gameData.homeTeam;
   const away = gameData.awayTeam;
   const homeAbbreviation = TEAM_TO_ABBREVIATION[home];
@@ -57,6 +57,7 @@ export default async function BoxscorePage({ params }) {
 
   return (
     <BoxscoreClient
+      season={seasonId}
       gameNum={gameId}
       date={gameData.date}
       time={gameData.time}

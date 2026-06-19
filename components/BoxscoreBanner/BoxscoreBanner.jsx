@@ -16,6 +16,7 @@ function determineLogoSize(width) {
 }
 
 export default function BoxscoreBanner({
+  season = "2024",
   home = TEAMS["CMHL"],
   homeScore = "--",
   away = TEAMS["CMHL"],
@@ -92,6 +93,11 @@ export default function BoxscoreBanner({
         <h6>{time}</h6>
         <h6>Rink {rink}</h6>
       </div>
+      {season === "2024" && (
+        <h6 className={styles.boxscorebannerNotice}>
+          Game Summary and Linescore for 2024-25 season unavailable.
+        </h6>
+      )}
     </div>
   );
 }

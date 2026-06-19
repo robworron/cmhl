@@ -11,6 +11,7 @@ import TeamBoxscore from "../TeamBoxscore/TeamBoxscore";
 import styles from "./boxscoreclient.module.css";
 
 export default function BoxscoreClient({
+  season,
   gameNum,
   date,
   time,
@@ -37,6 +38,7 @@ export default function BoxscoreClient({
   return (
     <div className={styles.boxscore}>
       <BoxscoreBanner
+        season={season}
         home={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
         homeScore={homeScoringLine[homeScoringLine.length - 1]}
         away={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
@@ -48,23 +50,40 @@ export default function BoxscoreClient({
       />
       {gameSummary.length > 0 ? (
         <section className={styles.boxscoreContent}>
-          <div className={styles.boxscoreSummary}>
-            <Linescore
-              homeTeam={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
-              awayTeam={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
-              homeScoring={homeScoringLine}
-              awayScoring={awayScoringLine}
-            />
-            <GameSummary
-              gameData={gameSummary}
-              homeSkaters={homeSkaterData}
-              homeGoalies={homeGoalieData}
-              awaySkaters={awaySkaterData}
-              awayGoalies={awayGoalieData}
-            />
-          </div>
+          {season === "2024" ? (
+            <></>
+          ) : (
+            <div className={styles.boxscoreSummary}>
+              <Linescore
+                homeTeam={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
+                awayTeam={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
+                homeScoring={homeScoringLine}
+                awayScoring={awayScoringLine}
+              />
+              <GameSummary
+                gameData={gameSummary}
+                homeSkaters={homeSkaterData}
+                homeGoalies={homeGoalieData}
+                awaySkaters={awaySkaterData}
+                awayGoalies={awayGoalieData}
+              />
+            </div>
+          )}
           <>
             {windowWidth < 1024 ? (
+              <div className={styles.boxscoreTeams}>
+                <TeamBoxscore
+                  team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
+                  skaterData={awaySkaterData}
+                  goalieData={awayGoalieData}
+                />
+                <TeamBoxscore
+                  team={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
+                  skaterData={homeSkaterData}
+                  goalieData={homeGoalieData}
+                />
+              </div>
+            ) : season === "2024" ? (
               <div className={styles.boxscoreTeams}>
                 <TeamBoxscore
                   team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
