@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Button from "@/components/Button/Button";
@@ -12,14 +12,55 @@ import config from "@/app/config";
 import styles from "./statsclient.module.css";
 
 export default function StatsClient({
-  stats,
   selectedYear,
   selectedPosition,
   updatedWeek,
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const [players, setPlayers] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
+
+  const sentinelRef = useRef(null);
+  const offsetRef = useRef(0);
+  const loadingRef = useRef(false);
+  const genRef = useRef(0); // request generation/version
+
+  async function fetchChunk(offsetValue) {
+    const myGen = genRef.current;
+
+    loadingRef.current = true;
+    setLoading(true);
+
+    const teamParam =
+      selectedTeam === "All Teams"
+        ? ""
+        : `&team=${encodeURIComponent(selectedTeam)}`;
+
+    try {
+      const response = await fetch(
+        `/api/stats?year=${selectedYear}&position=${selectedPosition}&offset=${offsetValue}&limit=30${teamParam}`,
+      );
+
+      const data = await response.json();
+
+      // Ignore stale responses from previous generation
+      if (genRef.current !== myGen) return;
+
+      setPlayers((prev) => [...prev, ...data.players]);
+      setHasMore(data.hasMore);
+    } catch (err) {
+      console.error("Fetch error:", err);
+    } finally {
+      if (genRef.current === myGen) {
+        loadingRef.current = false;
+        setLoading(false);
+      }
+    }
+  }
 
   function updateParam(key, value) {
     const params = new URLSearchParams(searchParams.toString());
@@ -41,11 +82,41 @@ export default function StatsClient({
     setSelectedTeam(team);
   };
 
+  // Reset and load first page when filters change
+  useEffect(() => {
+    genRef.current += 1;
+    setPlayers([]);
+    setHasMore(true);
+    offsetRef.current = 0;
+
+    fetchChunk(0);
+  }, [selectedYear, selectedPosition, selectedTeam]);
+
+  // Infinite scroll observer
+  useEffect(() => {
+    if (!sentinelRef.current) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      const first = entries[0];
+
+      if (first.isIntersecting && hasMore && !loadingRef.current) {
+        const nextOffset = offsetRef.current + 30;
+        offsetRef.current = nextOffset;
+        fetchChunk(nextOffset);
+      }
+    });
+
+    observer.observe(sentinelRef.current);
+
+    return () => observer.disconnect();
+  }, [hasMore, selectedYear, selectedPosition, selectedTeam]);
+
   return (
     <div className={styles.statsClient}>
       <div className={styles.statsClientBody}>
         <div className={styles.statsClientHeader}>
           <h1>Stats</h1>
+
           <div className={styles.statsClientDropdowns}>
             <Dropdown
               onSelect={handleYearChange}
@@ -66,6 +137,7 @@ export default function StatsClient({
               }
             />
           </div>
+
           <div className={styles.statsClientButtons}>
             <Button
               primary={selectedPosition !== "skater"}
@@ -80,16 +152,36 @@ export default function StatsClient({
               onClick={() => handlePositionChange("goalie")}
             />
           </div>
-          {config.timeOfYear === "regularSeason" ? (
+
+          {config.timeOfYear === "regularSeason" && (
             <p>{`Stats Updated as of Week ${updatedWeek}`}</p>
-          ) : null}
+          )}
         </div>
+
         {selectedPosition === "skater" && (
-          <SkaterStats data={stats} year={selectedYear} team={selectedTeam} />
+          <>
+            <SkaterStats
+              data={players}
+              year={selectedYear}
+              team={selectedTeam}
+            />
+            <div ref={sentinelRef} style={{ height: "1px" }} />
+            {loading && <p>Loading…</p>}
+          </>
         )}
+
         {selectedPosition === "goalie" && (
-          <GoalieStats data={stats} year={selectedYear} team={selectedTeam} />
+          <>
+            <GoalieStats
+              data={players}
+              year={selectedYear}
+              team={selectedTeam}
+            />
+            <div ref={sentinelRef} style={{ height: "1px" }} />
+            {loading && <p>Loading…</p>}
+          </>
         )}
+
         <StatsLegend />
       </div>
     </div>

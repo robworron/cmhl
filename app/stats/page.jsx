@@ -1,5 +1,4 @@
 import StatsClient from "@/components/StatsClient/StatsClient";
-import { fetchStats } from "@/utils/fetchStats";
 import { fetchStatsUpdatedNum } from "@/utils/fetchStatsUpdatedNum";
 
 export const metadata = {
@@ -13,20 +12,10 @@ export default async function StatsPage({ searchParams }) {
   const year = params.year || "2025";
   const position = params.position || "skater";
 
-  const stats = await fetchStats(year, position);
   const date = await fetchStatsUpdatedNum();
-
-  if (!stats) {
-    return (
-      <div>
-        ERROR: Failed to load {position} stats for {year}
-      </div>
-    );
-  }
 
   return (
     <StatsClient
-      stats={stats}
       selectedYear={year}
       selectedPosition={position}
       updatedWeek={date}
