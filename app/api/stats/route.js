@@ -10,10 +10,8 @@ export async function GET(req) {
   const offset = Number(searchParams.get("offset") || 0);
   const limit = Number(searchParams.get("limit") || 30);
 
-  // Fetch full dataset (cached via unstable_cache)
   let stats = await fetchStats(year, position);
 
-  // Server-side team filter (full name → abbreviation)
   if (team && team !== "All Teams") {
     const abbr = TEAM_TO_ABBREVIATION[team];
     if (!abbr) {
@@ -23,7 +21,6 @@ export async function GET(req) {
     }
   }
 
-  // Slice for pagination
   const slice = stats.slice(offset, offset + limit);
   const hasMore = offset + limit < stats.length;
 

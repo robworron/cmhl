@@ -47,7 +47,6 @@ export default function StatsClient({
 
       const data = await response.json();
 
-      // Ignore stale responses from previous generation
       if (genRef.current !== myGen) return;
 
       setPlayers((prev) => [...prev, ...data.players]);
@@ -82,7 +81,6 @@ export default function StatsClient({
     setSelectedTeam(team);
   };
 
-  // Reset and load first page when filters change
   useEffect(() => {
     genRef.current += 1;
     setPlayers([]);
@@ -92,7 +90,6 @@ export default function StatsClient({
     fetchChunk(0);
   }, [selectedYear, selectedPosition, selectedTeam]);
 
-  // Infinite scroll observer
   useEffect(() => {
     if (!sentinelRef.current) return;
 

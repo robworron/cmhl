@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 import styles from "./rules.module.css";
 
 export default function Rules() {
@@ -10,7 +10,14 @@ export default function Rules() {
       <ol>
         <li>
           All Hockey Canada rules apply unless otherwise amended below under
-          league rules. Hockey Canada Rule Book
+          league rules.{" "}
+          <Link
+            href="https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Officiating/Downloads/rulebook_casebook_e.pdf"
+            style={{ textDecoration: "none", color: "black" }}
+            target="__blank"
+          >
+            <b>Hockey Canada Rule Book</b>
+          </Link>
         </li>
         <li>
           All league information, rules and regulations are subject to change.
@@ -26,18 +33,18 @@ export default function Rules() {
       <ol>
         <li>
           All referee decisions are final. No protests allowed on the on-ice
-          calls.
+          calls. Any conflicts will be reviewed by the league committee.
         </li>
         <li>
-          Game times
+          Game Times
           <ul>
             <li>
-              All games are two 10-minute and one 12-minute stop time periods
+              All games are two 10-minute and one 12-minute stop time periods.
             </li>
             <li>
-              In the last period, if there is a 5 goal spread the time will not
+              In the 3rd period, if there is a 5 goal spread the time will not
               be stopped; once the goal spread is less than 5, stop time will be
-              returned
+              returned.
             </li>
             <li>
               Games will be curfewed by the game officials at the appropriate
@@ -66,17 +73,19 @@ export default function Rules() {
           to leave the ice will result in a forfeiture and team loss.
         </li>
       </ol>
-      <h2>PLAYOFFS</h2>
+      <h2>FIGHTING</h2>
       <ol>
         <li>
-          If the game is tied after the 3rd period there is a 5 minute 3-on-3
-          overtime. After overtime there will be a 5 player shootout. If there
-          is still a tie after the first 5 players, it will be sudden death.
-        </li>
-        <li>No repeat shooters.</li>
-        <li>
-          Teams will have to go through the whole roster before they can
-          re-select a player.
+          Fighting will not be tolerated. All fights will be reviewed by the
+          league committee.
+          <ul>
+            <li>1st Offence - 1-2 game suspension. No registration refund.</li>
+            <li>
+              2nd Offence - 3 game suspension and could lead to league
+              suspension.
+            </li>
+            <li>3rd Offence - league suspension.</li>
+          </ul>
         </li>
       </ol>
       <h2>PENALTIES</h2>
@@ -86,33 +95,30 @@ export default function Rules() {
           result in a major penalty.
         </li>
         <li>
-          Inappropriate language or conduct between players, towards the game
-          officials or fans will not be tolerated and will result in a penalty,
-          and may lead to suspension.
+          Major Penalties
+          <ul>
+            <li>A five minute major receives a 5 minute penalty.</li>
+            <li>Will be reviewed by the league committee.</li>
+          </ul>
         </li>
         <li>
-          Multiple minor penalties
+          Multiple Minor Penalties
           <ul>
-            <li>3 minor penalties will result in a game ejection</li>
+            <li>3 minor penalties will result in a game ejection.</li>
             <li>
               2nd offence in season will result in a game ejection + one game
-              suspension
+              suspension.
             </li>
             <li>
               3rd offence in season will result in a game ejection + two game
-              suspension
+              suspension + reviewed by league committee.
             </li>
           </ul>
         </li>
         <li>
-          Major penalties
-          <ul>
-            <li>A five minute major receives a 5 minute penalty.</li>
-            <li>
-              Multiple major penalties in a season will result in a review by
-              the league committee
-            </li>
-          </ul>
+          Inappropriate language or conduct between players, towards the game
+          officials or fans will not be tolerated and will result in a penalty,
+          and may lead to suspension.
         </li>
         <li>
           Attempt to injure (major or match) – shall be an automatic game
@@ -125,17 +131,17 @@ export default function Rules() {
           <ul>
             <li>
               Verbal harassment of official will result in a game misconduct and
-              one game suspension
+              one game suspension.
             </li>
             <li>
               Physical harassment of the officials (that’s not otherwise an
               attempt to injure) will result in a game misconduct and three game
-              suspension
+              suspension.
             </li>
           </ul>
         </li>
         <li>
-          Suspensions & discipline
+          Suspensions & Discipline
           <ul>
             <li>
               Referee will be responsible for notifying the league committee by
@@ -155,9 +161,22 @@ export default function Rules() {
       </ol>
       <h2>ROSTERS</h2>
       <ol>
-        <li>The maximum roster size is twenty (20) players plus a goalie.</li>
+        <li>Max Roster Size</li>
+        <ul>
+          <li>
+            The maximum roster size is twenty-two (22) players plus a goalie.
+          </li>
+          <li>
+            The first offence of when the season roster size exceeds 22 players,
+            team deposit is lost.
+          </li>
+          <li>
+            The second offence, any team uses an extra player that is not on
+            their roster, they will forfeit the match.
+          </li>
+        </ul>
         <li>
-          Team rosters must be submitted to the league commissioner by the
+          A team roster must be submitted to the league commissioner by the
           beginning of the first game of the season.
         </li>
         <li>
@@ -174,8 +193,28 @@ export default function Rules() {
               to find a goalie for you. (Please allow up to 2 hours notice for
               the commissioner to find you a goalie)
             </li>
-            <li>Only team rosters are allowed to play during playoffs.</li>
+            <li>
+              No skater substitutions are allowed to play during playoffs.
+            </li>
+            <li>
+              Players must play a minimum of five (5) regular season games to
+              participate in playoffs.
+            </li>
           </ul>
+        </li>
+      </ol>
+      <h2>PLAYOFFS</h2>
+      <ol>
+        <li>
+          Playoffs will remain two 10-minute and one 12-minute stop time
+          periods.
+        </li>
+        <li>Runtime rule on 5 goal spread still in effect for playoffs</li>
+        <li>OVERTIME - 5-minute, 3-on-3 sudden death.</li>
+        <li>
+          SHOOTOUT - If no goals are scored after overtime, there will be a best
+          of five shootout with no repeat shooters. Shootout continues after
+          fice if tied in a best of one per round.
         </li>
       </ol>
     </div>
