@@ -112,6 +112,9 @@ export default function Footer() {
           <h5>Contact</h5>
         </Link>
          */}
+        <Link href="/privacy">
+          <h5>Privacy</h5>
+        </Link>
       </div>
       <h6>
         Website Designed & Developed by{" "}

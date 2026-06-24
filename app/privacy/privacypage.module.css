@@ -1,0 +1,47 @@
+.privacypage {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+  margin: 0 auto;
+}
+
+.privacypage h1 {
+  font-family: var(--font-heading);
+  margin-bottom: 0;
+}
+
+.privacypage h2 {
+  font-family: var(--font-heading);
+  margin: 20 0 10 0;
+}
+
+.privacypage h6 {
+  margin: 10 0 0 0;
+  font-family: var(--font-heading);
+  color: #888;
+}
+
+.privacypage p {
+  font-size: small;
+}
+
+.privacypage ul {
+  font-size: small;
+}
+
+.privacypage ol > li::marker {
+  font-weight: 700;
+  font-size: large;
+}
+
+@media (min-width: 768px) {
+  .privacypage p {
+    font-size: medium;
+  }
+
+  .privacypage ul {
+    font-size: medium;
+  }
+}
