@@ -25,7 +25,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -44,7 +44,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -67,7 +67,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -90,7 +90,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -113,7 +113,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -136,7 +136,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -159,7 +159,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -182,7 +182,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
@@ -205,7 +205,7 @@ export default function NavMenu() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              style={{ width: 30 }}
+              style={{ width: 24 }}
             >
               <path
                 strokeLinecap="round"
