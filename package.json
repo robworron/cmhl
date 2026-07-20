@@ -1,6 +1,6 @@
 {
   "name": "cmhl",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@heroicons/react": "^2.2.0",
     "axios": "^1.11.0",
     "classnames": "^2.5.1",

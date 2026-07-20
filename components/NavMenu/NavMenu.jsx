@@ -42,7 +42,7 @@ export default function NavMenu() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width={1.5}
+              strokeWidth={1.5}
               stroke="white"
               style={{ width: 30 }}
             >
@@ -134,7 +134,7 @@ export default function NavMenu() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width={1.5}
+              strokeWidth={1.5}
               stroke="white"
               style={{ width: 30 }}
             >
@@ -169,7 +169,7 @@ export default function NavMenu() {
             </svg>
           </Link>
         </li>
-        <li className={styles.navmenuListItem} style={{ border: "0px" }}>
+        <li className={styles.navmenuListItem}>
           <Link
             href="/gallery"
             className={styles.navmenuLink}
@@ -192,7 +192,6 @@ export default function NavMenu() {
             </svg>
           </Link>
         </li>
-        {/**
         <li className={styles.navmenuListItem} style={{ border: "0px" }}>
           <Link
             href="/contact"
@@ -204,7 +203,7 @@ export default function NavMenu() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width={1.5}
+              strokeWidth={1.5}
               stroke="white"
               style={{ width: 30 }}
             >
@@ -215,7 +214,7 @@ export default function NavMenu() {
               />
             </svg>
           </Link>
-        </li> */}
+        </li>
       </ul>
     </nav>
   );
