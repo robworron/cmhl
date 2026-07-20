@@ -37,11 +37,14 @@
   width: 100px;
   height: 30px;
   margin: 0 auto;
+  border: none;
   border-radius: 10px;
   background-color: var(--primary-black);
   font-family: var(--font-accent);
   color: white;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
   transition: all 0.2s ease;
 }
 

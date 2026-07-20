@@ -52,7 +52,7 @@ const ContactForm = () => {
       <div className={styles.contactformItem}>
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="email"
           className={styles.contactformField}
@@ -75,9 +75,9 @@ const ContactForm = () => {
           errors={state.errors}
         />
       </div>
-      <div type="submit" className={styles.contactformButton}>
+      <button type="submit" className={styles.contactformButton}>
         Submit
-      </div>
+      </button>
     </form>
   );
 };
