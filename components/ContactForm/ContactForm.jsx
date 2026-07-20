@@ -75,9 +75,9 @@ const ContactForm = () => {
           errors={state.errors}
         />
       </div>
-      <button type="submit" className={styles.contactformButton}>
+      <div type="submit" className={styles.contactformButton}>
         Submit
-      </button>
+      </div>
     </form>
   );
 };
