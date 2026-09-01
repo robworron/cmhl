@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import config from "@/app/config";
 import Logo from "@/components/Logo/Logo";
 import { getTeamLogoByName } from "@/utils/formats";
 import { RINK_ICON } from "@/utils/icons";
-import config from "@/app/config";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./scoreboardmatchup.module.css";
 
 const determineLogoSize = (width) => {
@@ -29,7 +29,7 @@ export default function ScoreboardMatchup({
 
   const formatPlayoffMatchupGameNum = (gameNum) => {
     return (
-      config.gameMappings[config.currentSeasonLong]?.[gameNum] ??
+      config.gameNumMappings[config.currentSeasonLong]?.[gameNum] ??
       `Game ${gameNum}`
     );
   };
@@ -57,7 +57,7 @@ export default function ScoreboardMatchup({
         </div>
         <div className={styles.scoreboardmatchupInfoGame}>
           <h6>{formatPlayoffMatchupGameNum(gameNum)}</h6>
-          <h6>Rink #{rink}</h6>
+          <h6>{rink}</h6>
         </div>
       </div>
       <div>

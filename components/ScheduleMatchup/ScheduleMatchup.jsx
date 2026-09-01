@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
 import Button from "@/components/Button/Button";
 import Logo from "@/components/Logo/Logo";
-import { getTeamLogoByName } from "@/utils/formats";
+import { getTeamLogoByName, formatDate } from "@/utils/formats";
 
 import styles from "./schedulematchup.module.css";
 
@@ -25,14 +24,31 @@ export default function ScheduleMatchup({
   rink,
   buttonSize,
   boxscoreUrl = null,
+  matchupType = "regularSeason",
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const formatDate = (date) => {
-    if (typeof date !== "string") return date;
-    const result = date.split(",")[0];
-    return result;
-  };
+  const cardStyling =
+    matchupType === "playoffs"
+      ? styles.scheduleMatchupPlayoff
+      : matchupType === "riverworks"
+        ? styles.scheduleMatchupRiverworks
+        : "";
+
+  const buttonBackground =
+    matchupType === "playoffs"
+      ? "#d9b74a"
+      : matchupType === "riverworks"
+        ? "#eaf1f9"
+        : "";
+
+  const buttonText =
+    matchupType === "playoffs"
+      ? "#20180a"
+      : matchupType === "riverworks"
+        ? "#14294a"
+        : "";
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -41,15 +57,15 @@ export default function ScheduleMatchup({
   }, []);
 
   return (
-    <div className={styles.scheduleMatchup}>
+    <div className={`${styles.scheduleMatchup} ${cardStyling}`}>
       <div className={styles.scheduleMatchupInfo}>
         <div>
-          <h6>{formatDate(date)}</h6>
+          <h6>{formatDate(date, "schedule")}</h6>
           <h6>{time}</h6>
         </div>
         <div style={{ textAlign: "right" }}>
           <h6>{gameNum}</h6>
-          <h6>Rink #{rink}</h6>
+          <h6>{rink}</h6>
         </div>
       </div>
       <div>
@@ -87,7 +103,12 @@ export default function ScheduleMatchup({
       {boxscoreUrl && (
         <div className={styles.scheduleMatchupButton}>
           <Link href={boxscoreUrl} className={styles.boxscoreLink}>
-            <Button size={buttonSize} label="Boxscore" />
+            <Button
+              size={buttonSize}
+              label="Boxscore"
+              backgroundColour={buttonBackground}
+              textColour={buttonText}
+            />
           </Link>
         </div>
       )}

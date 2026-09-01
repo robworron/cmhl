@@ -3,10 +3,10 @@ import styles from "./footer.module.css";
 
 const LEAGUE_LOGO = "/assets/logos/logo-transparent-white.webp";
 const AXEMEN_LOGO = "/assets/logos/axemen-transparent.png";
-const BULLDOGS_LOGO = "/assets/logos/bulldogs-transparent.png";
 const GULLS_LOGO = "/assets/logos/gulls-transparent.png";
+const ICEMEN_LOGO = "/assets/logos/icemen-transparent.png";
 const JAGRBOMBS_LOGO = "/assets/logos/jagrbombs-transparent.png";
-const MIGHTY_DRUNKS_LOGO = "/assets/logos/mightydrunks-transparent.png";
+const PISTOLS_LOGO = "/assets/logos/pistols-transparent.png";
 const ROCKIES_LOGO = "/assets/logos/rockies-transparent.png";
 const SEAMEN_LOGO = "/assets/logos/seamen-transparent.png";
 const TOONIE_TUESDAY_LOGO = "/assets/logos/toonietuesday-transparent.png";
@@ -21,11 +21,6 @@ export default function Footer() {
             alt="Axemen"
             className={styles.footerTeamLogo}
           />
-          <img
-            src={BULLDOGS_LOGO}
-            alt="Bulldogs"
-            className={styles.footerTeamLogo}
-          />
           <a
             href="https://www.instagram.com/gullsnia"
             className={styles.footerTeamLogo}
@@ -36,6 +31,11 @@ export default function Footer() {
               className={styles.footerTeamLogo}
             />
           </a>
+          <img
+            src={ICEMEN_LOGO}
+            alt="Icemen"
+            className={styles.footerTeamLogo}
+          />
           <a
             href="https://www.instagram.com/jagr.bombss"
             className={styles.footerTeamLogo}
@@ -50,8 +50,8 @@ export default function Footer() {
         <img src={LEAGUE_LOGO} alt="CMHL" className={styles.footerLeagueLogo} />
         <div className={styles.footerTeamLogos}>
           <img
-            src={MIGHTY_DRUNKS_LOGO}
-            alt="Mighty Drunks"
+            src={PISTOLS_LOGO}
+            alt="Pistols"
             className={styles.footerTeamLogo}
           />
           <img
@@ -107,11 +107,9 @@ export default function Footer() {
         <Link href="/gallery">
           <h5>Gallery</h5>
         </Link>
-        {/**
         <Link href="/contact">
           <h5>Contact</h5>
         </Link>
-         */}
         <Link href="/privacy">
           <h5>Privacy</h5>
         </Link>

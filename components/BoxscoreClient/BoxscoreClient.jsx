@@ -25,6 +25,7 @@ export default function BoxscoreClient({
   awayScoringLine,
   awaySkaterData,
   awayGoalieData,
+  gameType,
 }) {
   const windowWidth = useWindowWidth();
   const [selectedTeam, setSelectedTeam] = useState("");
@@ -47,94 +48,105 @@ export default function BoxscoreClient({
         date={date}
         time={time}
         rink={rink}
+        gameType={gameType}
       />
-      {gameSummary.length > 0 ? (
-        <section className={styles.boxscoreContent}>
-          {season === "2024" ? (
-            <></>
-          ) : (
-            <div className={styles.boxscoreSummary}>
-              <Linescore
-                homeTeam={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
-                awayTeam={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
-                homeScoring={homeScoringLine}
-                awayScoring={awayScoringLine}
-              />
-              <GameSummary
-                gameData={gameSummary}
-                homeSkaters={homeSkaterData}
-                homeGoalies={homeGoalieData}
-                awaySkaters={awaySkaterData}
-                awayGoalies={awayGoalieData}
-              />
-            </div>
-          )}
-          <>
-            {windowWidth < 1024 ? (
-              <div className={styles.boxscoreTeams}>
-                <TeamBoxscore
-                  team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
-                  skaterData={awaySkaterData}
-                  goalieData={awayGoalieData}
-                />
-                <TeamBoxscore
-                  team={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
-                  skaterData={homeSkaterData}
-                  goalieData={homeGoalieData}
-                />
-              </div>
-            ) : season === "2024" ? (
-              <div className={styles.boxscoreTeams}>
-                <TeamBoxscore
-                  team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
-                  skaterData={awaySkaterData}
-                  goalieData={awayGoalieData}
-                />
-                <TeamBoxscore
-                  team={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
-                  skaterData={homeSkaterData}
-                  goalieData={homeGoalieData}
-                />
-              </div>
-            ) : (
-              <div className={styles.boxscoreTeamsDesktop}>
-                <div className={styles.boxscoreButtons}>
-                  <Button
-                    size={"Large"}
-                    label={awayTeam}
-                    onClick={() =>
-                      setSelectedTeam(TEAM_TO_ABBREVIATION[awayTeam])
-                    }
-                    primary={selectedTeam !== TEAM_TO_ABBREVIATION[awayTeam]}
+      {gameType === "regular" ? (
+        <>
+          {gameSummary.length > 0 ? (
+            <section className={styles.boxscoreContent}>
+              {season === "2024" ? (
+                <></>
+              ) : (
+                <div className={styles.boxscoreSummary}>
+                  <Linescore
+                    homeTeam={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
+                    awayTeam={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
+                    homeScoring={homeScoringLine}
+                    awayScoring={awayScoringLine}
                   />
-                  <Button
-                    size={"Large"}
-                    label={homeTeam}
-                    onClick={() =>
-                      setSelectedTeam(TEAM_TO_ABBREVIATION[homeTeam])
-                    }
-                    primary={selectedTeam !== TEAM_TO_ABBREVIATION[homeTeam]}
+                  <GameSummary
+                    gameData={gameSummary}
+                    homeSkaters={homeSkaterData}
+                    homeGoalies={homeGoalieData}
+                    awaySkaters={awaySkaterData}
+                    awayGoalies={awayGoalieData}
                   />
                 </div>
-                <TeamBoxscore
-                  team={TEAMS[selectedTeam]}
-                  skaterData={
-                    selectedTeam === TEAM_TO_ABBREVIATION[homeTeam]
-                      ? homeSkaterData
-                      : awaySkaterData
-                  }
-                  goalieData={
-                    selectedTeam === TEAM_TO_ABBREVIATION[homeTeam]
-                      ? homeGoalieData
-                      : awayGoalieData
-                  }
-                />
-              </div>
-            )}
-          </>
-        </section>
+              )}
+              <>
+                {windowWidth < 1024 ? (
+                  <div className={styles.boxscoreTeams}>
+                    <TeamBoxscore
+                      team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
+                      skaterData={awaySkaterData}
+                      goalieData={awayGoalieData}
+                    />
+                    <TeamBoxscore
+                      team={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
+                      skaterData={homeSkaterData}
+                      goalieData={homeGoalieData}
+                    />
+                  </div>
+                ) : season === "2024" ? (
+                  <div className={styles.boxscoreTeams}>
+                    <TeamBoxscore
+                      team={TEAMS[TEAM_TO_ABBREVIATION[awayTeam]]}
+                      skaterData={awaySkaterData}
+                      goalieData={awayGoalieData}
+                    />
+                    <TeamBoxscore
+                      team={TEAMS[TEAM_TO_ABBREVIATION[homeTeam]]}
+                      skaterData={homeSkaterData}
+                      goalieData={homeGoalieData}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.boxscoreTeamsDesktop}>
+                    <div className={styles.boxscoreButtons}>
+                      <Button
+                        size={"Large"}
+                        label={awayTeam}
+                        onClick={() =>
+                          setSelectedTeam(TEAM_TO_ABBREVIATION[awayTeam])
+                        }
+                        primary={
+                          selectedTeam !== TEAM_TO_ABBREVIATION[awayTeam]
+                        }
+                      />
+                      <Button
+                        size={"Large"}
+                        label={homeTeam}
+                        onClick={() =>
+                          setSelectedTeam(TEAM_TO_ABBREVIATION[homeTeam])
+                        }
+                        primary={
+                          selectedTeam !== TEAM_TO_ABBREVIATION[homeTeam]
+                        }
+                      />
+                    </div>
+                    <TeamBoxscore
+                      team={TEAMS[selectedTeam]}
+                      skaterData={
+                        selectedTeam === TEAM_TO_ABBREVIATION[homeTeam]
+                          ? homeSkaterData
+                          : awaySkaterData
+                      }
+                      goalieData={
+                        selectedTeam === TEAM_TO_ABBREVIATION[homeTeam]
+                          ? homeGoalieData
+                          : awayGoalieData
+                      }
+                    />
+                  </div>
+                )}
+              </>
+            </section>
+          ) : (
+            <h2>No Game Summary</h2>
+          )}
+        </>
       ) : (
-        <h2>No Game Summary</h2>
+        <h2>No Game Summary For Playoff and Riverworks Games</h2>
       )}
     </div>
   );

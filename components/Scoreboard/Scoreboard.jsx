@@ -5,6 +5,7 @@ import ChampionsBanner from "@/components/ChampionsBanner/ChampionsBanner";
 import FinalsBanner from "@/components/FinalsBanner/FinalsBanner";
 import ScoreboardMatchup from "@/components/ScoreboardMatchup/ScoreboardMatchup";
 import styles from "./scoreboard.module.css";
+import { formatDate } from "@/utils/formats";
 import config from "@/app/config";
 
 export default function Scoreboard({ scheduleData, weekNum }) {
@@ -36,6 +37,10 @@ export default function Scoreboard({ scheduleData, weekNum }) {
     }
   };
 
+  const formatRink = (year, gameNum, rinkNum) => {
+    return config.rinkMappings[year]?.[gameNum] ?? `Rink #${rinkNum}`;
+  };
+
   useEffect(() => {
     if (!scrollRef.current || !weekNum) return;
 
@@ -60,10 +65,13 @@ export default function Scoreboard({ scheduleData, weekNum }) {
         homeScore={game.homeScore || "--"}
         away={game.awayTeam || "TBD"}
         awayScore={game.awayScore || "--"}
-        date={game.date?.split(",")[0] || "TBD"}
+        date={formatDate(game.date, "scoreboard") || "TBD"}
         time={game.time || "TBD"}
         gameNum={game.gameNumber || "N/A"}
-        rink={game.rink || "TBD"}
+        rink={
+          formatRink(config.currentSeasonLong, game.gameNumber, game.rink) ||
+          "TBD"
+        }
       />
     ));
   };

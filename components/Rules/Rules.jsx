@@ -6,6 +6,7 @@ export default function Rules() {
   return (
     <div className={styles.rules}>
       <h1>CMHL Rule Book</h1>
+      <h6>LAST UPDATED: JUNE 24, 2026</h6>
       <h2>ADMINISTRATIVE REGULATIONS</h2>
       <ol>
         <li>

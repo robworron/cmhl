@@ -9,19 +9,28 @@ export default function Button({
   size = "Small",
   label,
   onClick,
+  textColour = null,
 }) {
   const buttonClass = classNames(styles.button, styles[`button${size}`], {
     [styles.buttonPrimary]: primary,
     [styles.buttonSecondary]: !primary,
   });
 
+  const inlineStyles = {};
+
+  if (backgroundColour) {
+    inlineStyles.backgroundColor = backgroundColour;
+  }
+
+  if (textColour) {
+    inlineStyles.color = textColour;
+  }
+
   return (
     <button
       type="button"
       className={buttonClass}
-      style={
-        backgroundColour ? { backgroundColor: backgroundColour } : undefined
-      }
+      style={inlineStyles}
       onClick={onClick}
     >
       {label}

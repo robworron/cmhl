@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function StandingsPage({ searchParams }) {
   const params = await searchParams;
-  const year = params.year || "2025";
+  const year = params.year || "2026";
   const category = params.category || "season";
 
   const standings = await fetchStandings(year);

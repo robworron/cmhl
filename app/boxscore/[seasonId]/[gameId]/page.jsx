@@ -4,6 +4,7 @@ import { fetchGameSummaryData } from "@/utils/fetchGameSummaryData";
 import { fetchGoalieGameData } from "@/utils/fetchGoalieGameData";
 import { fetchSkaterGameData } from "@/utils/fetchSkaterGameData";
 import { fetchGame } from "@/utils/fetchGame";
+import config from "@/app/config";
 
 export default async function BoxscorePage({ params }) {
   const { seasonId, gameId } = params;
@@ -12,7 +13,6 @@ export default async function BoxscorePage({ params }) {
   const goalieData = await fetchGoalieGameData(seasonId);
   const gameSummary = await fetchGameSummaryData(seasonId);
   const gameData = await fetchGame(seasonId, gameId);
-  console.log(skaterData);
   const home = gameData.homeTeam;
   const away = gameData.awayTeam;
   const homeAbbreviation = TEAM_TO_ABBREVIATION[home];
@@ -55,6 +55,12 @@ export default async function BoxscorePage({ params }) {
     return result;
   }
 
+  function gameType() {
+    const season = config.seasonShortToLong[seasonId];
+    const result = config.gameTypeMappings?.[season]?.[gameId] ?? "regular";
+    return result;
+  }
+
   return (
     <BoxscoreClient
       season={seasonId}
@@ -71,6 +77,7 @@ export default async function BoxscorePage({ params }) {
       awayScoringLine={calcTeamScoringLine(awayAbbreviation)}
       awaySkaterData={filteredAwaySkaterData}
       awayGoalieData={filteredAwayGoalieData}
+      gameType={gameType()}
     />
   );
 }

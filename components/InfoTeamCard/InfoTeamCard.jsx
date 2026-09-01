@@ -14,7 +14,10 @@ export default function InfoTeamCard({ team }) {
         <div className={styles.infoteamcardRight}>
           <div>
             <h4>{team.name}</h4>
-            <h6>{team.inauguralSeason}</h6>
+            <h6>
+              {team.inauguralSeason}
+              {team.finalSeason && ` - ${team.finalSeason}`}
+            </h6>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
             {team.championships.map((year, i) => (

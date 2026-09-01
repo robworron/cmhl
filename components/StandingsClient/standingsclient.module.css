@@ -11,6 +11,13 @@
   font-family: var(--font-heading);
 }
 
+.standingsclient h3 {
+  width: 90%;
+  margin: 20px 0 10px 0px;
+  text-align: center;
+  font-family: var(--font-heading);
+}
+
 .standingsclientButtons {
   display: flex;
   gap: 10px;

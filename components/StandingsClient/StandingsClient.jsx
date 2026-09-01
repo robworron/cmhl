@@ -56,7 +56,7 @@ export default function StandingsClient({ standings, selectedYear }) {
             />
           </div>
         </div>
-        {isPlayoffs ? (
+        {isPlayoffs && selectedYear !== config.currentSeasonShort ? (
           <div className={styles.standingsclientPlayoffsBracket}>
             <Image
               src={`/standings/${Number(selectedYear) + 1}.webp`}
@@ -64,6 +64,14 @@ export default function StandingsClient({ standings, selectedYear }) {
               fill
             />
           </div>
+        ) : isPlayoffs &&
+          selectedYear === config.currentSeasonShort &&
+          (config.timeOfYear !== "regularSeason" ||
+            config.timeOfYear !== "offseasonSchedule") ? (
+          <h3>
+            Playoff Bracket Coming Upon Completion of {config.currentSeasonLong}{" "}
+            Regular Season
+          </h3>
         ) : (
           <>
             <Standings standingsData={standings} />

@@ -16,7 +16,11 @@ export default function ContactPage() {
       <section className={styles.contactInfoSection}>
         <div className={styles.contactInfo}>
           <div className={styles.contactInfoLogo}>
-            <Image src={"/assets/logos/logo-transparent-black.webp"} fill />
+            <Image
+              src={"/assets/logos/logo-transparent-black.webp"}
+              alt="Canucks Men's Hockey League's Logo"
+              fill
+            />
           </div>
           <h3>Canucks Men's Hockey League (CMHL)</h3>
           <div className={styles.contactInfoLine}>

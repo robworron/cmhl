@@ -8,11 +8,19 @@
 .rules h1 {
   font-size: 24px;
   font-family: var(--font-heading);
+  margin-bottom: 0px;
 }
 
 .rules h2 {
   font-size: 16px;
   font-family: var(--font-heading);
+}
+
+.rules h6 {
+  font-size: 10px;
+  font-family: var(--font-heading);
+  color: #888;
+  margin: 10px 0 20px 0;
 }
 
 @media (min-width: 768px) {
@@ -26,6 +34,10 @@
 
   .rules h2 {
     font-size: 20px;
+  }
+
+  .rules h6 {
+    font-size: 12px;
   }
 
   .rules p {

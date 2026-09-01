@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-around;
   color: var(--primary-black);
-  width: 150px;
+  width: 170px;
   height: 140px;
   font-size: 18px;
   padding: 10px;
@@ -36,10 +36,57 @@
   align-items: center;
 }
 
+.scheduleMatchupTeamInfo img {
+  margin-right: 5px;
+}
+
 .scheduleMatchupButton {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.scheduleMatchupPlayoff {
+  background-color: #14110b;
+  background-image: linear-gradient(to top, transparent, #d4af3750);
+  border: 2px solid #d4af37;
+}
+
+.scheduleMatchupPlayoff .scheduleMatchupInfo {
+  color: #d9b74a;
+}
+
+.scheduleMatchupPlayoff .scheduleMatchupTeamInfo,
+.scheduleMatchupPlayoff .scheduleMatchupTeam {
+  color: #fbf6e6;
+}
+
+.scheduleMatchupRiverworks {
+  background-color: #14294a;
+  background-image:
+    linear-gradient(to bottom, #ffffff05, black),
+    radial-gradient(circle, #ffffff73 1px, transparent 1px),
+    radial-gradient(circle, #ffffff53 1px, transparent 1px),
+    radial-gradient(circle, #ffffff22 1px, transparent 1px);
+
+  background-size:
+    100% 100%,
+    25px 16px,
+    13px 21px,
+    10px 11px;
+
+  background-position:
+    0 0,
+    0 0,
+    11px 7px,
+    5px 19px;
+  border: 2px solid #93accb;
+}
+
+.scheduleMatchupRiverworks .scheduleMatchupInfo,
+.scheduleMatchupRiverworks .scheduleMatchupTeamInfo,
+.scheduleMatchupRiverworks .scheduleMatchupTeam {
+  color: #c9def5;
 }
 
 .boxscoreLink {

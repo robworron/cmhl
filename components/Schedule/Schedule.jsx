@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-import ScheduleMatchup from "@/components/ScheduleMatchup/ScheduleMatchup";
+import { useEffect, useState } from "react";
 import config from "@/app/config";
-
+import ScheduleMatchup from "@/components/ScheduleMatchup/ScheduleMatchup";
 import styles from "./schedule.module.css";
 
 export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
@@ -11,11 +9,17 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
   );
 
   const formatGameNum = (year, gameNum) => {
-    return config.gameMappings[year]?.[gameNum] ?? `Game ${gameNum}`;
+    const season = config.seasonShortToLong[year];
+    return config.gameNumMappings[season]?.[gameNum] ?? `Game ${gameNum}`;
+  };
+
+  const formatRink = (year, gameNum, rinkNum) => {
+    const season = config.seasonShortToLong[year];
+    return config.rinkMappings[season]?.[gameNum] ?? `Rink #${rinkNum}`;
   };
 
   const formatWeekHeader = (year, week) => {
-    if (year !== "2023-24" && week === "22") {
+    if (year !== "2023" && week === "22") {
       return "Quarter-Finals";
     } else if (week === "23") {
       return "Semi-Finals";
@@ -76,9 +80,14 @@ export default function Schedule({ scheduleData, scheduleYear, scheduleTeam }) {
                   time={game.time}
                   date={game.date}
                   gameNum={formatGameNum(scheduleYear, game.gameNumber)}
-                  rink={game.rink}
+                  rink={formatRink(scheduleYear, game.gameNumber, game.rink)}
                   buttonSize={getButtonSize(windowWidth)}
                   boxscoreUrl={formatURL(scheduleYear, game.gameNumber)}
+                  matchupType={
+                    config.gameTypeMappings[
+                      config.seasonShortToLong[scheduleYear]
+                    ][game.gameNumber]
+                  }
                 />
               </div>
             ))}

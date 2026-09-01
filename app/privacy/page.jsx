@@ -231,21 +231,18 @@ export default function PrivacyPage() {
           <p>
             If you have questions about this Privacy Policy or how we handle
             your personal information, please contact:
-            <ul style={{ listStyle: "none" }}>
-              <li>
-                <b>Canucks Men's Hockey League (CMHL)</b>
-              </li>
-              <li>
-                <b>Email:</b>{" "}
-                <a
-                  href="mailto:cmhlniagara@gmail.com"
-                  style={{ color: "#222" }}
-                >
-                  cmhlniagara@gmail.com
-                </a>
-              </li>
-            </ul>
           </p>
+          <ul style={{ listStyle: "none" }}>
+            <li>
+              <b>Canucks Men's Hockey League (CMHL)</b>
+            </li>
+            <li>
+              <b>Email:</b>{" "}
+              <a href="mailto:cmhlniagara@gmail.com" style={{ color: "#222" }}>
+                cmhlniagara@gmail.com
+              </a>
+            </li>
+          </ul>
         </li>
       </ol>
     </div>

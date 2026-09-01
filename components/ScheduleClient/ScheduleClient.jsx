@@ -38,7 +38,7 @@ export default function ScheduleClient({ schedule, selectedYear }) {
             <Dropdown
               onSelect={handleYearChange}
               defaultValue={config.seasonShortToLong[selectedYear]}
-              options={["2023-24", "2024-25", "2025-26"]}
+              options={["2023-24", "2024-25", "2025-26", "2026-27"]}
             />
             {selectedYear === "2023" ? (
               <Dropdown
@@ -66,7 +66,7 @@ export default function ScheduleClient({ schedule, selectedYear }) {
                   "Toonie Tuesday",
                 ]}
               />
-            ) : (
+            ) : selectedYear === "2025" ? (
               <Dropdown
                 onSelect={handleTeamChange}
                 defaultValue={"All Teams"}
@@ -77,6 +77,22 @@ export default function ScheduleClient({ schedule, selectedYear }) {
                   "Gulls",
                   "Jagrbombs",
                   "Mighty Drunks",
+                  "Rockies",
+                  "Seamen",
+                  "Toonie Tuesday",
+                ]}
+              />
+            ) : (
+              <Dropdown
+                onSelect={handleTeamChange}
+                defaultValue={"All Teams"}
+                options={[
+                  "All Teams",
+                  "Axemen",
+                  "Gulls",
+                  "Icemen",
+                  "Jagrbombs",
+                  "Pistols",
                   "Rockies",
                   "Seamen",
                   "Toonie Tuesday",

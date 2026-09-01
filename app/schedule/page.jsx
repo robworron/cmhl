@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function SchedulePage({ searchParams }) {
   const params = await searchParams;
-  const year = params.year || "2025";
+  const year = params.year || "2026";
 
   const schedule = await fetchSchedule(year);
 

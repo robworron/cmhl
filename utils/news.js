@@ -1,4 +1,15 @@
+// NEWEST ITEM ON TOP
 export const NEWS = [
+  {
+    id: 20260901,
+    title: "2026-27 CMHL Schedule Released",
+    subtitle: "CMHL returns with puck drop at the Gale on October 9th",
+    date: "September 1, 2026",
+    primaryImage: "/news-images/20260901.webp",
+    images: ["newsfeed/2026-cmhl-returns.webp"],
+    imageSize: "Large",
+    textBody: `CMHL makes its return for a fourth season as eight teams will once again face off for this year's CMHL title.\n\nThe league sees a small shakeup after the folding of the Mighty Drunks as the newest club, the Icemen, makes its debut this upcoming season. Furthermore, the Bulldogs rebrand their team and are now the Pistols.\n\nWe are also very excited to announce the addition of the RiverWorks outdoor games scheduled for Sunday, January 17, 2027. Located along the riverfront in the heart of downtown Buffalo, Buffalo RiverWorks is an entertainment complex fitted with rinks, bars, and restaurants. All players are required to have a valid passport or other documentation needed to cross the Canada-US border, and are encouraged to start the process of obtaining one now if they wish to participate.\n\nWe are excited to drop the puck on another season of competitive hockey on Friday, October 9, and good luck to all new and returning players.`,
+  },
   {
     id: 20260329,
     title: "Axemen Throw Seamen Overboard",

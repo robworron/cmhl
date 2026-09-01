@@ -150,36 +150,43 @@ export default function StatsClient({
             />
           </div>
 
-          {config.timeOfYear === "regularSeason" && (
-            <p>{`Stats Updated as of Week ${updatedWeek}`}</p>
-          )}
+          {config.timeOfYear === "regularSeason" &&
+            config.currentSeasonShort === selectedYear && (
+              <p>{`Stats Updated as of Week ${updatedWeek}`}</p>
+            )}
         </div>
 
-        {selectedPosition === "skater" && (
+        {config.timeOfYear === "offseasonSchedule" &&
+        selectedYear === `${config.currentSeasonShort}` ? (
+          <h3>Stats for {config.currentSeasonLong} Season Coming Soon</h3>
+        ) : (
           <>
-            <SkaterStats
-              data={players}
-              year={selectedYear}
-              team={selectedTeam}
-            />
-            <div ref={sentinelRef} style={{ height: "1px" }} />
-            {loading && <p>Loading…</p>}
+            {selectedPosition === "skater" && (
+              <>
+                <SkaterStats
+                  data={players}
+                  year={selectedYear}
+                  team={selectedTeam}
+                />
+                <div ref={sentinelRef} style={{ height: "1px" }} />
+                {loading && <p>Loading…</p>}
+              </>
+            )}
+
+            {selectedPosition === "goalie" && (
+              <>
+                <GoalieStats
+                  data={players}
+                  year={selectedYear}
+                  team={selectedTeam}
+                />
+                <div ref={sentinelRef} style={{ height: "1px" }} />
+                {loading && <p>Loading…</p>}
+              </>
+            )}
+            <StatsLegend />
           </>
         )}
-
-        {selectedPosition === "goalie" && (
-          <>
-            <GoalieStats
-              data={players}
-              year={selectedYear}
-              team={selectedTeam}
-            />
-            <div ref={sentinelRef} style={{ height: "1px" }} />
-            {loading && <p>Loading…</p>}
-          </>
-        )}
-
-        <StatsLegend />
       </div>
     </div>
   );

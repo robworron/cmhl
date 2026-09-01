@@ -20,7 +20,7 @@ export const getSheetData = async (spreadsheetId, range) => {
       range,
     });
 
-    return response.data.values;
+    return response.data.values || [];
   } catch (error) {
     console.error("Error retrieving sheet data:", error);
     throw new Error("Failed to retrieve Google Sheets data");
