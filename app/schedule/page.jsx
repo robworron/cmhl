@@ -5,6 +5,7 @@ export const metadata = {
   title: "Schedule",
   description:
     "Upcoming CMHL games and events. Check the schedule for the latest information on completed and upcoming matches.",
+  alternates: { canonical: "/schedule" },
 };
 
 export default async function SchedulePage({ searchParams }) {

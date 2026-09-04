@@ -4,6 +4,7 @@ import styles from "./rulespage.module.css";
 export const metadata = {
   title: "Rules",
   description: "Rules and policies for participation in the CMHL.",
+  alternates: { canonical: "/rules" },
 };
 
 export default function RulesPage() {

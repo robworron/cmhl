@@ -78,7 +78,7 @@
 .scoreboardmatchupMatchupPlayoff {
   background-color: #14110b;
   background-image: linear-gradient(to top, transparent, #d4af3750);
-  border: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
 }
 
 .scoreboardmatchupMatchupPlayoff .scoreboardmatchupInfo {
@@ -109,7 +109,7 @@
     0 0,
     11px 7px,
     5px 19px;
-  border: 2px solid #93accb;
+  border-left: 2px solid #93accb;
 }
 
 .scoreboardmatchupRiverworks .scoreboardmatchupInfo,

@@ -7,6 +7,7 @@ export const metadata = {
   title: "Information",
   description:
     "Information about the CMHL. Learn about the league, its past champions, and more.",
+  alternates: { canonical: "/information" },
 };
 
 export default function InformationPage() {

@@ -5,6 +5,7 @@ export const metadata = {
   title: "Stats",
   description:
     "CMHL current and historical stats for players and goalies. View and filter by team and year the stats for Niagara's best men's hockey league.",
+  alternates: { canonical: "/stats" },
 };
 
 export default async function StatsPage({ searchParams }) {

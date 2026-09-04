@@ -1,5 +1,11 @@
 import styles from "./privacypage.module.css";
 
+export const metadata = {
+  title: "Privacy",
+  description: "Privacy policy for the Canucks Men's Hockey League",
+  alternates: { canonical: "/privacy" },
+};
+
 export default function PrivacyPage() {
   return (
     <div className={styles.privacypage}>

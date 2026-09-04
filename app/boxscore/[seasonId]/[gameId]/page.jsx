@@ -6,6 +6,25 @@ import { fetchSkaterGameData } from "@/utils/fetchSkaterGameData";
 import { fetchGame } from "@/utils/fetchGame";
 import config from "@/app/config";
 
+export async function generateMetadata({ params }) {
+  const { seasonId, gameId } = await params;
+  const gameData = await fetchGame(seasonId, gameId);
+
+  if (!gameData || !gameData.homeTeam) {
+    return {
+      title: "Boxscore",
+      alternates: { canonical: `/boxscore/${seasonId}/${gameId}` },
+    };
+  }
+
+  return {
+    title: `${gameData.awayTeam} vs. ${gameData.homeTeam}`,
+    description: `Boxscore and player stats for the ${gameData.awayTeam} vs. ${gameData.homeTeam} CMHL game on ${gameData.date}.`,
+    alternates: { canonical: `/boxscore/${seasonId}/${gameId}` },
+    robots: { index: false, follow: true },
+  };
+}
+
 export default async function BoxscorePage({ params }) {
   const { seasonId, gameId } = params;
 

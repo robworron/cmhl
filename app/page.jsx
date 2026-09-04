@@ -16,6 +16,10 @@ import { CONTACT_ICON, INFO_ICON, RULES_ICON } from "@/utils/icons";
 import config from "./config";
 import styles from "./home.module.css";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default async function Home() {
   const scheduleData = await fetchAbbreviatedSchedule(
     config.currentSeasonShort,

@@ -2,6 +2,13 @@ import NewsCard from "@/components/NewsCard/NewsCard";
 import { NEWS } from "@/utils/news";
 import styles from "./news.module.css";
 
+export const metadata = {
+  title: "News",
+  description:
+    "Latest news and updates about the CMHL.",
+  alternates: { canonical: "/news" },
+};
+
 export default function NewsPage() {
   return (
     <section className={styles.newspage}>

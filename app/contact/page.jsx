@@ -3,6 +3,13 @@ import { CONTACT_ICON, PIN_ICON, RINK_ICON_BLACK } from "@/utils/icons";
 import ContactForm from "@/components/ContactForm/ContactForm";
 import styles from "./contact.module.css";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact the CMHL for inquiries, concerns, or comments about the Canucks Men's Hockey League",
+  alternates: { canonical: "/contact" },
+};
+
 export default function ContactPage() {
   return (
     <div className={styles.contactPage}>

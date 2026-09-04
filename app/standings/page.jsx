@@ -5,6 +5,7 @@ export const metadata = {
   title: "Standings",
   description:
     "Current CMHL standings. Track team rankings in Niagara's most competitive men's hockey league.",
+  alternates: { canonical: "/standings" },
 };
 
 export default async function StandingsPage({ searchParams }) {
