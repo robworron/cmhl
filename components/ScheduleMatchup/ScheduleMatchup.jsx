@@ -26,7 +26,9 @@ export default function ScheduleMatchup({
   boxscoreUrl = null,
   matchupType = "regularSeason",
 }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024,
+  );
 
   const cardStyling =
     matchupType === "playoffs"

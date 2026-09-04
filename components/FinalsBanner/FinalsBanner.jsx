@@ -14,7 +14,9 @@ const determineLogoSize = (width) => {
 };
 
 export default function FinalsBanner({ time, date }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024,
+  );
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
