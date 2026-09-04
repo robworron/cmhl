@@ -27,6 +27,14 @@ export default function ScoreboardMatchup({
     typeof window !== "undefined" ? window.innerWidth : 1024,
   );
 
+  const cardStyling = config.gameNumMappings[config.currentSeasonLong]?.[
+    gameNum
+  ]
+    ? styles.scoreboardmatchupMatchupPlayoff
+    : rink === "Riverworks"
+      ? styles.scoreboardmatchupRiverworks
+      : "";
+
   const formatPlayoffMatchupGameNum = (gameNum) => {
     return (
       config.gameNumMappings[config.currentSeasonLong]?.[gameNum] ??
@@ -43,7 +51,7 @@ export default function ScoreboardMatchup({
   }, []);
 
   return (
-    <div className={styles.scoreboardmatchup}>
+    <div className={`${styles.scoreboardmatchup} ${cardStyling}`}>
       <Link
         href={`/boxscore/${config.currentSeasonShort}/${gameNum}`}
         className={styles.scoreboardmatchupOverlay}

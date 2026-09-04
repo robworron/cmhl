@@ -75,6 +75,49 @@
   font-size: 12px;
 }
 
+.scoreboardmatchupMatchupPlayoff {
+  background-color: #14110b;
+  background-image: linear-gradient(to top, transparent, #d4af3750);
+  border: 2px solid #d4af37;
+}
+
+.scoreboardmatchupMatchupPlayoff .scoreboardmatchupInfo {
+  color: #d9b74a;
+}
+
+.scoreboardmatchupMatchupPlayoff .scoreboardmatchupTeamInfo,
+.scoreboardmatchupMatchupPlayoff .scoreboardmatchupTeam {
+  color: #fbf6e6;
+}
+
+.scoreboardmatchupRiverworks {
+  background-color: #14294a;
+  background-image:
+    linear-gradient(to bottom, #ffffff05, black),
+    radial-gradient(circle, #ffffff73 1px, transparent 1px),
+    radial-gradient(circle, #ffffff53 1px, transparent 1px),
+    radial-gradient(circle, #ffffff22 1px, transparent 1px);
+
+  background-size:
+    100% 100%,
+    25px 16px,
+    13px 21px,
+    10px 11px;
+
+  background-position:
+    0 0,
+    0 0,
+    11px 7px,
+    5px 19px;
+  border: 2px solid #93accb;
+}
+
+.scoreboardmatchupRiverworks .scoreboardmatchupInfo,
+.scoreboardmatchupRiverworks .scoreboardmatchupTeamInfo,
+.scoreboardmatchupRiverworks .scoreboardmatchupTeam {
+  color: #c9def5;
+}
+
 @media (min-width: 1024px) {
   .scoreboardmatchup {
     width: 180px;
