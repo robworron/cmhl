@@ -73,6 +73,7 @@ export default function NavBar() {
               className={styles.navbarMenuButton}
               type="button"
               onClick={toggleMenu}
+              aria-label={menuActive ? "Close Menu" : "Open Menu"}
             >
               <div
                 className={`${styles.navbarBurger} ${
