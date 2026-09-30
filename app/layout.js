@@ -8,6 +8,7 @@ import Providers from "./Providers";
 import config from "./config";
 
 import "./globals.css";
+import { archivo, inter, workSans } from "./fonts";
 import styles from "./webpage.module.css";
 
 export const metadata = {
@@ -74,11 +75,16 @@ export default async function RootLayout({ children }) {
       "Niagara's men's recreational hockey league at the Gale Centre in Niagara Falls — stats, schedules, and standings",
   };
 
-  const schedule = await fetchSchedule(config.currentSeasonShort);
-  const weekNum = await fetchWeekNum();
+  const [schedule, weekNum] = await Promise.all([
+    fetchSchedule(config.currentSeasonShort),
+    fetchWeekNum(),
+  ]);
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${archivo.variable} ${workSans.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"

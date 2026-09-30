@@ -16,6 +16,7 @@ export default function NewsSection({ newsItems }) {
           alt="News Section Image"
           fill
           style={{ borderRadius: 8, objectFit: "fill" }}
+          fetchPriority="high"
         />
         <div className={styles.newssectionImageOverlay}>
           <h2 className={styles.newssectionImageOverlayHeader}>
@@ -34,12 +35,12 @@ export default function NewsSection({ newsItems }) {
         <ul>
           {newsItems.map((item, index) =>
             index === 0 || index > 7 ? null : (
-              <div key={index} className={styles.newssectionRecentItem}>
-                <li key={index}>
+              <>
+                <li key={index} className={styles.newssectionRecentItem}>
                   <Link href={`/news/${item.id}`}>{item.title}</Link>
                 </li>
                 <div className={styles.newssectionSeparator} />
-              </div>
+              </>
             ),
           )}
           <li>

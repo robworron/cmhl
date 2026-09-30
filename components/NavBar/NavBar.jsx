@@ -42,7 +42,7 @@ export default function NavBar() {
           <>
             <Link href="/" className={styles.navbarLogo}>
               <Logo
-                src="/assets/logos/wordmark-transparent.png"
+                src="/assets/logos/wordmark-transparent.webp"
                 width={80}
                 height={30}
                 alt="League Logo"
@@ -85,7 +85,7 @@ export default function NavBar() {
               </div>
             </button>
             <Logo
-              src="/assets/logos/wordmark-transparent.png"
+              src="/assets/logos/wordmark-transparent.webp"
               width={80}
               height={30}
               alt="League Logo"
